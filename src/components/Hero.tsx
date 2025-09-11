@@ -60,9 +60,8 @@ const Hero = () => {
               </Button>
               <Button 
                 onClick={() => scrollToSection("proyectos")}
-                variant="outline" 
                 size="lg"
-                className="border-2 border-prak-yellow/40 text-prak-yellow hover:bg-prak-yellow hover:text-prak-dark backdrop-blur-sm px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
+                className="bg-prak-dark hover:bg-prak-dark/90 text-white border-0 px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
               >
                 VER PROYECTOS
               </Button>
@@ -87,7 +86,7 @@ const Hero = () => {
 
           {/* Premium Info Card */}
           <div className="relative">
-            <div className="bg-white/96 backdrop-blur-xl p-8 lg:p-10 rounded-2xl border border-prak-gray/15 shadow-elegant hover:shadow-premium transition-all duration-500 hover:-translate-y-1">
+            <div className="bg-white backdrop-blur-xl p-8 lg:p-10 rounded-2xl border border-prak-gray/15 shadow-elegant hover:shadow-premium transition-all duration-500 hover:-translate-y-1">
               <div className="flex items-start justify-between mb-6">
                 <h3 className="text-2xl lg:text-3xl font-bold text-prak-dark leading-tight">
                   Construcción Segura
