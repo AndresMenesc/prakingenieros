@@ -48,6 +48,7 @@ All colors MUST be HSL.
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--prak-dark)), hsl(0 0% 25%));
     --gradient-accent: linear-gradient(135deg, hsl(var(--prak-orange)), hsl(30 90% 65%));
+    --gradient-overlay: linear-gradient(135deg, hsl(var(--prak-dark) / 0.9), hsl(var(--prak-dark) / 0.7));
     
     /* Shadows */
     --shadow-card: 0 4px 6px -1px hsl(var(--prak-dark) / 0.1), 0 2px 4px -1px hsl(var(--prak-dark) / 0.06);
