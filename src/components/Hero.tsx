@@ -35,16 +35,16 @@ const Hero = () => {
                   <div className="w-8 h-[2px] bg-prak-yellow"></div>
                   PRAK INGENIEROS
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-[0.9] mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.9] mb-6">
                   <span className="block text-white">Segura, Confiable</span>
                   <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-yellow/90 bg-clip-text text-transparent">
                     & Alta Calidad
                   </span>
-                  <span className="block text-white text-4xl md:text-5xl lg:text-7xl mt-4 font-light">
+                  <span className="block text-white text-3xl md:text-4xl lg:text-5xl mt-4 font-light">
                     Ingeniería
                   </span>
                 </h1>
-                <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl">
+                <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
                   Especialistas en consultoría ambiental, sostenibilidad y marketing digital. 
                   Transformamos proyectos con soluciones innovadoras y cumplimiento normativo.
                 </p>
