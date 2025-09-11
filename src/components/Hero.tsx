@@ -25,90 +25,88 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-prak-dark/90 via-prak-teal/80 to-prak-dark/85"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-prak-dark/40 via-transparent to-transparent"></div>
       
-      <div className="relative z-10 container mx-auto px-4 py-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container mx-auto px-6 py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
           {/* Content */}
-          <div className="space-y-10 text-white">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="text-sm font-bold tracking-[0.2em] uppercase text-prak-yellow mb-6 inline-flex items-center gap-2">
-                  <div className="w-8 h-[2px] bg-prak-yellow"></div>
-                  PRAK INGENIEROS
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[0.9] mb-6">
-                  <span className="block text-white">Segura, Confiable</span>
-                  <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-yellow/90 bg-clip-text text-transparent">
-                    & Alta Calidad
-                  </span>
-                  <span className="block text-white text-3xl md:text-4xl lg:text-5xl mt-4 font-light">
-                    Ingeniería
-                  </span>
-                </h1>
-                <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-                  Especialistas en consultoría ambiental, sostenibilidad y marketing digital. 
-                  Transformamos proyectos con soluciones innovadoras y cumplimiento normativo.
-                </p>
+          <div className="space-y-12 text-white">
+            <div className="space-y-6">
+              <div className="text-sm font-semibold tracking-[0.15em] uppercase text-prak-yellow mb-4 inline-flex items-center gap-3">
+                <div className="w-12 h-[2px] bg-prak-yellow"></div>
+                PRAK INGENIEROS
               </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-white mb-2">Segura, Confiable</span>
+                <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-yellow/90 bg-clip-text text-transparent mb-2">
+                  & Alta Calidad
+                </span>
+                <span className="block text-white text-2xl md:text-3xl lg:text-4xl font-light">
+                  Ingeniería
+                </span>
+              </h1>
+              <p className="text-base md:text-lg text-white/75 leading-relaxed max-w-lg font-normal">
+                Especialistas en consultoría ambiental, sostenibilidad y marketing digital. 
+                Transformamos proyectos con soluciones innovadoras y cumplimiento normativo.
+              </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={() => scrollToSection("servicios")}
                 size="lg" 
-                className="bg-prak-yellow hover:bg-prak-yellow/90 text-prak-dark shadow-premium group px-10 py-7 text-lg font-bold tracking-wide hover:scale-[1.02] transition-all duration-300"
+                className="bg-prak-yellow hover:bg-prak-yellow/90 text-prak-dark shadow-premium group px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
               >
                 NUESTROS SERVICIOS
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 onClick={() => scrollToSection("proyectos")}
                 variant="outline" 
                 size="lg"
-                className="border-2 border-prak-yellow/50 text-prak-yellow hover:bg-prak-yellow hover:text-prak-dark backdrop-blur-sm px-10 py-7 text-lg font-bold tracking-wide hover:scale-[1.02] transition-all duration-300"
+                className="border-2 border-prak-yellow/40 text-prak-yellow hover:bg-prak-yellow hover:text-prak-dark backdrop-blur-sm px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
               >
                 VER PROYECTOS
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-16 mt-8 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-white/15">
               <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-black text-prak-yellow mb-3 group-hover:scale-110 transition-transform duration-300">7</div>
-                <div className="text-lg text-white/80 font-semibold tracking-wide">CLIENTES ACTIVOS</div>
+                <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">7</div>
+                <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CLIENTES ACTIVOS</div>
               </div>
               <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-black text-prak-yellow mb-3 group-hover:scale-110 transition-transform duration-300">14</div>
-                <div className="text-lg text-white/80 font-semibold tracking-wide">PROYECTOS</div>
+                <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">14</div>
+                <div className="text-sm text-white/70 font-medium uppercase tracking-wide">PROYECTOS</div>
               </div>
               <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-black text-prak-yellow mb-3 group-hover:scale-110 transition-transform duration-300">100%</div>
-                <div className="text-lg text-white/80 font-semibold tracking-wide">CUMPLIMIENTO</div>
+                <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">100%</div>
+                <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CUMPLIMIENTO</div>
               </div>
             </div>
           </div>
 
           {/* Premium Info Card */}
-          <div className="relative lg:ml-8">
-            <div className="bg-white/95 backdrop-blur-xl p-10 rounded-3xl border border-prak-gray/20 shadow-elegant hover:shadow-premium transition-all duration-500 hover:-translate-y-2">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-3xl font-black text-prak-dark leading-tight">
+          <div className="relative">
+            <div className="bg-white/96 backdrop-blur-xl p-8 lg:p-10 rounded-2xl border border-prak-gray/15 shadow-elegant hover:shadow-premium transition-all duration-500 hover:-translate-y-1">
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl lg:text-3xl font-bold text-prak-dark leading-tight">
                   Construcción Segura
-                  <span className="block text-prak-teal">& Confiable</span>
+                  <span className="block text-prak-teal mt-1">& Confiable</span>
                 </h3>
                 <Button 
                   size="icon" 
-                  className="bg-gradient-premium hover:shadow-premium rounded-full w-16 h-16 hover:scale-110 transition-all duration-300"
+                  className="bg-gradient-premium hover:shadow-premium rounded-full w-12 h-12 hover:scale-105 transition-all duration-300 flex-shrink-0"
                 >
-                  <Play className="h-6 w-6 text-prak-dark ml-1" />
+                  <Play className="h-4 w-4 text-prak-dark ml-0.5" />
                 </Button>
               </div>
-              <p className="text-prak-gray-dark text-lg leading-relaxed mb-8 font-medium">
+              <p className="text-prak-gray-dark text-base leading-relaxed mb-6 font-normal">
                 La calidad en construcción es un factor crucial para hacer crecer su
                 negocio y mantener la rentabilidad a largo plazo.
               </p>
-              <div className="flex items-center gap-3 text-prak-teal font-bold text-base uppercase tracking-wider hover:gap-4 transition-all duration-300 cursor-pointer group">
+              <div className="flex items-center gap-2 text-prak-teal font-semibold text-sm uppercase tracking-wider hover:gap-3 transition-all duration-300 cursor-pointer group">
                 VER MÁS 
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           </div>
