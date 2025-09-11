@@ -16,7 +16,7 @@ import {
 const Services = () => {
   const environmentalServices = [
     {
-      icon: <Building className="h-12 w-12 text-prak-orange" />,
+      icon: <Building className="h-12 w-12 text-prak-yellow" />,
       title: "Asesoría Sector Construcción",
       description: "Minimizamos los riesgos asociados a cierres y multas por incumplimiento de la normatividad ambiental y de sostenibilidad vigente.",
       features: [
@@ -31,7 +31,7 @@ const Services = () => {
       ]
     },
     {
-      icon: <Leaf className="h-12 w-12 text-prak-orange" />,
+      icon: <Leaf className="h-12 w-12 text-prak-teal" />,
       title: "Consultoría Ambiental y Sostenibilidad",
       description: "Contamos con expertos en temas ambientales para asesorar en cumplimiento y mejores prácticas.",
       features: [
@@ -106,47 +106,48 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="py-32 bg-muted/30">
+    <section id="servicios" className="py-40 bg-gradient-to-b from-prak-light to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-prak-orange/10 text-prak-orange text-sm font-semibold rounded-full mb-6 uppercase tracking-wide">
-            Lo que ofrecemos
+        <div className="text-center mb-28">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium">
+            <div className="w-2 h-2 bg-prak-dark rounded-full"></div>
+            LO QUE OFRECEMOS
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-            Brindando soluciones para 
-            <span className="text-prak-orange block">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[0.9]">
+            <span className="text-prak-dark">Brindando soluciones para</span>
+            <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
               construcción, gestión,
             </span>
-            <span className="block">y sostenibilidad.</span>
+            <span className="block text-prak-teal font-light">y sostenibilidad.</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-prak-gray-dark max-w-4xl mx-auto leading-relaxed font-medium">
             Somos una empresa de servicios de construcción e ingeniería establecida e independiente. 
             Tenemos una gran experiencia trabajando como constructores principales en todo tipo de proyectos.
           </p>
         </div>
 
         {/* Environmental Services Cards */}
-        <div className="mb-24">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="mb-32">
+          <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto">
             {environmentalServices.map((service, index) => (
-              <Card key={index} className="bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-hidden">
-                <CardContent className="p-10">
-                  <div className="mb-8">
-                    <div className="p-4 bg-prak-orange/10 rounded-2xl inline-block mb-6 group-hover:bg-prak-orange/20 transition-colors">
+              <Card key={index} className="bg-white/95 backdrop-blur-sm border-0 shadow-elegant hover:shadow-premium transition-all duration-700 group overflow-hidden hover:-translate-y-3 rounded-3xl">
+                <CardContent className="p-12">
+                  <div className="mb-10">
+                    <div className={`p-6 ${index === 0 ? 'bg-prak-yellow/10' : 'bg-prak-teal/10'} rounded-3xl inline-block mb-8 group-hover:scale-110 transition-all duration-500`}>
                       {service.icon}
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-prak-orange transition-colors">
+                    <h3 className={`text-3xl font-black mb-6 ${index === 0 ? 'group-hover:text-prak-yellow' : 'group-hover:text-prak-teal'} transition-colors duration-300`}>
                       {service.title}
                     </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-xl text-prak-gray-dark leading-relaxed font-medium">
                       {service.description}
                     </p>
                   </div>
-                  <ul className="space-y-4">
+                  <ul className="space-y-5">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-4">
-                        <CheckCircle className="h-6 w-6 text-prak-orange flex-shrink-0 mt-1" />
-                        <span className="text-muted-foreground leading-relaxed">{feature}</span>
+                      <li key={featureIndex} className="flex items-start gap-4 group/item hover:bg-prak-gray/20 p-3 rounded-xl transition-all duration-300">
+                        <CheckCircle className={`h-6 w-6 ${index === 0 ? 'text-prak-yellow' : 'text-prak-teal'} flex-shrink-0 mt-1 group-hover/item:scale-110 transition-transform`} />
+                        <span className="text-prak-gray-dark leading-relaxed font-medium group-hover/item:text-prak-dark transition-colors">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -158,33 +159,35 @@ const Services = () => {
 
         {/* Digital Marketing Services */}
         <div>
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 flex items-center justify-center gap-4">
-              <TrendingUp className="h-10 w-10 text-prak-orange" />
-              Marketing Digital
+          <div className="text-center mb-20">
+            <h3 className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6">
+              <TrendingUp className="h-12 w-12 text-prak-teal" />
+              <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                MARKETING DIGITAL
+              </span>
             </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed">
               Estrategias digitales integrales para maximizar su presencia online y ROI.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {digitalServices.map((service, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="mb-6">
-                    <div className="p-4 bg-prak-orange/10 rounded-xl inline-block mb-4 group-hover:bg-prak-orange/20 transition-colors">
-                      {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-orange" })}
+              <Card key={index} className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2">
+                <CardContent className="p-10">
+                  <div className="mb-8">
+                    <div className="p-5 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
+                      {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
                     </div>
-                    <h4 className="text-xl font-bold mb-4 group-hover:text-prak-orange transition-colors">
+                    <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
                       {service.title}
                     </h4>
                   </div>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-prak-orange rounded-full mt-2.5 flex-shrink-0"></div>
-                        <span className="text-muted-foreground leading-relaxed">{item}</span>
+                      <li key={itemIndex} className="flex items-start gap-4 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300">
+                        <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
+                        <span className="text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
                       </li>
                     ))}
                   </ul>

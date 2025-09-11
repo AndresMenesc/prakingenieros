@@ -49,7 +49,8 @@ export default {
         },
         // PRAK Brand Colors
         prak: {
-          orange: "hsl(var(--prak-orange))",
+          yellow: "hsl(var(--prak-yellow))",
+          teal: "hsl(var(--prak-teal))",
           dark: "hsl(var(--prak-dark))",
           light: "hsl(var(--prak-light))",
           gray: "hsl(var(--prak-gray))",
@@ -74,10 +75,13 @@ export default {
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
         "gradient-accent": "var(--gradient-accent)",
+        "gradient-premium": "var(--gradient-premium)",
       },
       boxShadow: {
         "card": "var(--shadow-card)",
-        "orange": "var(--shadow-orange)",
+        "premium": "var(--shadow-premium)",
+        "elegant": "var(--shadow-elegant)",
+        "soft": "var(--shadow-soft)",
       },
       transitionProperty: {
         "smooth": "var(--transition-smooth)",

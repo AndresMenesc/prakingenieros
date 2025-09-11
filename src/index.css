@@ -38,21 +38,25 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* PRAK Design System */
-    --prak-orange: 25 95% 60%;
-    --prak-dark: 0 0% 15%;
+    /* PRAK Design System - Professional Yellow & Teal */
+    --prak-yellow: 48 100% 67%;
+    --prak-teal: 187 47% 30%;
+    --prak-dark: 210 11% 15%;
     --prak-light: 0 0% 98%;
-    --prak-gray: 0 0% 85%;
-    --prak-gray-dark: 0 0% 45%;
+    --prak-gray: 220 13% 91%;
+    --prak-gray-dark: 220 9% 46%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--prak-dark)), hsl(0 0% 25%));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--prak-orange)), hsl(30 90% 65%));
-    --gradient-overlay: linear-gradient(135deg, hsl(var(--prak-dark) / 0.9), hsl(var(--prak-dark) / 0.7));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--prak-dark)), hsl(var(--prak-teal)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--prak-yellow)), hsl(var(--prak-teal)));
+    --gradient-overlay: linear-gradient(135deg, hsl(var(--prak-dark) / 0.85), hsl(var(--prak-teal) / 0.75));
+    --gradient-premium: linear-gradient(45deg, hsl(var(--prak-yellow)), hsl(var(--prak-yellow) / 0.8), hsl(var(--prak-teal)));
     
     /* Shadows */
-    --shadow-card: 0 4px 6px -1px hsl(var(--prak-dark) / 0.1), 0 2px 4px -1px hsl(var(--prak-dark) / 0.06);
-    --shadow-orange: 0 10px 25px -5px hsl(var(--prak-orange) / 0.3);
+    --shadow-card: 0 10px 25px -3px hsl(var(--prak-dark) / 0.1), 0 4px 6px -2px hsl(var(--prak-dark) / 0.05);
+    --shadow-premium: 0 20px 40px -12px hsl(var(--prak-yellow) / 0.25);
+    --shadow-elegant: 0 25px 50px -12px hsl(var(--prak-teal) / 0.25);
+    --shadow-soft: 0 1px 3px 0 hsl(var(--prak-dark) / 0.1), 0 1px 2px 0 hsl(var(--prak-dark) / 0.06);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
