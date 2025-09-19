@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Leaf, 
-  Building, 
-  Shield, 
-  TrendingUp, 
-  Target, 
-  BarChart3, 
-  CheckCircle, 
+import {
+  Leaf,
+  Building,
+  Shield,
+  TrendingUp,
+  Target,
+  BarChart3,
+  CheckCircle,
   Users,
   Globe,
   Zap
@@ -21,9 +21,9 @@ const Services = () => {
       description: "Minimizamos los riesgos asociados a cierres y multas por incumplimiento de la normatividad ambiental y de sostenibilidad vigente.",
       features: [
         "Elaboración de planes de gestión de Residuos de Construcción y Demolición a nivel nacional para la obtención de PIN",
-        "Actualización mensual de la plataforma de reporte",
+        "Actualización mensual de la plataforma de reporte de RCDs",
         "Cierre de PIN del proyecto",
-        "Evaluación de requisitos de construcción sostenible aplicables a la edificación a construir",
+        "Evaluación de requisitos de construcción sostenible aplicables al proyecto",
         "Capacitación al personal en la normatividad vigente",
         "Visitas de verificación de cumplimiento de medidas ambientales",
         "Evaluación de sistemas con posibles Beneficios Tributarios ante la UPME",
@@ -35,7 +35,7 @@ const Services = () => {
       title: "Consultoría Ambiental y Sostenibilidad",
       description: "Contamos con expertos en temas ambientales para asesorar en cumplimiento y mejores prácticas.",
       features: [
-        "Cumplimiento legal ambiental: elaboración de matrices legales ambientales y trámites de permisos ambientales ante las autoridades correspondientes",
+        "Cumplimiento legal ambiental: elaboración de matrices legales y trámites de permisos ambientales",
         "Planes de gestión ambiental: elaboración de los planes de gestión ambiental aplicables a la compañía enmarcados en el ciclo PHVA",
         "ISO 14001 y RUC: auditorías internas al sistema de gestión ISO14001 y preparación de auditoría RUC",
         "Diagnóstico ambiental inicial: diagnóstico integral del cumplimiento actual de la compañía y propuesta de mejoras a nivel de manejo ambiental interno",
@@ -121,8 +121,8 @@ const Services = () => {
             <span className="block text-prak-teal font-light">y sostenibilidad.</span>
           </h2>
           <p className="text-xl text-prak-gray-dark max-w-4xl mx-auto leading-relaxed font-medium">
-            Somos una empresa de servicios de construcción e ingeniería establecida e independiente. 
-            Tenemos una gran experiencia trabajando como constructores principales en todo tipo de proyectos.
+            Somos una empresa de servicios de consultoría e ingeniería establecida e independiente.
+            Tenemos una gran experiencia trabajando en todo tipo de proyectos, con un fuerte enfoque en el sector constructor.
           </p>
         </div>
 
@@ -170,7 +170,7 @@ const Services = () => {
               Estrategias digitales integrales para maximizar su presencia online y ROI.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {digitalServices.map((service, index) => (
               <Card key={index} className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2">

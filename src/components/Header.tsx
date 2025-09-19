@@ -19,34 +19,34 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/737bfbe6-84b7-4196-a5f4-82679c06ed8a.png" 
-              alt="PRAK Ingenieros" 
+            <img
+              src="/logomain.png"
+              alt="PRAK Ingenieros"
               className="h-14 w-auto hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection("inicio")}
               className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105"
             >
               INICIO
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("servicios")}
               className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105"
             >
               SERVICIOS
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection("proyectos")}
               className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105"
             >
               PROYECTOS
             </button>
-            <Button 
+            <Button
               onClick={() => scrollToSection("contacto")}
               className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold px-8 py-3 hover:scale-105 transition-all duration-300"
             >
@@ -67,25 +67,25 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-prak-gray/30 pt-4 bg-white/95 backdrop-blur-xl rounded-b-2xl">
             <div className="flex flex-col space-y-4">
-              <button 
+              <button
                 onClick={() => scrollToSection("inicio")}
                 className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold"
               >
                 INICIO
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection("servicios")}
                 className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold"
               >
                 SERVICIOS
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection("proyectos")}
                 className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold"
               >
                 PROYECTOS
               </button>
-              <Button 
+              <Button
                 onClick={() => scrollToSection("contacto")}
                 className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold w-fit px-6"
               >

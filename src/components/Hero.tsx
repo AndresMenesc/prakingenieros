@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building, Leaf, TrendingUp, Play } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
+// Using fullbackground.jpg from public directory
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,7 +15,7 @@ const Hero = () => {
       id="inicio" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `url(${heroImage})`,
+        backgroundImage: `url('/fullbackground.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
