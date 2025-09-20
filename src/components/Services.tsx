@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Leaf,
@@ -10,10 +11,42 @@ import {
   CheckCircle,
   Users,
   Globe,
-  Zap
+  Zap,
+  FileText,
+  Calendar,
+  CheckCircle2,
+  BookOpen,
+  Eye,
+  Calculator,
+  Award,
+  Scale,
+  FileCheck,
+  Settings,
+  PieChart,
 } from "lucide-react";
 
 const Services = () => {
+  // Icon mappings for construction services
+  const constructionIcons = [
+    <FileText className="h-8 w-8 text-prak-yellow" />, // Elaboración de planes
+    <Calendar className="h-8 w-8 text-prak-yellow" />, // Actualización mensual
+    <CheckCircle2 className="h-8 w-8 text-prak-yellow" />, // Cierre de PIN
+    <Eye className="h-8 w-8 text-prak-yellow" />, // Evaluación de requisitos
+    <BookOpen className="h-8 w-8 text-prak-yellow" />, // Capacitación
+    <Shield className="h-8 w-8 text-prak-yellow" />, // Visitas de verificación
+    <Calculator className="h-8 w-8 text-prak-yellow" />, // Evaluación de sistemas
+    <Award className="h-8 w-8 text-prak-yellow" />, // Certificación EDGE
+  ];
+
+  // Icon mappings for environmental services
+  const environmentalIcons = [
+    <Scale className="h-8 w-8 text-prak-teal" />, // Cumplimiento legal
+    <FileCheck className="h-8 w-8 text-prak-teal" />, // Planes de gestión
+    <Settings className="h-8 w-8 text-prak-teal" />, // ISO 14001 y RUC
+    <BarChart3 className="h-8 w-8 text-prak-teal" />, // Diagnóstico ambiental
+    <PieChart className="h-8 w-8 text-prak-teal" />, // Análisis de materialidad
+  ];
+
   const environmentalServices = [
     {
       icon: <Building className="h-12 w-12 text-prak-yellow" />,
@@ -108,51 +141,182 @@ const Services = () => {
   return (
     <section id="servicios" className="py-40 bg-gradient-to-b from-prak-light to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-28">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium">
+        <motion.div
+          className="text-center mb-28"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="w-2 h-2 bg-prak-dark rounded-full"></div>
             LO QUE OFRECEMOS
-          </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[0.9]">
+          </motion.div>
+          <motion.h2
+            className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[0.9]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <span className="text-prak-dark">Brindando soluciones para</span>
             <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
               construcción, gestión,
             </span>
             <span className="block text-prak-teal font-light">y sostenibilidad.</span>
-          </h2>
-          <p className="text-xl text-prak-gray-dark max-w-4xl mx-auto leading-relaxed font-medium">
+          </motion.h2>
+          <motion.p
+            className="text-xl text-prak-gray-dark max-w-4xl mx-auto leading-relaxed font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             Somos una empresa de servicios de consultoría e ingeniería establecida e independiente.
             Tenemos una gran experiencia trabajando en todo tipo de proyectos, con un fuerte enfoque en el sector constructor.
-          </p>
+          </motion.p>
+        </motion.div>
+
+        {/* Asesoría Sector Construcción */}
+        <div className="mb-32">
+          <div className="text-center mb-20">
+            <motion.h3
+              className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <Building className="h-12 w-12 text-prak-yellow" />
+              <span className="bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
+                ASESORÍA SECTOR CONSTRUCCIÓN
+              </span>
+            </motion.h3>
+            <motion.p
+              className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Minimizamos los riesgos asociados a cierres y multas por incumplimiento de la normatividad ambiental y de sostenibilidad vigente.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {environmentalServices[0].features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                  <CardContent className="p-10 flex flex-col h-full">
+                    <motion.div
+                      className="mb-8 flex-shrink-0"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <div className="p-5 bg-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
+                        {constructionIcons[index]}
+                      </div>
+                      <h4 className="text-xl font-bold mb-6 group-hover:text-prak-yellow transition-colors text-prak-dark">
+                        {feature.split(':')[0] || feature.split(' - ')[0] || feature}
+                      </h4>
+                    </motion.div>
+                    <motion.div
+                      className="flex-1 flex items-start"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.05, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <p className="text-lg text-prak-gray-dark leading-relaxed font-medium">
+                        {feature}
+                      </p>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* Environmental Services Cards */}
+        {/* Consultoría Ambiental y Sostenibilidad */}
         <div className="mb-32">
-          <div className="grid md:grid-cols-2 gap-16 max-w-7xl mx-auto">
-            {environmentalServices.map((service, index) => (
-              <Card key={index} className="bg-white/95 backdrop-blur-sm border-0 shadow-elegant hover:shadow-premium transition-all duration-700 group overflow-hidden hover:-translate-y-3 rounded-3xl">
-                <CardContent className="p-12">
-                  <div className="mb-10">
-                    <div className={`p-6 ${index === 0 ? 'bg-prak-yellow/10' : 'bg-prak-teal/10'} rounded-3xl inline-block mb-8 group-hover:scale-110 transition-all duration-500`}>
-                      {service.icon}
-                    </div>
-                    <h3 className={`text-3xl font-black mb-6 ${index === 0 ? 'group-hover:text-prak-yellow' : 'group-hover:text-prak-teal'} transition-colors duration-300`}>
-                      {service.title}
-                    </h3>
-                    <p className="text-xl text-prak-gray-dark leading-relaxed font-medium">
-                      {service.description}
-                    </p>
-                  </div>
-                  <ul className="space-y-5">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-4 group/item hover:bg-prak-gray/20 p-3 rounded-xl transition-all duration-300">
-                        <CheckCircle className={`h-6 w-6 ${index === 0 ? 'text-prak-yellow' : 'text-prak-teal'} flex-shrink-0 mt-1 group-hover/item:scale-110 transition-transform`} />
-                        <span className="text-prak-gray-dark leading-relaxed font-medium group-hover/item:text-prak-dark transition-colors">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+          <div className="text-center mb-20">
+            <motion.h3
+              className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <Leaf className="h-12 w-12 text-prak-teal" />
+              <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                CONSULTORÍA AMBIENTAL Y SOSTENIBILIDAD
+              </span>
+            </motion.h3>
+            <motion.p
+              className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              Contamos con expertos en temas ambientales para asesorar en cumplimiento y mejores prácticas.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            {environmentalServices[1].features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                  <CardContent className="p-10 flex flex-col h-full">
+                    <motion.div
+                      className="mb-8 flex-shrink-0"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <div className="p-5 bg-prak-teal/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
+                        {environmentalIcons[index]}
+                      </div>
+                      <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
+                        {feature.split(':')[0] || feature.split(' - ')[0] || feature}
+                      </h4>
+                    </motion.div>
+                    <motion.div
+                      className="flex-1 flex items-start"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.05, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <p className="text-lg text-prak-gray-dark leading-relaxed font-medium">
+                        {feature}
+                      </p>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -160,39 +324,80 @@ const Services = () => {
         {/* Digital Marketing Services */}
         <div>
           <div className="text-center mb-20">
-            <h3 className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6">
+            <motion.h3
+              className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               <TrendingUp className="h-12 w-12 text-prak-teal" />
               <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
                 MARKETING DIGITAL
               </span>
-            </h3>
-            <p className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed">
+            </motion.h3>
+            <motion.p
+              className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               Estrategias digitales integrales para maximizar su presencia online y ROI.
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
             {digitalServices.map((service, index) => (
-              <Card key={index} className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2">
-                <CardContent className="p-10">
-                  <div className="mb-8">
-                    <div className="p-5 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
-                      {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
-                    </div>
-                    <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
-                      {service.title}
-                    </h4>
-                  </div>
-                  <ul className="space-y-4">
-                    {service.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-4 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300">
-                        <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
-                        <span className="text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                  <CardContent className="p-10 flex flex-col h-full">
+                    <motion.div
+                      className="mb-8 flex-shrink-0"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <div className="p-5 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
+                        {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
+                      </div>
+                      <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
+                        {service.title}
+                      </h4>
+                    </motion.div>
+                    <motion.div
+                      className="flex-1 flex items-start"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <ul className="space-y-4 w-full">
+                        {service.items.map((item, itemIndex) => (
+                          <motion.li
+                            key={itemIndex}
+                            className="flex items-start gap-4 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.4 + index * 0.1 + itemIndex * 0.05, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.3 }}
+                          >
+                            <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
+                            <span className="text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Building, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const clients = [
@@ -152,39 +153,85 @@ const Projects = () => {
   return (
     <section id="proyectos" className="py-16 lg:py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">Nuestro Portafolio</Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Badge variant="secondary" className="mb-4">Nuestro Portafolio</Badge>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             Proyectos
             <span className="text-prak-orange"> Ejecutados</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             Trabajamos con los mejores desarrolladores y constructores de Colombia
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Stats */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <Card className="bg-gradient-hero text-white">
-            <CardContent className="p-8 text-center">
-              <Users className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-4xl font-bold mb-2">7</div>
-              <div className="text-lg opacity-90">Clientes de Confianza</div>
-            </CardContent>
-          </Card>
-          <Card className="bg-gradient-accent text-white">
-            <CardContent className="p-8 text-center">
-              <Building className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-4xl font-bold mb-2">14</div>
-              <div className="text-lg opacity-90">Obras Gestionadas</div>
-            </CardContent>
-          </Card>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Card className="bg-gradient-hero text-white">
+              <CardContent className="p-8 text-center">
+                <Users className="h-12 w-12 mx-auto mb-4" />
+                <div className="text-4xl font-bold mb-2">7</div>
+                <div className="text-lg opacity-90">Clientes de Confianza</div>
+              </CardContent>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Card className="bg-gradient-accent text-white">
+              <CardContent className="p-8 text-center">
+                <Building className="h-12 w-12 mx-auto mb-4" />
+                <div className="text-4xl font-bold mb-2">14</div>
+                <div className="text-lg opacity-90">Obras Gestionadas</div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {clients.map((client, clientIndex) => (
-            <div key={clientIndex} className="space-y-4">
+            <motion.div
+              key={clientIndex}
+              className="space-y-4"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: clientIndex * 0.1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               <div className="flex items-center gap-3 mb-4">
                 {client.logo ? (
                   <img
@@ -229,12 +276,18 @@ const Projects = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom Message */}
-        <div className="mt-16 text-center">
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <Card className="max-w-2xl mx-auto">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold mb-4">¿Tu proyecto será el siguiente?</h3>
@@ -249,7 +302,7 @@ const Projects = () => {
               </a>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
