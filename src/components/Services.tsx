@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import ServicesNavigation from "./ServicesNavigation";
 import {
   Leaf,
   Building,
@@ -142,7 +143,7 @@ const Services = () => {
     <section id="servicios" className="py-40 bg-gradient-to-b from-prak-light to-white">
       <div className="container mx-auto px-4">
         <motion.div
-          className="text-center mb-28"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -183,8 +184,11 @@ const Services = () => {
           </motion.p>
         </motion.div>
 
+        {/* Services Navigation */}
+        <ServicesNavigation />
+
         {/* Asesoría Sector Construcción */}
-        <div className="mb-32">
+        <div id="asesoria-construccion" className="mb-32">
           <div className="text-center mb-20">
             <motion.h3
               className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
@@ -253,7 +257,7 @@ const Services = () => {
         </div>
 
         {/* Consultoría Ambiental y Sostenibilidad */}
-        <div className="mb-32">
+        <div id="consultoria-ambiental" className="mb-32">
           <div className="text-center mb-20">
             <motion.h3
               className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
@@ -322,7 +326,7 @@ const Services = () => {
         </div>
 
         {/* Digital Marketing Services */}
-        <div>
+        <div id="marketing-digital">
           <div className="text-center mb-20">
             <motion.h3
               className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
