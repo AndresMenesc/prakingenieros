@@ -114,6 +114,7 @@ const BannerCarousel = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-prak-dark/90 via-prak-teal/80 to-prak-dark/85"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-prak-dark/40 via-transparent to-transparent"></div>
 
+
             {/* Navigation Arrows */}
             <button
                 onClick={goToPrevious}
@@ -138,8 +139,8 @@ const BannerCarousel = () => {
                         key={index}
                         onClick={() => goToSlide(index)}
                         className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex
-                                ? 'bg-prak-yellow scale-125'
-                                : 'bg-white/50 hover:bg-white/70'
+                            ? 'bg-prak-yellow scale-125'
+                            : 'bg-white/50 hover:bg-white/70'
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />

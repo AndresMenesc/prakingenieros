@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const Clients = () => {
     // Client logos data
@@ -92,33 +94,28 @@ const Clients = () => {
                     <motion.div
                         className="flex items-center gap-12 mb-8"
                         animate={{
-                            x: [0, -100 * clientLogos.length] // Move by the width of all logos
+                            x: [0, -50 * clientLogos.length] // Reduced movement distance
                         }}
                         transition={{
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 20, // 20 seconds for full cycle
+                                duration: 30, // Slower animation for better performance
                                 ease: "linear"
                             }
                         }}
                     >
                         {duplicatedLogos.map((client, index) => (
-                            <motion.div
+                            <div
                                 key={`first-${client.id}-${index}`}
                                 className="flex-shrink-0 flex items-center justify-center h-20 w-32 bg-white rounded-xl shadow-soft border border-prak-gray/10 p-4 hover:shadow-elegant transition-all duration-300 group"
-                                whileHover={{ scale: 1.05 }}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true, amount: 0.3 }}
                             >
                                 <img
                                     src={client.logo}
                                     alt={client.alt}
                                     className="max-h-12 max-w-24 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                 />
-                            </motion.div>
+                            </div>
                         ))}
                     </motion.div>
 
@@ -126,33 +123,28 @@ const Clients = () => {
                     <motion.div
                         className="flex items-center gap-12"
                         animate={{
-                            x: [-100 * clientLogos.length, 0] // Move in opposite direction
+                            x: [-50 * clientLogos.length, 0] // Reduced movement distance
                         }}
                         transition={{
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 25, // Slightly different speed for variety
+                                duration: 35, // Slower animation for better performance
                                 ease: "linear"
                             }
                         }}
                     >
                         {duplicatedLogos.map((client, index) => (
-                            <motion.div
+                            <div
                                 key={`second-${client.id}-${index}`}
                                 className="flex-shrink-0 flex items-center justify-center h-20 w-32 bg-white rounded-xl shadow-soft border border-prak-gray/10 p-4 hover:shadow-elegant transition-all duration-300 group"
-                                whileHover={{ scale: 1.05 }}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true, amount: 0.3 }}
                             >
                                 <img
                                     src={client.logo}
                                     alt={client.alt}
                                     className="max-h-12 max-w-24 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                                 />
-                            </motion.div>
+                            </div>
                         ))}
                     </motion.div>
                 </div>
@@ -195,6 +187,33 @@ const Clients = () => {
                         <div className="text-3xl font-bold text-prak-yellow mb-2">5+</div>
                         <div className="text-sm text-prak-gray-dark font-medium uppercase tracking-wide">AÑOS DE EXPERIENCIA</div>
                     </motion.div>
+                </motion.div>
+
+                {/* Call to Action */}
+                <motion.div
+                    className="text-center mt-16"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                >
+                    <Button
+                        onClick={() => {
+                            const element = document.getElementById("contacto");
+                            if (element) {
+                                const offsetTop = element.offsetTop - 100;
+                                window.scrollTo({
+                                    top: offsetTop,
+                                    behavior: "smooth"
+                                });
+                            }
+                        }}
+                        size="lg"
+                        className="bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-premium transition-all duration-300 hover:scale-105 group"
+                    >
+                        Solicitar Cotización Gratuita
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
                 </motion.div>
             </div>
         </section>
