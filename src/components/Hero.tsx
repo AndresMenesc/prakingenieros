@@ -18,7 +18,7 @@ const Hero = () => {
 
       {/* Content Overlay */}
       <div className="absolute inset-0 z-20 flex items-center justify-center">
-        <div className="container mx-auto px-6 py-24 lg:py-32">
+        <div className="container mx-auto px-6 py-32 lg:py-40">
           <div className="flex items-center justify-center">
             {/* Content */}
             <motion.div
@@ -43,27 +43,22 @@ const Hero = () => {
                   PRAK INGENIEROS
                 </motion.div>
                 <motion.h1
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight"
+                  className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] tracking-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
-                  <span className="block text-white mb-2">Segura, Confiable</span>
-                  <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-yellow/90 bg-clip-text text-transparent mb-2">
-                    & Alta Calidad
-                  </span>
-                  <span className="block text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light">
-                    Ingeniería
+                  <span className="block text-white">
+                    Especialistas en consultoría ambiental y sostenibilidad y cumplimiento normativo
                   </span>
                 </motion.h1>
                 <motion.p
-                  className="text-base md:text-lg text-white/75 leading-relaxed max-w-3xl font-normal mx-auto"
+                  className="text-base md:text-lg text-white leading-relaxed max-w-3xl font-normal mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
                 >
-                  Especialistas en consultoría ambiental, sostenibilidad y marketing digital.
-                  Transformamos proyectos con soluciones innovadoras y cumplimiento normativo.
+                  Planes de Manejo de RCD's, apertura y cierre de PIN Ambiental ante la Secretaría de Ambiente. Cumple con la norma, evita sanciones y ahorra tiempo en tus proyectos.
                 </motion.p>
               </motion.div>
 
@@ -74,11 +69,11 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
               >
                 <Button
-                  onClick={() => scrollToSection("servicios")}
+                  onClick={() => window.open('https://wa.me/573023490488', '_blank')}
                   size="lg"
                   className="bg-prak-yellow hover:bg-prak-yellow/90 text-prak-dark shadow-premium group px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
                 >
-                  NUESTROS SERVICIOS
+                  Solicita tu asesoría
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
@@ -92,38 +87,43 @@ const Hero = () => {
 
               {/* Stats */}
               <motion.div
-                className="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-white/15"
+                className="pt-12 mt-12 border-t border-white/15"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
               >
-                <motion.div
-                  className="text-center group"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">7</div>
-                  <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CLIENTES ACTIVOS</div>
-                </motion.div>
-                <motion.div
-                  className="text-center group"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">14</div>
-                  <div className="text-sm text-white/70 font-medium uppercase tracking-wide">PROYECTOS</div>
-                </motion.div>
-                <motion.div
-                  className="text-center group"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">100%</div>
-                  <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CUMPLIMIENTO</div>
-                </motion.div>
+                <div className="text-center mb-6">
+                  <div className="text-white/80 text-sm tracking-wide">Nuestra experiencia en el sector</div>
+                </div>
+                <div className="grid grid-cols-3 gap-6">
+                  <motion.div
+                    className="text-center group"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">7</div>
+                    <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CLIENTES ACTIVOS</div>
+                  </motion.div>
+                  <motion.div
+                    className="text-center group"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">14</div>
+                    <div className="text-sm text-white/70 font-medium uppercase tracking-wide">PROYECTOS</div>
+                  </motion.div>
+                  <motion.div
+                    className="text-center group"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
+                  >
+                    <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">100%</div>
+                    <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CUMPLIMIENTO</div>
+                  </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           </div>

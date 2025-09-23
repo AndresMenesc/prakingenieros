@@ -75,7 +75,7 @@ const ServicesNavigation = () => {
         <div className="relative">
             {/* Services Navigation Button */}
             <motion.div
-                className="flex justify-center mb-12"
+                className="flex justify-center mb-20 md:mb-28 lg:mb-32"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -113,8 +113,8 @@ const ServicesNavigation = () => {
                                             key={section.id}
                                             onClick={() => handleServiceClick(section.id)}
                                             className={`w-full text-left p-4 rounded-xl transition-all duration-200 group ${activeSection === section.id
-                                                    ? 'bg-prak-yellow/10 border border-prak-yellow/30'
-                                                    : 'hover:bg-prak-light/50'
+                                                ? 'bg-prak-yellow/10 border border-prak-yellow/30'
+                                                : 'hover:bg-prak-light/50'
                                                 }`}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
@@ -124,8 +124,8 @@ const ServicesNavigation = () => {
                                         >
                                             <div className="flex items-start gap-3">
                                                 <div className={`p-2 rounded-lg ${activeSection === section.id
-                                                        ? 'bg-prak-yellow text-prak-dark'
-                                                        : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'
+                                                    ? 'bg-prak-yellow text-prak-dark'
+                                                    : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'
                                                     } transition-colors duration-200`}>
                                                     {section.icon}
                                                 </div>

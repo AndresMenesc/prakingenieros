@@ -58,42 +58,41 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-xl border-b border-prak-gray/30 z-50 shadow-soft">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img
               src="/logomain.png"
               alt="PRAK Ingenieros"
-              className="h-14 w-auto hover:scale-105 transition-transform duration-300"
+              className="h-10 w-auto hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             <button
               onClick={() => scrollToSection("inicio")}
-              className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105"
+              className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-sm md:text-base hover:scale-105"
             >
-              INICIO
+              Inicio
             </button>
 
             {/* Services Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-                className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105 flex items-center gap-2"
+                className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-sm md:text-base hover:scale-105 flex items-center gap-1.5"
               >
-                SERVICIOS
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isServicesDropdownOpen ? 'rotate-180' : ''
-                  }`} />
+                Servicios
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Services Dropdown Menu */}
               <AnimatePresence>
                 {isServicesDropdownOpen && (
                   <motion.div
-                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white/95 backdrop-blur-sm border border-prak-gray/20 rounded-2xl shadow-elegant z-50"
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-white/95 backdrop-blur-sm border border-prak-gray/20 rounded-2xl shadow-elegant z-50"
                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -104,7 +103,7 @@ const Header = () => {
                         <motion.button
                           key={service.id}
                           onClick={() => scrollToSection(service.id)}
-                          className="w-full text-left p-4 rounded-xl transition-all duration-200 hover:bg-prak-light/50 group"
+                          className="w-full text-left p-3 rounded-xl transition-all duration-200 hover:bg-prak-light/50 group"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -116,10 +115,10 @@ const Header = () => {
                               {service.icon}
                             </div>
                             <div className="flex-1">
-                              <h4 className="font-semibold text-prak-dark mb-1">
+                              <h4 className="font-semibold text-prak-dark mb-1 text-sm">
                                 {service.title}
                               </h4>
-                              <p className="text-sm text-prak-gray-dark/70">
+                              <p className="text-xs text-prak-gray-dark/70">
                                 {service.description}
                               </p>
                             </div>
@@ -134,15 +133,15 @@ const Header = () => {
 
             <button
               onClick={() => scrollToSection("proyectos")}
-              className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-lg hover:scale-105"
+              className="text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-sm md:text-base hover:scale-105"
             >
-              PROYECTOS
+              Proyectos
             </button>
             <Button
               onClick={() => scrollToSection("contacto")}
-              className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold px-8 py-3 hover:scale-105 transition-all duration-300"
+              className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold px-6 py-2 text-sm md:text-base hover:scale-105 transition-all duration-300"
             >
-              CONTACTO
+              Contacto
             </Button>
           </nav>
 
@@ -157,31 +156,30 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-prak-gray/30 pt-4 bg-white/95 backdrop-blur-xl rounded-b-2xl">
-            <div className="flex flex-col space-y-4">
+          <nav className="md:hidden mt-2 pb-3 border-t border-prak-gray/30 pt-3 bg-white/95 backdrop-blur-xl rounded-b-2xl">
+            <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection("inicio")}
-                className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold"
+                className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-sm"
               >
-                INICIO
+                Inicio
               </button>
 
               {/* Mobile Services Dropdown */}
               <div className="space-y-2">
                 <button
                   onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-                  className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold flex items-center justify-between w-full"
+                  className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold flex items-center justify-between w-full text-sm"
                 >
-                  SERVICIOS
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isServicesDropdownOpen ? 'rotate-180' : ''
-                    }`} />
+                  Servicios
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Mobile Services Dropdown Menu */}
                 <AnimatePresence>
                   {isServicesDropdownOpen && (
                     <motion.div
-                      className="ml-4 space-y-2"
+                      className="ml-3 space-y-2"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
@@ -191,7 +189,7 @@ const Header = () => {
                         <motion.button
                           key={service.id}
                           onClick={() => scrollToSection(service.id)}
-                          className="w-full text-left p-3 rounded-lg transition-all duration-200 hover:bg-prak-light/50 group flex items-center gap-3"
+                          className="w-full text-left p-2 rounded-lg transition-all duration-200 hover:bg-prak-light/50 group flex items-center gap-3 text-sm"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -216,15 +214,15 @@ const Header = () => {
 
               <button
                 onClick={() => scrollToSection("proyectos")}
-                className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold"
+                className="text-left text-prak-dark hover:text-prak-teal transition-all duration-300 font-semibold text-sm"
               >
-                PROYECTOS
+                Proyectos
               </button>
               <Button
                 onClick={() => scrollToSection("contacto")}
-                className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold w-fit px-6"
+                className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold w-fit px-5 py-2 text-sm"
               >
-                CONTACTO
+                Contacto
               </Button>
             </div>
           </nav>
