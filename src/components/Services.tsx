@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import ServicesNavigation from "./ServicesNavigation";
+import { Button } from "@/components/ui/button";
 import {
   Leaf,
   Building,
@@ -24,10 +24,102 @@ import {
   FileCheck,
   Settings,
   PieChart,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const Services = () => {
+  const [selectedTab, setSelectedTab] = useState<'mandatory' | 'support'>('mandatory');
+  const [expandedCards, setExpandedCards] = useState<{ [key: string]: boolean }>({});
+
+  const toggleCard = (cardId: string) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
+
+  const openWhatsApp = (title: string) => {
+    const message = `Hola, me gustaría más información en ${title}`;
+    const whatsappUrl = `https://wa.me/573023490488?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Explicit items per section
+  const mandatoryItems: { title: string; description: string }[] = [
+    {
+      title: "Planes de gestión de RCD para PIN ambiental",
+      description:
+        "Estructuramos el PG-RCD conforme a la Resolución 0472 de 2017 y lineamientos distritales para soportar la solicitud del PIN Ambiental.",
+    },
+    {
+      title: "Actualización mensual de la plataforma de reporte de RCDs",
+      description:
+        "Cargamos y verificamos mensualmente la información de RCD en la plataforma exigida por la autoridad ambiental.",
+    },
+    {
+      title: "Cierre de PIN del proyecto",
+      description:
+        "Preparamos soportes y gestionamos el cierre del PIN ante la entidad competente, con seguimiento hasta su aprobación.",
+    },
+    {
+      title: "Evaluación de requisitos de construcción sostenible aplicables al proyecto",
+      description:
+        "Identificamos requisitos de construcción sostenible aplicables (EDGE/LEED/Normativa local) y definimos acciones de cumplimiento.",
+    },
+    {
+      title: "Evaluación de sistemas con posibles Beneficios Tributarios ante la UPME",
+      description:
+        "Acompañamiento práctico y enfocado en cumplimiento, con base en normatividad ambiental colombiana vigente.",
+    },
+  ];
+
+  const supportItems: { title: string; description: string }[] = [
+    {
+      title: "Capacitación al personal en la normatividad vigente",
+      description:
+        "Capacitamos al personal de obra en manejo de RCD, segregación en fuente y obligaciones ambientales.",
+    },
+    {
+      title: "Visitas de verificación de cumplimiento de medidas ambientales",
+      description:
+        "Realizamos visitas técnicas para verificar cumplimiento in situ y emitir recomendaciones puntuales de mejora.",
+    },
+    {
+      title: "Certificación EDGE",
+      description:
+        "Acompañamiento práctico y enfocado en cumplimiento, con base en normatividad ambiental colombiana vigente.",
+    },
+  ];
+
+  const consultoriaAmbientalItems: { title: string; description: string }[] = [
+    {
+      title: "Cumplimiento legal ambiental",
+      description:
+        "Elaboración de matrices legales ambientales y trámites de permisos ambientales ante las autoridades competentes.",
+    },
+    {
+      title: "Planes de gestión ambiental",
+      description:
+        "Elaboración de los planes de gestión ambiental aplicables a la compañía enmarcados en el ciclo PHVA.",
+    },
+    {
+      title: "ISO 14001 y RUC",
+      description:
+        "Auditorías internas al sistema de gestión ISO 14001 y preparación/acompañamiento de auditoría RUC.",
+    },
+    {
+      title: "Diagnóstico ambiental inicial",
+      description:
+        "Diagnóstico integral del cumplimiento actual de la compañía y propuesta de mejoras en manejo ambiental interno.",
+    },
+    {
+      title: "Análisis de materialidad y reportes GRI",
+      description:
+        "Análisis de materialidad y elaboración de reportes de sostenibilidad bajo estándar GRI.",
+    },
+  ];
   // Icon mappings for construction services
   const constructionIcons = [
     <FileText className="h-8 w-8 text-prak-yellow" />, // Elaboración de planes
@@ -142,276 +234,442 @@ const Services = () => {
 
   return (
     <section id="servicios" className="py-40 bg-gradient-to-b from-prak-light to-white">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+      <div className="bg-gradient-hero py-20">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="w-2 h-2 bg-prak-dark rounded-full"></div>
-            LO QUE OFRECEMOS
+            <motion.div
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="w-2 h-2 bg-prak-dark rounded-full"></div>
+              LO QUE OFRECEMOS
+            </motion.div>
           </motion.div>
-          <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 leading-[0.9]"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <span className="text-prak-dark">Brindando soluciones para</span>
-            <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
-              construcción, gestión,
-            </span>
-            <span className="block text-prak-teal font-light">y sostenibilidad.</span>
-          </motion.h2>
-          <motion.p
-            className="text-xl text-prak-gray-dark max-w-4xl mx-auto leading-relaxed font-medium"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            Somos una empresa de servicios de consultoría e ingeniería establecida e independiente. Tenemos una gran experiencia trabajando en todo tipo de proyectos, con un fuerte enfoque en el sector constructor.
-          </motion.p>
-        </motion.div>
 
-        {/* Services Navigation */}
-        <ServicesNavigation />
 
-        {/* Asesoría Sector Construcción */}
-        <div id="asesoria-construccion" className="mb-32">
-          <div className="text-center mb-20">
-            <motion.h3
-              className="text-4xl md:text-5xl font-black mb-6 flex items-center justify-center gap-4"
+          {/* Section Title */}
+          <div className="text-center mb-8">
+            <motion.h2
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <Building className="h-12 w-12 text-prak-yellow" />
-              <span className="bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
-                Trámites obligatorios (PIN, reportes, cierres)
-              </span>
-            </motion.h3>
-            
+              Asesoria en sector construccion
+            </motion.h2>
             <motion.p
-              className="text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
+              className="text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Planes de gestión de RCD para PIN ambiental. Evita sanciones y asegura la aprobación de tu proyecto con nuestros planes de RCD para obtener el PIN.
+              Somos una consultora independiente especializada en el sector construcción. Acompañamos a las constructoras en el cumplimiento ambiental, la gestión de residuos y la sostenibilidad.
             </motion.p>
           </div>
 
-          <div className="bg-prak-teal/10 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-              {environmentalServices[0].features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
+          {/* Toggle buttons for Mandatory vs Support */}
+          <div className="flex items-center justify-center gap-3 mb-10">
+            <button
+              onClick={() => setSelectedTab('mandatory')}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${selectedTab === 'mandatory' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
+            >
+              Trámites obligatorios (PIN, reportes, cierres)
+            </button>
+            <button
+              onClick={() => setSelectedTab('support')}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${selectedTab === 'support' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
+            >
+              Acompañamiento y Sostenibilidad
+            </button>
+          </div>
+
+          {/* Asesoría Sector Construcción */}
+          {selectedTab === 'mandatory' && (
+            <div id="asesoria-construccion" className="mb-32">
+              <div className="text-center mb-20">
+                <motion.h3
+                  className="text-2xl md:text-3xl font-black mb-6 flex items-center justify-center gap-4"
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
-                    <CardContent className="p-10 flex flex-col h-full">
-                      <motion.div
-                        className="mb-8 flex-shrink-0"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <div className="p-5 bg-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
-                          {constructionIcons[index]}
-                        </div>
-                        <h4 className="text-xl font-bold mb-2 group-hover:text-prak-yellow transition-colors text-prak-dark">
-                          {index === 0 ? 'Planes de gestión de RCD para PIN ambiental' : (feature.split(':')[0] || feature.split(' - ')[0] || feature)}
-                        </h4>
-                        <p className="text-sm text-prak-gray-dark/80 mb-6">
-                          {(() => {
-                            if (index === 0) return 'Estructuramos el PG-RCD conforme a la Resolución 0472 de 2017 y lineamientos distritales para soportar la solicitud del PIN Ambiental.';
-                            if (feature.toLowerCase().includes('actualización mensual')) return 'Cargamos y verificamos mensualmente la información de RCD en la plataforma exigida por la autoridad ambiental.';
-                            if (feature.toLowerCase().includes('cierre de pin')) return 'Preparamos soportes y gestionamos el cierre del PIN ante la entidad competente, con seguimiento hasta su aprobación.';
-                            if (feature.toLowerCase().includes('evaluación de requisitos')) return 'Identificamos requisitos de construcción sostenible aplicables (EDGE/LEED/Normativa local) y definimos acciones de cumplimiento.';
-                            if (feature.toLowerCase().includes('capacitación')) return 'Capacitamos al personal de obra en manejo de RCD, segregación en fuente y obligaciones ambientales.';
-                            if (feature.toLowerCase().includes('visitas de verificación')) return 'Realizamos visitas técnicas para verificar cumplimiento in situ y emitir recomendaciones puntuales de mejora.';
-                            return 'Acompañamiento práctico y enfocado en cumplimiento, con base en normatividad ambiental colombiana vigente.';
-                          })()}
-                        </p>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                  <Building className="h-10 w-10 text-prak-yellow" />
+                  <span className="text-white">
+                    Trámites obligatorios (PIN, reportes, cierres)
+                  </span>
+                </motion.h3>
+
+                <motion.p
+                  className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  Planes de gestión de RCD para PIN ambiental. Evita sanciones y asegura la aprobación de tu proyecto con nuestros planes de RCD para obtener el PIN.
+                </motion.p>
+              </div>
+
+              <div className="bg-gray-100 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                  {mandatoryItems.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                        <CardContent className="p-6 flex flex-col h-full">
+                          <motion.div
+                            className="flex-shrink-0"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.3 }}
+                          >
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="p-3 bg-prak-yellow/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
+                                {constructionIcons[index]}
+                              </div>
+                              <button
+                                onClick={() => toggleCard(`mandatory-${index}`)}
+                                className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                              >
+                                {expandedCards[`mandatory-${index}`] ?
+                                  <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
+                                  <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
+                                }
+                              </button>
+                            </div>
+                            <h4 className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark">
+                              {item.title}
+                            </h4>
+                            {expandedCards[`mandatory-${index}`] && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="mb-4"
+                              >
+                                <p className="text-sm text-prak-gray-dark/80 mb-4">
+                                  {item.description}
+                                </p>
+                                <Button
+                                  onClick={() => openWhatsApp(item.title)}
+                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                >
+                                  Más información
+                                </Button>
+                              </motion.div>
+                            )}
+                          </motion.div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
-        <Separator className="my-16 bg-prak-teal/20" />
 
-        {/* Consultoría Ambiental y Sostenibilidad */}
-        <div id="consultoria-ambiental" className="mb-32">
-          <div className="text-center mb-20">
-            <motion.h3
-              className="text-4xl md:text-5xl font-black mb-6 flex items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <Leaf className="h-12 w-12 text-prak-teal" />
-              <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                Acompañamiento y sostenibilidad
-              </span>
-            </motion.h3>
-            
-            <motion.p
-              className="text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
-            </motion.p>
-          </div>
-
-          <div className="bg-prak-teal/5 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-              {environmentalServices[1].features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
+          {/* Consultoría Ambiental y Sostenibilidad */}
+          {selectedTab === 'support' && (
+            <div id="consultoria-ambiental" className="mb-32">
+              <div className="text-center mb-20">
+                <motion.h3
+                  className="text-2xl md:text-3xl font-black mb-6 flex items-center justify-center gap-4"
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
-                    <CardContent className="p-10 flex flex-col h-full">
-                      <motion.div
-                        className="mb-8 flex-shrink-0"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <div className="p-5 bg-prak-teal/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
-                          {environmentalIcons[index]}
-                        </div>
-                        <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
-                          {feature.split(':')[0] || feature.split(' - ')[0] || feature}
-                        </h4>
-                      </motion.div>
-                      <motion.div
-                        className="flex-1 flex items-start"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 + index * 0.05, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <p className="text-lg text-prak-gray-dark leading-relaxed font-medium">
-                          {feature}
-                        </p>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                  <Leaf className="h-10 w-10 text-prak-teal" />
+                  <span className="text-white">
+                    Consultoria ambiental
+                  </span>
+                </motion.h3>
+
+                <motion.p
+                  className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
+                </motion.p>
+              </div>
+
+              <div className="bg-gray-100 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                  {supportItems.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.3 }}
+                    >
+                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                        <CardContent className="p-6 flex flex-col h-full">
+                          <motion.div
+                            className="flex-shrink-0"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.3 }}
+                          >
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="p-3 bg-prak-teal/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
+                                {environmentalIcons[index]}
+                              </div>
+                              <button
+                                onClick={() => toggleCard(`support-${index}`)}
+                                className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                              >
+                                {expandedCards[`support-${index}`] ?
+                                  <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
+                                  <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
+                                }
+                              </button>
+                            </div>
+                            <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                              {item.title}
+                            </h4>
+                            {expandedCards[`support-${index}`] && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="mb-4"
+                              >
+                                <p className="text-sm text-prak-gray-dark/80 mb-4">
+                                  {item.description}
+                                </p>
+                                <Button
+                                  onClick={() => openWhatsApp(item.title)}
+                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                >
+                                  Más información
+                                </Button>
+                              </motion.div>
+                            )}
+                          </motion.div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
-        {/* Digital Marketing Services */}
-        <div id="marketing-digital">
-          <div className="text-center mb-20">
-            <motion.h3
-              className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-6"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <TrendingUp className="h-12 w-12 text-prak-teal" />
-              <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                MARKETING DIGITAL
-              </span>
-            </motion.h3>
-            <motion.p
-              className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              Estrategias digitales integrales para maximizar su presencia online y ROI.
-            </motion.p>
-          </div>
+          {/* Consultoria Ambiental (bloque adicional) */}
+          <div id="consultoria-ambiental-extra" className="mb-32">
+            <div className="text-center mb-20">
+              <motion.h3
+                className="text-4xl md:text-5xl font-black mb-6 flex items-center justify-center gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <Leaf className="h-12 w-12 text-prak-teal" />
+                <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                  Consultoria Ambiental
+                </span>
+              </motion.h3>
+              <motion.p
+                className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
+              </motion.p>
+            </div>
 
-          <div className="bg-prak-teal/5 rounded-3xl p-6 md:p-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-              {digitalServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
-                    <CardContent className="p-10 flex flex-col h-full">
-                      <motion.div
-                        className="mb-8 flex-shrink-0"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <div className="p-5 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-all duration-300">
-                          {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
-                        </div>
-                        <h4 className="text-xl font-bold mb-6 group-hover:text-prak-teal transition-colors text-prak-dark">
-                          {service.title}
-                        </h4>
-                      </motion.div>
-                      <motion.div
-                        className="flex-1 flex items-start"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.6, delay: 0.3 + index * 0.1, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                      >
-                        <ul className="space-y-4 w-full">
-                          {service.items.map((item, itemIndex) => (
-                            <motion.li
-                              key={itemIndex}
-                              className="flex items-start gap-4 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300"
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.4, delay: 0.4 + index * 0.1 + itemIndex * 0.05, ease: "easeOut" }}
-                              viewport={{ once: true, amount: 0.3 }}
+            <div className="bg-gray-100 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                {consultoriaAmbientalItems.map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                      <CardContent className="p-6 flex flex-col h-full">
+                        <motion.div
+                          className="flex-shrink-0"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.6, delay: 0.2 + index * 0.05, ease: "easeOut" }}
+                          viewport={{ once: true, amount: 0.3 }}
+                        >
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="p-3 bg-prak-teal/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
+                              <Leaf className="h-8 w-8 text-prak-teal" />
+                            </div>
+                            <button
+                              onClick={() => toggleCard(`consultoria-${index}`)}
+                              className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
                             >
-                              <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
-                              <span className="text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                              {expandedCards[`consultoria-${index}`] ?
+                                <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
+                                <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
+                              }
+                            </button>
+                          </div>
+                          <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                            {item.title}
+                          </h4>
+                          {expandedCards[`consultoria-${index}`] && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="mb-4"
+                            >
+                              <p className="text-sm text-prak-gray-dark/80 mb-4">
+                                {item.description}
+                              </p>
+                              <Button
+                                onClick={() => openWhatsApp(item.title)}
+                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                              >
+                                Más información
+                              </Button>
+                            </motion.div>
+                          )}
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Digital Marketing Services */}
+          <div id="marketing-digital">
+            <div className="text-center mb-20">
+              <motion.h3
+                className="text-2xl md:text-3xl font-black mb-8 flex items-center justify-center gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <TrendingUp className="h-10 w-10 text-prak-teal" />
+                <span className="text-white">
+                  Marketing digital
+                </span>
+              </motion.h3>
+              <motion.p
+                className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                Estrategias digitales integrales para maximizar su presencia online y ROI.
+              </motion.p>
+            </div>
+
+            <div className="bg-gray-100 rounded-3xl p-6 md:p-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                {digitalServices.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                  >
+                    <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                      <CardContent className="p-6 flex flex-col h-full">
+                        <motion.div
+                          className="flex-shrink-0"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
+                          viewport={{ once: true, amount: 0.3 }}
+                        >
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="p-3 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
+                              {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
+                            </div>
+                            <button
+                              onClick={() => toggleCard(`marketing-${index}`)}
+                              className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                            >
+                              {expandedCards[`marketing-${index}`] ?
+                                <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
+                                <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
+                              }
+                            </button>
+                          </div>
+                          <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                            {service.title}
+                          </h4>
+                          {expandedCards[`marketing-${index}`] && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="mb-4"
+                            >
+                              <ul className="space-y-3 w-full mb-4">
+                                {service.items.map((item, itemIndex) => (
+                                  <motion.li
+                                    key={itemIndex}
+                                    className="flex items-start gap-3 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 + itemIndex * 0.05, ease: "easeOut" }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                  >
+                                    <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-sm text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
+                                  </motion.li>
+                                ))}
+                              </ul>
+                              <Button
+                                onClick={() => openWhatsApp(service.title)}
+                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                              >
+                                Más información
+                              </Button>
+                            </motion.div>
+                          )}
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

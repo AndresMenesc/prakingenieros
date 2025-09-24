@@ -41,6 +41,12 @@ const Clients = () => {
             name: "LL Company",
             logo: "/ll.png",
             alt: "LL Company Logo"
+        },
+        {
+            id: 7,
+            name: "Itook",
+            logo: "/itook.png",
+            alt: "Itook Logo"
         }
     ];
 
@@ -113,45 +119,18 @@ const Clients = () => {
                                 <img
                                     src={client.logo}
                                     alt={client.alt}
-                                    className="max-h-12 max-w-24 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                    className="max-h-12 max-w-24 object-contain transition-all duration-300"
                                 />
                             </div>
                         ))}
                     </motion.div>
 
-                    {/* Second Row - Moving Left */}
-                    <motion.div
-                        className="flex items-center gap-12"
-                        animate={{
-                            x: [-50 * clientLogos.length, 0] // Reduced movement distance
-                        }}
-                        transition={{
-                            x: {
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 35, // Slower animation for better performance
-                                ease: "linear"
-                            }
-                        }}
-                    >
-                        {duplicatedLogos.map((client, index) => (
-                            <div
-                                key={`second-${client.id}-${index}`}
-                                className="flex-shrink-0 flex items-center justify-center h-20 w-32 bg-white rounded-xl shadow-soft border border-prak-gray/10 p-4 hover:shadow-elegant transition-all duration-300 group"
-                            >
-                                <img
-                                    src={client.logo}
-                                    alt={client.alt}
-                                    className="max-h-12 max-w-24 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                                />
-                            </div>
-                        ))}
-                    </motion.div>
+                    {/* Single row only (removed second row) */}
                 </div>
 
                 {/* Stats */}
                 <motion.div
-                    className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-prak-gray/20"
+                    className="grid grid-cols-2 gap-8 mt-16 pt-8 border-t border-prak-gray/20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -177,16 +156,7 @@ const Clients = () => {
                         <div className="text-3xl font-bold text-prak-teal mb-2">100%</div>
                         <div className="text-sm text-prak-gray-dark font-medium uppercase tracking-wide">CUMPLIMIENTO</div>
                     </motion.div>
-                    <motion.div
-                        className="text-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <div className="text-3xl font-bold text-prak-yellow mb-2">5+</div>
-                        <div className="text-sm text-prak-gray-dark font-medium uppercase tracking-wide">AÑOS DE EXPERIENCIA</div>
-                    </motion.div>
+
                 </motion.div>
 
                 {/* Call to Action */}

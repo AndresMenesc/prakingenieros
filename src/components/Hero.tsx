@@ -49,11 +49,19 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
                   <span className="block text-white">
-                    Especialistas en consultoría ambiental y sostenibilidad y cumplimiento normativo
+                    Especialistas en consultoría ambiental , sostenibilidad y cumplimiento normativo
                   </span>
                 </motion.h1>
                 <motion.p
-                  className="text-base md:text-lg text-white leading-relaxed max-w-3xl font-normal mx-auto"
+                  className="text-base md:text-lg text-white/90 leading-relaxed max-w-3xl font-normal mx-auto"
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+                >
+                  Acompañamos a las constructoras en el cumplimiento ambiental, la gestión de residuos y la sostenibilidad.
+                </motion.p>
+                <motion.p
+                  className="text-base md:text-lg text-white leading-relaxed max-w-3xl font-normal mx-auto italic"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
@@ -93,7 +101,7 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
               >
                 <div className="text-center mb-6">
-                  <div className="text-white/80 text-sm tracking-wide">Nuestra experiencia en el sector</div>
+                  <div className="text-white text-lg md:text-2xl font-bold tracking-tight">Nuestra experiencia en el sector</div>
                 </div>
                 <div className="grid grid-cols-3 gap-6">
                   <motion.div
@@ -120,9 +128,10 @@ const Hero = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">100%</div>
-                    <div className="text-sm text-white/70 font-medium uppercase tracking-wide">CUMPLIMIENTO</div>
+                    <div className="text-3xl md:text-4xl font-bold text-prak-yellow mb-2 group-hover:scale-105 transition-transform duration-300">5+</div>
+                    <div className="text-sm text-white/70 font-medium uppercase tracking-wide">AÑOS DE EXPERIENCIA</div>
                   </motion.div>
+
                 </div>
               </motion.div>
             </motion.div>
