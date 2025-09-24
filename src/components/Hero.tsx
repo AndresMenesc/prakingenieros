@@ -52,14 +52,7 @@ const Hero = () => {
                     Especialistas en consultoría ambiental , sostenibilidad y cumplimiento normativo
                   </span>
                 </motion.h1>
-                <motion.p
-                  className="text-base md:text-lg text-white/90 leading-relaxed max-w-3xl font-normal mx-auto"
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-                >
-                  Acompañamos a las constructoras en el cumplimiento ambiental, la gestión de residuos y la sostenibilidad.
-                </motion.p>
+
                 <motion.p
                   className="text-base md:text-lg text-white leading-relaxed max-w-3xl font-normal mx-auto italic"
                   initial={{ opacity: 0, y: 20 }}
