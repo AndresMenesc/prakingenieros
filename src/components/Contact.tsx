@@ -99,7 +99,7 @@ const Contact = () => {
     ];
 
     return (
-        <section id="contacto" className="py-24 bg-gradient-to-b from-white to-prak-light">
+        <section id="contacto" className="py-24 bg-gradient-hero">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <motion.div
@@ -115,7 +115,7 @@ const Contact = () => {
                         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium">
+                        <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-white text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium">
                             <MessageSquare className="w-4 h-4" />
                             CONTACTO
                         </div>
@@ -127,13 +127,13 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <span className="text-prak-dark">¿Listo para</span>
+                        <span className="text-white">¿Listo para</span>
                         <span className="text-prak-yellow block bg-gradient-to-r from-prak-yellow to-prak-teal bg-clip-text text-transparent">
                             Transformar tu Proyecto?
                         </span>
                     </motion.h2>
                     <motion.p
-                        className="text-xl text-prak-gray-dark max-w-3xl mx-auto font-medium leading-relaxed"
+                        className="text-xl text-white/80 max-w-3xl mx-auto font-medium leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
@@ -153,8 +153,8 @@ const Contact = () => {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <div>
-                            <h3 className="text-2xl font-bold text-prak-dark mb-6">Información de Contacto</h3>
-                            <p className="text-prak-gray-dark leading-relaxed mb-8">
+                            <h3 className="text-2xl font-bold text-white mb-6">Información de Contacto</h3>
+                            <p className="text-white/80 leading-relaxed mb-8">
                                 Estamos aquí para ayudarte. Contáctanos y te responderemos en menos de 24 horas.
                             </p>
                         </div>
@@ -163,7 +163,7 @@ const Contact = () => {
                             {contactInfo.map((info, index) => (
                                 <motion.div
                                     key={index}
-                                    className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-soft hover:shadow-elegant transition-all duration-300"
+                                    className="flex items-start gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-elegant transition-all duration-300"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
@@ -175,9 +175,9 @@ const Contact = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-prak-dark mb-1">{info.title}</h4>
-                                        <p className="text-prak-gray-dark font-medium">{info.details}</p>
-                                        <p className="text-sm text-prak-gray-dark/70">{info.description}</p>
+                                        <h4 className="font-semibold text-white mb-1">{info.title}</h4>
+                                        <p className="text-white/80 font-medium">{info.details}</p>
+                                        <p className="text-sm text-white/60">{info.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -221,13 +221,13 @@ const Contact = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <Card className="shadow-elegant border-0">
+                        <Card className="shadow-elegant border-0 bg-white/10 backdrop-blur-sm">
                             <CardContent className="p-10">
                                 {!isSubmitted ? (
                                     <>
                                         <div className="mb-8">
-                                            <h3 className="text-2xl font-bold text-prak-dark mb-2">Solicita tu Consulta Gratuita</h3>
-                                            <p className="text-prak-gray-dark">
+                                            <h3 className="text-2xl font-bold text-white mb-2">Solicita tu Consulta Gratuita</h3>
+                                            <p className="text-white/80">
                                                 Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
                                             </p>
                                         </div>
@@ -236,7 +236,7 @@ const Contact = () => {
                                             {/* Personal Information */}
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="name" className="text-prak-dark font-medium">Nombre completo *</Label>
+                                                    <Label htmlFor="name" className="text-white font-medium">Nombre completo *</Label>
                                                     <Input
                                                         id="name"
                                                         value={formData.name}
@@ -247,7 +247,7 @@ const Contact = () => {
                                                     />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="email" className="text-prak-dark font-medium">Correo electrónico *</Label>
+                                                    <Label htmlFor="email" className="text-white font-medium">Correo electrónico *</Label>
                                                     <Input
                                                         id="email"
                                                         type="email"
@@ -262,7 +262,7 @@ const Contact = () => {
 
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="phone" className="text-prak-dark font-medium">Teléfono</Label>
+                                                    <Label htmlFor="phone" className="text-white font-medium">Teléfono</Label>
                                                     <Input
                                                         id="phone"
                                                         value={formData.phone}
@@ -272,7 +272,7 @@ const Contact = () => {
                                                     />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="company" className="text-prak-dark font-medium">Empresa</Label>
+                                                    <Label htmlFor="company" className="text-white font-medium">Empresa</Label>
                                                     <Input
                                                         id="company"
                                                         value={formData.company}
@@ -286,7 +286,7 @@ const Contact = () => {
                                             {/* Service Selection */}
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="service" className="text-prak-dark font-medium">Servicio de interés *</Label>
+                                                    <Label htmlFor="service" className="text-white font-medium">Servicio de interés *</Label>
                                                     <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)}>
                                                         <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
                                                             <SelectValue placeholder="Selecciona un servicio" />
@@ -300,7 +300,7 @@ const Contact = () => {
                                                     </Select>
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="projectType" className="text-prak-dark font-medium">Tipo de proyecto</Label>
+                                                    <Label htmlFor="projectType" className="text-white font-medium">Tipo de proyecto</Label>
                                                     <Select value={formData.projectType} onValueChange={(value) => handleInputChange("projectType", value)}>
                                                         <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
                                                             <SelectValue placeholder="Tipo de proyecto" />
@@ -318,7 +318,7 @@ const Contact = () => {
                                             {/* Project Details */}
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="budget" className="text-prak-dark font-medium">Presupuesto estimado</Label>
+                                                    <Label htmlFor="budget" className="text-white font-medium">Presupuesto estimado</Label>
                                                     <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
                                                         <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
                                                             <SelectValue placeholder="Rango de presupuesto" />
@@ -332,7 +332,7 @@ const Contact = () => {
                                                     </Select>
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <Label htmlFor="timeline" className="text-prak-dark font-medium">Timeline del proyecto</Label>
+                                                    <Label htmlFor="timeline" className="text-white font-medium">Timeline del proyecto</Label>
                                                     <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
                                                         <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
                                                             <SelectValue placeholder="Tiempo estimado" />
@@ -349,7 +349,7 @@ const Contact = () => {
 
                                             {/* Message */}
                                             <div className="space-y-2">
-                                                <Label htmlFor="message" className="text-prak-dark font-medium">Cuéntanos sobre tu proyecto *</Label>
+                                                <Label htmlFor="message" className="text-white font-medium">Cuéntanos sobre tu proyecto *</Label>
                                                 <Textarea
                                                     id="message"
                                                     value={formData.message}
@@ -369,7 +369,7 @@ const Contact = () => {
                                                         checked={formData.newsletter}
                                                         onCheckedChange={(checked) => handleInputChange("newsletter", checked as boolean)}
                                                     />
-                                                    <Label htmlFor="newsletter" className="text-sm text-prak-gray-dark">
+                                                    <Label htmlFor="newsletter" className="text-sm text-white/80">
                                                         Quiero recibir actualizaciones sobre servicios y mejores prácticas
                                                     </Label>
                                                 </div>
@@ -380,7 +380,7 @@ const Contact = () => {
                                                         onCheckedChange={(checked) => handleInputChange("privacy", checked as boolean)}
                                                         required
                                                     />
-                                                    <Label htmlFor="privacy" className="text-sm text-prak-gray-dark">
+                                                    <Label htmlFor="privacy" className="text-sm text-white/80">
                                                         Acepto la <a href="#" className="text-prak-yellow hover:underline">política de privacidad</a> y el tratamiento de mis datos *
                                                     </Label>
                                                 </div>
@@ -416,12 +416,12 @@ const Contact = () => {
                                         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                             <CheckCircle className="w-10 h-10 text-green-600" />
                                         </div>
-                                        <h3 className="text-2xl font-bold text-prak-dark mb-4">¡Mensaje Enviado!</h3>
-                                        <p className="text-prak-gray-dark mb-6">
+                                        <h3 className="text-2xl font-bold text-white mb-4">¡Mensaje Enviado!</h3>
+                                        <p className="text-white/80 mb-6">
                                             Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas.
                                         </p>
                                         <div className="bg-prak-light p-6 rounded-xl">
-                                            <p className="text-sm text-prak-gray-dark">
+                                            <p className="text-sm text-white/80">
                                                 <strong>Próximos pasos:</strong><br />
                                                 • Revisaremos tu proyecto<br />
                                                 • Te contactaremos para una consulta inicial<br />

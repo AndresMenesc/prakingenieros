@@ -24,8 +24,6 @@ import {
   FileCheck,
   Settings,
   PieChart,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -51,7 +49,7 @@ const Services = () => {
     {
       title: "Planes de gestión de RCD para PIN ambiental",
       description:
-        "Estructuramos el PG-RCD conforme a la Resolución 0472 de 2017 y lineamientos distritales para soportar la solicitud del PIN Ambiental.",
+        "Elaboramos el PG-RCD en cumplimiento de la normatividad ambiental vigente a nivel nacional y distrital, como requisito para la solicitud del PIN ambiental.",
     },
     {
       title: "Actualización mensual de la plataforma de reporte de RCDs",
@@ -66,7 +64,7 @@ const Services = () => {
     {
       title: "Evaluación de requisitos de construcción sostenible aplicables al proyecto",
       description:
-        "Identificamos requisitos de construcción sostenible aplicables (EDGE/LEED/Normativa local) y definimos acciones de cumplimiento.",
+        "Evaluamos los requisitos de construcción sostenible que aplican a tu proyecto e integramos desde el diseño aquellos que son obligatorios, garantizando el cumplimiento normativo y evitando posibles sanciones.",
     },
     {
       title: "Evaluación de sistemas con posibles Beneficios Tributarios ante la UPME",
@@ -77,9 +75,9 @@ const Services = () => {
 
   const supportItems: { title: string; description: string }[] = [
     {
-      title: "Capacitación al personal en la normatividad vigente",
+      title: "Capacitaciones",
       description:
-        "Capacitamos al personal de obra en manejo de RCD, segregación en fuente y obligaciones ambientales.",
+        "Ofrecemos capacitación en la temática ambiental o de sostenibilidad de su interés.",
     },
     {
       title: "Visitas de verificación de cumplimiento de medidas ambientales",
@@ -87,9 +85,9 @@ const Services = () => {
         "Realizamos visitas técnicas para verificar cumplimiento in situ y emitir recomendaciones puntuales de mejora.",
     },
     {
-      title: "Certificación EDGE",
+      title: "Certificación EDGE y CASA",
       description:
-        "Acompañamiento práctico y enfocado en cumplimiento, con base en normatividad ambiental colombiana vigente.",
+        "Analizamos el potencial de tu proyecto para obtener la certificación EDGE o CASA, y te asesoramos integralmente durante todo el proceso, desde la evaluación inicial hasta la obtención del certificado.",
     },
   ];
 
@@ -117,7 +115,7 @@ const Services = () => {
     {
       title: "Análisis de materialidad y reportes GRI",
       description:
-        "Análisis de materialidad y elaboración de reportes de sostenibilidad bajo estándar GRI.",
+        "Te ayudamos a identificar los temas clave de sostenibilidad a través del análisis de materialidad, aplicamos los estándares GRI pertinentes y elaboramos tu reporte de sostenibilidad con enfoque estratégico y cumplimiento normativo.",
     },
   ];
   // Icon mappings for construction services
@@ -151,10 +149,10 @@ const Services = () => {
         "Actualización mensual de la plataforma de reporte de RCDs",
         "Cierre de PIN del proyecto",
         "Evaluación de requisitos de construcción sostenible aplicables al proyecto",
-        "Capacitación al personal en la normatividad vigente",
+        "Capacitaciones",
         "Visitas de verificación de cumplimiento de medidas ambientales",
         "Evaluación de sistemas con posibles Beneficios Tributarios ante la UPME",
-        "Certificación EDGE"
+        "Certificación EDGE y CASA"
       ]
     },
     {
@@ -265,7 +263,7 @@ const Services = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Asesoria en sector construccion
+              Asesoría en sector construccion
             </motion.h2>
             <motion.p
               className="text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium"
@@ -299,15 +297,15 @@ const Services = () => {
             <div id="asesoria-construccion" className="mb-32">
               <div className="text-center mb-20">
                 <motion.h3
-                  className="text-2xl md:text-3xl font-black mb-6 flex items-center justify-center gap-4"
+                  className="text-4xl md:text-5xl font-black mb-6 flex items-center justify-center gap-4"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <Building className="h-10 w-10 text-prak-yellow" />
-                  <span className="text-white">
-                    Trámites obligatorios (PIN, reportes, cierres)
+                  <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                    Trámites Obligatorios
                   </span>
                 </motion.h3>
 
@@ -318,7 +316,7 @@ const Services = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  Planes de gestión de RCD para PIN ambiental. Evita sanciones y asegura la aprobación de tu proyecto con nuestros planes de RCD para obtener el PIN.
+                  Evita sanciones y asegura la aprobación de tu proyecto.
                 </motion.p>
               </div>
 
@@ -347,12 +345,10 @@ const Services = () => {
                               </div>
                               <button
                                 onClick={() => toggleCard(`mandatory-${index}`)}
-                                className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
                               >
-                                {expandedCards[`mandatory-${index}`] ?
-                                  <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
-                                  <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
-                                }
+                                <span className="text-lg font-bold">+</span>
+                                <span>ver más</span>
                               </button>
                             </div>
                             <h4 className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark">
@@ -393,15 +389,15 @@ const Services = () => {
             <div id="consultoria-ambiental" className="mb-32">
               <div className="text-center mb-20">
                 <motion.h3
-                  className="text-2xl md:text-3xl font-black mb-6 flex items-center justify-center gap-4"
+                  className="text-4xl md:text-5xl font-black mb-6 flex items-center justify-center gap-4"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <Leaf className="h-10 w-10 text-prak-teal" />
-                  <span className="text-white">
-                    Consultoria ambiental
+                  <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                    Acompañamiento y Sostenibilidad
                   </span>
                 </motion.h3>
 
@@ -441,12 +437,10 @@ const Services = () => {
                               </div>
                               <button
                                 onClick={() => toggleCard(`support-${index}`)}
-                                className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
                               >
-                                {expandedCards[`support-${index}`] ?
-                                  <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
-                                  <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
-                                }
+                                <span className="text-lg font-bold">+</span>
+                                <span>ver más</span>
                               </button>
                             </div>
                             <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
@@ -532,12 +526,10 @@ const Services = () => {
                             </div>
                             <button
                               onClick={() => toggleCard(`consultoria-${index}`)}
-                              className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
                             >
-                              {expandedCards[`consultoria-${index}`] ?
-                                <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
-                                <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
-                              }
+                              <span className="text-lg font-bold">+</span>
+                              <span>ver más</span>
                             </button>
                           </div>
                           <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
@@ -575,14 +567,14 @@ const Services = () => {
           <div id="marketing-digital">
             <div className="text-center mb-20">
               <motion.h3
-                className="text-2xl md:text-3xl font-black mb-8 flex items-center justify-center gap-4"
+                className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-4"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <TrendingUp className="h-10 w-10 text-prak-teal" />
-                <span className="text-white">
+                <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
                   Marketing digital
                 </span>
               </motion.h3>
@@ -622,12 +614,10 @@ const Services = () => {
                             </div>
                             <button
                               onClick={() => toggleCard(`marketing-${index}`)}
-                              className="p-2 hover:bg-prak-gray/10 rounded-lg transition-colors"
+                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
                             >
-                              {expandedCards[`marketing-${index}`] ?
-                                <ChevronUp className="h-5 w-5 text-prak-gray-dark" /> :
-                                <ChevronDown className="h-5 w-5 text-prak-gray-dark" />
-                              }
+                              <span className="text-lg font-bold">+</span>
+                              <span>ver más</span>
                             </button>
                           </div>
                           <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
