@@ -263,7 +263,7 @@ const Services = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Asesoría en sector construccion
+              Asesoría en sector construcción
             </motion.h2>
             <motion.p
               className="text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium"
@@ -487,7 +487,7 @@ const Services = () => {
               >
                 <Leaf className="h-12 w-12 text-prak-teal" />
                 <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                  Consultoria Ambiental
+                  Consultoría Ambiental
                 </span>
               </motion.h3>
               <motion.p
