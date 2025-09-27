@@ -279,14 +279,16 @@ const Services = () => {
           {/* Toggle buttons for Mandatory vs Support */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <button
+              id="services-tab-mandatory"
               onClick={() => setSelectedTab('mandatory')}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${selectedTab === 'mandatory' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer ${selectedTab === 'mandatory' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
             >
               Trámites obligatorios (PIN, reportes, cierres)
             </button>
             <button
+              id="services-tab-support"
               onClick={() => setSelectedTab('support')}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${selectedTab === 'support' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer ${selectedTab === 'support' ? 'bg-prak-teal text-white border-prak-teal shadow-elegant' : 'bg-white text-prak-dark border-prak-gray/30 hover:bg-prak-light'}`}
             >
               Acompañamiento y Sostenibilidad
             </button>
@@ -330,7 +332,10 @@ const Services = () => {
                       transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
                       viewport={{ once: true, amount: 0.3 }}
                     >
-                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                      <Card
+                        id={`mandatory-service-card-${index}`}
+                        className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                      >
                         <CardContent className="p-6 flex flex-col h-full">
                           <motion.div
                             className="flex-shrink-0"
@@ -344,14 +349,18 @@ const Services = () => {
                                 {constructionIcons[index]}
                               </div>
                               <button
+                                id={`mandatory-expand-btn-${index}`}
                                 onClick={() => toggleCard(`mandatory-${index}`)}
-                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
+                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
                               >
                                 <span className="text-lg font-bold">+</span>
                                 <span>ver más</span>
                               </button>
                             </div>
-                            <h4 className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark">
+                            <h4
+                              id={`mandatory-title-${index}`}
+                              className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark cursor-pointer"
+                            >
                               {item.title}
                             </h4>
                             {expandedCards[`mandatory-${index}`] && (
@@ -366,8 +375,9 @@ const Services = () => {
                                   {item.description}
                                 </p>
                                 <Button
+                                  id={`mandatory-whatsapp-btn-${index}`}
                                   onClick={() => openWhatsApp(item.title)}
-                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
                                 >
                                   Más información
                                 </Button>
@@ -422,7 +432,10 @@ const Services = () => {
                       transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
                       viewport={{ once: true, amount: 0.3 }}
                     >
-                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                      <Card
+                        id={`support-service-card-${index}`}
+                        className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                      >
                         <CardContent className="p-6 flex flex-col h-full">
                           <motion.div
                             className="flex-shrink-0"
@@ -436,14 +449,18 @@ const Services = () => {
                                 {environmentalIcons[index]}
                               </div>
                               <button
+                                id={`support-expand-btn-${index}`}
                                 onClick={() => toggleCard(`support-${index}`)}
-                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
+                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
                               >
                                 <span className="text-lg font-bold">+</span>
                                 <span>ver más</span>
                               </button>
                             </div>
-                            <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                            <h4
+                              id={`support-title-${index}`}
+                              className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                            >
                               {item.title}
                             </h4>
                             {expandedCards[`support-${index}`] && (
@@ -458,8 +475,9 @@ const Services = () => {
                                   {item.description}
                                 </p>
                                 <Button
+                                  id={`support-whatsapp-btn-${index}`}
                                   onClick={() => openWhatsApp(item.title)}
-                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                  className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
                                 >
                                   Más información
                                 </Button>
@@ -511,7 +529,10 @@ const Services = () => {
                     transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.3 }}
                   >
-                    <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                    <Card
+                      id={`consultoria-service-card-${index}`}
+                      className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                    >
                       <CardContent className="p-6 flex flex-col h-full">
                         <motion.div
                           className="flex-shrink-0"
@@ -525,14 +546,18 @@ const Services = () => {
                               <Leaf className="h-8 w-8 text-prak-teal" />
                             </div>
                             <button
+                              id={`consultoria-expand-btn-${index}`}
                               onClick={() => toggleCard(`consultoria-${index}`)}
-                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
+                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
                             >
                               <span className="text-lg font-bold">+</span>
                               <span>ver más</span>
                             </button>
                           </div>
-                          <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                          <h4
+                            id={`consultoria-title-${index}`}
+                            className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                          >
                             {item.title}
                           </h4>
                           {expandedCards[`consultoria-${index}`] && (
@@ -547,8 +572,9 @@ const Services = () => {
                                 {item.description}
                               </p>
                               <Button
+                                id={`consultoria-whatsapp-btn-${index}`}
                                 onClick={() => openWhatsApp(item.title)}
-                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
                               >
                                 Más información
                               </Button>
@@ -599,7 +625,10 @@ const Services = () => {
                     transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.3 }}
                   >
-                    <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col">
+                    <Card
+                      id={`marketing-service-card-${index}`}
+                      className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                    >
                       <CardContent className="p-6 flex flex-col h-full">
                         <motion.div
                           className="flex-shrink-0"
@@ -613,14 +642,18 @@ const Services = () => {
                               {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
                             </div>
                             <button
+                              id={`marketing-expand-btn-${index}`}
                               onClick={() => toggleCard(`marketing-${index}`)}
-                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark"
+                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
                             >
                               <span className="text-lg font-bold">+</span>
                               <span>ver más</span>
                             </button>
                           </div>
-                          <h4 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
+                          <h4
+                            id={`marketing-title-${index}`}
+                            className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                          >
                             {service.title}
                           </h4>
                           {expandedCards[`marketing-${index}`] && (
@@ -635,7 +668,8 @@ const Services = () => {
                                 {service.items.map((item, itemIndex) => (
                                   <motion.li
                                     key={itemIndex}
-                                    className="flex items-start gap-3 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300"
+                                    id={`marketing-item-${index}-${itemIndex}`}
+                                    className="flex items-start gap-3 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300 cursor-pointer"
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 + itemIndex * 0.05, ease: "easeOut" }}
@@ -647,8 +681,9 @@ const Services = () => {
                                 ))}
                               </ul>
                               <Button
+                                id={`marketing-whatsapp-btn-${index}`}
                                 onClick={() => openWhatsApp(service.title)}
-                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300"
+                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
                               >
                                 Más información
                               </Button>
