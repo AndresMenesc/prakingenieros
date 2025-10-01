@@ -36,7 +36,7 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [referenceNumber] = useState(() => `REF-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
+    const [referenceNumber] = useState(() => `REF-${Math.floor(100000 + Math.random() * 900000)}-${Math.floor(1000 + Math.random() * 9000)}`);
 
     const handleInputChange = (field: string, value: string | boolean) => {
         setFormData(prev => ({ ...prev, [field]: value }));

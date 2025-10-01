@@ -12,7 +12,7 @@ const Footer = () => {
               <img
                 src="/logomain.png"
                 alt="PRAK Ingenieros"
-                className="h-16 w-auto mb-4 filter brightness-0 invert"
+                className="h-16 w-auto mb-4"
               />
               <p className="text-white/80 leading-relaxed">
                 Especialistas en consultoría ambiental, sostenibilidad y marketing digital.
