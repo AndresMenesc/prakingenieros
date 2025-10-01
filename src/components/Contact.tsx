@@ -230,20 +230,10 @@ const Contact = () => {
                                 {!isSubmitted ? (
                                     <>
                                         <div className="mb-8">
-                                            <div className="flex justify-between items-start mb-4">
-                                                <div>
-                                                    <h3 className="text-2xl font-bold text-white mb-2">Solicita tu Consulta Gratuita</h3>
-                                                    <p className="text-white/80">
-                                                        Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
-                                                    </p>
-                                                </div>
-                                                <div className="text-right">
-                                                    <div className="text-xs text-white/60 mb-1">Número de referencia</div>
-                                                    <div className="text-sm font-mono font-semibold text-prak-yellow bg-white/10 px-3 py-1 rounded-lg">
-                                                        {referenceNumber}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <h3 className="text-2xl font-bold text-white mb-2">Solicita tu Consulta Gratuita</h3>
+                                            <p className="text-white/80">
+                                                Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
+                                            </p>
                                         </div>
 
                                         <form onSubmit={handleSubmit} className="space-y-6">
@@ -281,7 +271,7 @@ const Contact = () => {
                                                         id="phone"
                                                         value={formData.phone}
                                                         onChange={(e) => handleInputChange("phone", e.target.value)}
-                                                        placeholder="+57 302 349 0488"
+                                                        placeholder="+57 315 876 5432"
                                                         className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow"
                                                     />
                                                 </div>
