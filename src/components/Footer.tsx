@@ -27,7 +27,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-prak-orange flex-shrink-0" />
-                <span className="text-white/90">prakingenieros@gmail.com</span>
+                <span className="text-white/90">coordinador@prakingenieros.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-prak-orange flex-shrink-0" />

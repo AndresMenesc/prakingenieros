@@ -61,7 +61,7 @@ const Projects = () => {
           name: "Living Factory",
           address: "Calle 18 # 54 - 20",
           status: "Completado",
-          image: "/living factory.jpeg"
+          image: "/living%20factory.jpeg"
         }
       ],
       hasLogo: true,
@@ -133,7 +133,7 @@ const Projects = () => {
         }
       ],
       hasLogo: true,
-      logo: "/sociedad saleciana.png"
+      logo: "/sociedad%20saleciana.png"
     }
   ];
 

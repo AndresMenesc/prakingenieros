@@ -9,7 +9,7 @@ const Clients = () => {
         {
             id: 1,
             name: "Sociedad Saleciana",
-            logo: "/sociedad saleciana.png",
+            logo: "/sociedad%20saleciana.png",
             alt: "Sociedad Saleciana Logo"
         },
         {
