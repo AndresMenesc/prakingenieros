@@ -28,8 +28,7 @@ const Contact = () => {
         company: "",
         service: "",
         projectType: "",
-        budget: "",
-        timeline: "",
+        constructionArea: "",
         message: "",
         newsletter: false,
         privacy: false
@@ -37,6 +36,7 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [referenceNumber] = useState(() => `REF-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
 
     const handleInputChange = (field: string, value: string | boolean) => {
         setFormData(prev => ({ ...prev, [field]: value }));
@@ -62,8 +62,7 @@ const Contact = () => {
                 company: "",
                 service: "",
                 projectType: "",
-                budget: "",
-                timeline: "",
+                constructionArea: "",
                 message: "",
                 newsletter: false,
                 privacy: false
@@ -231,10 +230,20 @@ const Contact = () => {
                                 {!isSubmitted ? (
                                     <>
                                         <div className="mb-8">
-                                            <h3 className="text-2xl font-bold text-white mb-2">Solicita tu Consulta Gratuita</h3>
-                                            <p className="text-white/80">
-                                                Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
-                                            </p>
+                                            <div className="flex justify-between items-start mb-4">
+                                                <div>
+                                                    <h3 className="text-2xl font-bold text-white mb-2">Solicita tu Consulta Gratuita</h3>
+                                                    <p className="text-white/80">
+                                                        Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
+                                                    </p>
+                                                </div>
+                                                <div className="text-right">
+                                                    <div className="text-xs text-white/60 mb-1">Número de referencia</div>
+                                                    <div className="text-sm font-mono font-semibold text-prak-yellow bg-white/10 px-3 py-1 rounded-lg">
+                                                        {referenceNumber}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <form onSubmit={handleSubmit} className="space-y-6">
@@ -321,35 +330,15 @@ const Contact = () => {
                                             </div>
 
                                             {/* Project Details */}
-                                            <div className="grid md:grid-cols-2 gap-6">
-                                                <div className="space-y-2">
-                                                    <Label htmlFor="budget" className="text-white font-medium">Presupuesto estimado</Label>
-                                                    <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                                                        <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
-                                                            <SelectValue placeholder="Rango de presupuesto" />
-                                                        </SelectTrigger>
-                                                        <SelectContent>
-                                                            <SelectItem value="bajo">$0 - $50M COP</SelectItem>
-                                                            <SelectItem value="medio">$50M - $200M COP</SelectItem>
-                                                            <SelectItem value="alto">$200M - $500M COP</SelectItem>
-                                                            <SelectItem value="premium">$500M+ COP</SelectItem>
-                                                        </SelectContent>
-                                                    </Select>
-                                                </div>
-                                                <div className="space-y-2">
-                                                    <Label htmlFor="timeline" className="text-white font-medium">Timeline del proyecto</Label>
-                                                    <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
-                                                        <SelectTrigger className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow">
-                                                            <SelectValue placeholder="Tiempo estimado" />
-                                                        </SelectTrigger>
-                                                        <SelectContent>
-                                                            <SelectItem value="urgente">Urgente (1-2 semanas)</SelectItem>
-                                                            <SelectItem value="corto">Corto plazo (1-3 meses)</SelectItem>
-                                                            <SelectItem value="medio">Medio plazo (3-6 meses)</SelectItem>
-                                                            <SelectItem value="largo">Largo plazo (6+ meses)</SelectItem>
-                                                        </SelectContent>
-                                                    </Select>
-                                                </div>
+                                            <div className="space-y-2">
+                                                <Label htmlFor="constructionArea" className="text-white font-medium">Área a construir estimada</Label>
+                                                <Input
+                                                    id="constructionArea"
+                                                    value={formData.constructionArea}
+                                                    onChange={(e) => handleInputChange("constructionArea", e.target.value)}
+                                                    placeholder="Ej: 500 m², 1000 m², etc."
+                                                    className="border-prak-gray/20 focus:border-prak-yellow focus:ring-prak-yellow"
+                                                />
                                             </div>
 
                                             {/* Message */}
