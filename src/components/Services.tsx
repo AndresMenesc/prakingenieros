@@ -418,7 +418,7 @@ const Services = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
+                  Acompañamos a tu empresa y en la implementación de buenas prácticas, certificaciones y diagnósticos ambientales.
                 </motion.p>
               </div>
 
@@ -515,7 +515,7 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
+                Acompañamos a tu empresa y en la implementación de buenas prácticas, certificaciones y diagnósticos ambientales.
               </motion.p>
             </div>
 
