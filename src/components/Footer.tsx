@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div>
               <img
-                src="/lovable-uploads/737bfbe6-84b7-4196-a5f4-82679c06ed8a.png"
+                src="/logomain.png"
                 alt="PRAK Ingenieros"
                 className="h-16 w-auto mb-4 filter brightness-0 invert"
               />
