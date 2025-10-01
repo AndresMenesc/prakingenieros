@@ -371,11 +371,11 @@ const Contact = () => {
                                             </div>
 
                                             {/* Submit Buttons */}
-                                            <div className="flex flex-col sm:flex-row gap-4">
+                                            <div className="flex flex-col gap-4">
                                                 <Button
                                                     type="submit"
                                                     disabled={isSubmitting || !formData.privacy}
-                                                    className="flex-1 bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
+                                                    className="w-full bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
                                                 >
                                                     {isSubmitting ? (
                                                         <div className="flex items-center gap-2">
@@ -392,7 +392,7 @@ const Contact = () => {
                                                 <Button
                                                     type="button"
                                                     onClick={() => scrollToSection("proyectos")}
-                                                    className="flex-1 bg-prak-dark hover:bg-prak-dark/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant"
+                                                    className="w-full bg-prak-dark hover:bg-prak-dark/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant"
                                                 >
                                                     Ver Proyectos
                                                 </Button>
