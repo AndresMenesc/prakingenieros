@@ -370,33 +370,24 @@ const Contact = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Submit Buttons */}
-                                            <div className="flex flex-col gap-4">
-                                                <Button
-                                                    type="submit"
-                                                    disabled={isSubmitting || !formData.privacy}
-                                                    className="w-full bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
-                                                >
-                                                    {isSubmitting ? (
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                                            Enviando...
-                                                        </div>
-                                                    ) : (
-                                                        <div className="flex items-center gap-2">
-                                                            <Send className="w-5 h-5" />
-                                                            Solicitar Consulta Gratuita
-                                                        </div>
-                                                    )}
-                                                </Button>
-                                                <Button
-                                                    type="button"
-                                                    onClick={() => scrollToSection("proyectos")}
-                                                    className="w-full bg-prak-dark hover:bg-prak-dark/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant"
-                                                >
-                                                    Ver Proyectos
-                                                </Button>
-                                            </div>
+                                            {/* Submit Button */}
+                                            <Button
+                                                type="submit"
+                                                disabled={isSubmitting || !formData.privacy}
+                                                className="w-full bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
+                                            >
+                                                {isSubmitting ? (
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                        Enviando...
+                                                    </div>
+                                                ) : (
+                                                    <div className="flex items-center gap-2">
+                                                        <Send className="w-5 h-5" />
+                                                        Solicitar Consulta Gratuita
+                                                    </div>
+                                                )}
+                                            </Button>
                                         </form>
                                     </>
                                 ) : (
