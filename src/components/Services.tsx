@@ -257,13 +257,15 @@ const Services = () => {
           {/* Section Title */}
           <div className="text-center mb-8">
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Asesoría en sector construcción
+              <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+                Asesoría en sector construcción
+              </span>
             </motion.h2>
             <motion.p
               className="text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium"
@@ -335,6 +337,7 @@ const Services = () => {
                       <Card
                         id={`mandatory-service-card-${index}`}
                         className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                        onClick={() => toggleCard(`mandatory-${index}`)}
                       >
                         <CardContent className="p-6 flex flex-col h-full">
                           <motion.div
@@ -348,18 +351,14 @@ const Services = () => {
                               <div className="p-3 bg-prak-yellow/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
                                 {constructionIcons[index]}
                               </div>
-                              <button
-                                id={`mandatory-expand-btn-${index}`}
-                                onClick={() => toggleCard(`mandatory-${index}`)}
-                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
-                              >
-                                <span className="text-lg font-bold">+</span>
+                              <div className="flex items-center gap-2 p-2 text-sm font-medium text-prak-gray-dark">
+                                <span className="text-lg font-bold">{expandedCards[`mandatory-${index}`] ? '−' : '+'}</span>
                                 <span>ver más</span>
-                              </button>
+                              </div>
                             </div>
                             <h4
                               id={`mandatory-title-${index}`}
-                              className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark cursor-pointer"
+                              className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark"
                             >
                               {item.title}
                             </h4>
@@ -435,6 +434,7 @@ const Services = () => {
                       <Card
                         id={`support-service-card-${index}`}
                         className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                        onClick={() => toggleCard(`support-${index}`)}
                       >
                         <CardContent className="p-6 flex flex-col h-full">
                           <motion.div
@@ -448,18 +448,14 @@ const Services = () => {
                               <div className="p-3 bg-prak-teal/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
                                 {environmentalIcons[index]}
                               </div>
-                              <button
-                                id={`support-expand-btn-${index}`}
-                                onClick={() => toggleCard(`support-${index}`)}
-                                className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
-                              >
-                                <span className="text-lg font-bold">+</span>
+                              <div className="flex items-center gap-2 p-2 text-sm font-medium text-prak-gray-dark">
+                                <span className="text-lg font-bold">{expandedCards[`support-${index}`] ? '−' : '+'}</span>
                                 <span>ver más</span>
-                              </button>
+                              </div>
                             </div>
                             <h4
                               id={`support-title-${index}`}
-                              className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                              className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark"
                             >
                               {item.title}
                             </h4>
@@ -532,6 +528,7 @@ const Services = () => {
                     <Card
                       id={`consultoria-service-card-${index}`}
                       className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+                      onClick={() => toggleCard(`consultoria-${index}`)}
                     >
                       <CardContent className="p-6 flex flex-col h-full">
                         <motion.div
@@ -545,18 +542,14 @@ const Services = () => {
                             <div className="p-3 bg-prak-teal/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
                               <Leaf className="h-8 w-8 text-prak-teal" />
                             </div>
-                            <button
-                              id={`consultoria-expand-btn-${index}`}
-                              onClick={() => toggleCard(`consultoria-${index}`)}
-                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
-                            >
-                              <span className="text-lg font-bold">+</span>
+                            <div className="flex items-center gap-2 p-2 text-sm font-medium text-prak-gray-dark">
+                              <span className="text-lg font-bold">{expandedCards[`consultoria-${index}`] ? '−' : '+'}</span>
                               <span>ver más</span>
-                            </button>
+                            </div>
                           </div>
                           <h4
                             id={`consultoria-title-${index}`}
-                            className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                            className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark"
                           >
                             {item.title}
                           </h4>
