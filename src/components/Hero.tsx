@@ -122,6 +122,15 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
 
+                <Button
+                  onClick={() => scrollToSection("proyectos")}
+                  size="lg"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
+                >
+                  Ver Proyectos
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
                 {/* Services Dropdown */}
                 <div className="relative" ref={dropdownRef}>
                   <Button
@@ -217,23 +226,6 @@ const Hero = () => {
                   </motion.div>
 
                 </div>
-                
-                {/* Ver Proyectos Button */}
-                <motion.div
-                  className="mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 2.0, ease: "easeOut" }}
-                >
-                  <Button
-                    onClick={() => scrollToSection("proyectos")}
-                    size="lg"
-                    className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-sm px-8 py-4 text-base font-semibold tracking-wide hover:scale-[1.02] transition-all duration-300"
-                  >
-                    Ver Proyectos
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
               </motion.div>
             </motion.div>
           </div>
