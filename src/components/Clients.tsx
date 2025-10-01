@@ -167,23 +167,43 @@ const Clients = () => {
                     transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <Button
-                        onClick={() => {
-                            const element = document.getElementById("contacto");
-                            if (element) {
-                                const offsetTop = element.offsetTop - 100;
-                                window.scrollTo({
-                                    top: offsetTop,
-                                    behavior: "smooth"
-                                });
-                            }
-                        }}
-                        size="lg"
-                        className="bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-premium transition-all duration-300 hover:scale-105 group"
-                    >
-                        Solicitar Cotización Gratuita
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                    <div className="flex flex-col gap-4 items-center">
+                        <Button
+                            onClick={() => {
+                                const element = document.getElementById("contacto");
+                                if (element) {
+                                    const offsetTop = element.offsetTop - 100;
+                                    window.scrollTo({
+                                        top: offsetTop,
+                                        behavior: "smooth"
+                                    });
+                                }
+                            }}
+                            size="lg"
+                            className="bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-premium transition-all duration-300 hover:scale-105 group"
+                        >
+                            Solicitar Cotización Gratuita
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                        
+                        <Button
+                            onClick={() => {
+                                const element = document.getElementById("proyectos");
+                                if (element) {
+                                    const offsetTop = element.offsetTop - 100;
+                                    window.scrollTo({
+                                        top: offsetTop,
+                                        behavior: "smooth"
+                                    });
+                                }
+                            }}
+                            size="lg"
+                            className="bg-prak-dark hover:bg-prak-dark/90 text-white font-semibold px-8 py-4 rounded-xl shadow-elegant hover:shadow-premium transition-all duration-300 hover:scale-105 group"
+                        >
+                            Ver Proyectos
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </div>
                 </motion.div>
             </div>
         </section>
