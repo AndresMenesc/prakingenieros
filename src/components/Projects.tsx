@@ -33,7 +33,8 @@ const Projects = () => {
           image: null
         }
       ],
-      hasLogo: true
+      hasLogo: true,
+      logo: "/ctconstruye.jpg"
     },
     {
       name: "Flor Constructores",
@@ -114,7 +115,8 @@ const Projects = () => {
           image: null
         }
       ],
-      hasLogo: true
+      hasLogo: true,
+      logo: "/mas.png"
     },
     {
       name: "Salesianos de Don Bosco",
