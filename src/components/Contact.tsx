@@ -79,15 +79,9 @@ const Contact = () => {
             description: "Servicios en toda Colombia"
         },
         {
-            icon: <Phone className="h-6 w-6" />,
-            title: "Teléfono",
-            details: "+57 302 349 0488",
-            description: "Lunes a Viernes 8:00 AM - 6:00 PM"
-        },
-        {
             icon: <Mail className="h-6 w-6" />,
             title: "Email",
-            details: "prakingenieros@gmail.com",
+            details: "coordinador@prakingenieros.com",
             description: "Respuesta en menos de 24 horas"
         },
         {
@@ -97,6 +91,17 @@ const Contact = () => {
             description: "Consultas de emergencia disponibles"
         }
     ];
+
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offsetTop = element.offsetTop - 100;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }
+    };
 
     return (
         <section id="contacto" className="py-24 bg-gradient-hero">
@@ -386,24 +391,33 @@ const Contact = () => {
                                                 </div>
                                             </div>
 
-                                            {/* Submit Button */}
-                                            <Button
-                                                type="submit"
-                                                disabled={isSubmitting || !formData.privacy}
-                                                className="w-full bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
-                                            >
-                                                {isSubmitting ? (
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                                        Enviando...
-                                                    </div>
-                                                ) : (
-                                                    <div className="flex items-center gap-2">
-                                                        <Send className="w-5 h-5" />
-                                                        Solicitar Consulta Gratuita
-                                                    </div>
-                                                )}
-                                            </Button>
+                                            {/* Submit Buttons */}
+                                            <div className="flex flex-col sm:flex-row gap-4">
+                                                <Button
+                                                    type="submit"
+                                                    disabled={isSubmitting || !formData.privacy}
+                                                    className="flex-1 bg-gradient-to-r from-prak-yellow to-prak-teal hover:from-prak-yellow/90 hover:to-prak-teal/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant hover:shadow-premium"
+                                                >
+                                                    {isSubmitting ? (
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                            Enviando...
+                                                        </div>
+                                                    ) : (
+                                                        <div className="flex items-center gap-2">
+                                                            <Send className="w-5 h-5" />
+                                                            Solicitar Consulta Gratuita
+                                                        </div>
+                                                    )}
+                                                </Button>
+                                                <Button
+                                                    type="button"
+                                                    onClick={() => scrollToSection("proyectos")}
+                                                    className="flex-1 bg-prak-dark hover:bg-prak-dark/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-elegant"
+                                                >
+                                                    Ver Proyectos
+                                                </Button>
+                                            </div>
                                         </form>
                                     </>
                                 ) : (
