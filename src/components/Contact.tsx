@@ -448,8 +448,8 @@ const Contact = () => {
                                             Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas.
                                         </p>
                                         <div className="bg-prak-light p-6 rounded-xl">
-                                            <p className="text-sm text-white/80">
-                                                <strong>Próximos pasos:</strong><br />
+                                            <p className="text-sm text-gray-800">
+                                                <strong className="text-gray-900">Próximos pasos:</strong><br />
                                                 • Revisaremos tu proyecto<br />
                                                 • Te contactaremos para una consulta inicial<br />
                                                 • Prepararemos una propuesta personalizada
