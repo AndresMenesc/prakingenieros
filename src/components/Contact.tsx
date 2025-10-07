@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 import {
     MapPin,
     Phone,
@@ -21,6 +23,7 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+    const { toast } = useToast();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -46,28 +49,64 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            // EmailJS configuration - Replace these with your actual EmailJS credentials
+            const serviceId = 'YOUR_SERVICE_ID'; // Get from emailjs.com
+            const templateId = 'YOUR_TEMPLATE_ID'; // Get from emailjs.com
+            const publicKey = 'YOUR_PUBLIC_KEY'; // Get from emailjs.com
 
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+            // Send email using EmailJS
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    to_email: 'coordinador@prakingenieros.com',
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    phone: formData.phone,
+                    company: formData.company,
+                    service: formData.service,
+                    project_type: formData.projectType,
+                    construction_area: formData.constructionArea,
+                    message: formData.message,
+                    newsletter: formData.newsletter ? 'Sí' : 'No',
+                    reference: referenceNumber
+                },
+                publicKey
+            );
 
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                company: "",
-                service: "",
-                projectType: "",
-                constructionArea: "",
-                message: "",
-                newsletter: false,
-                privacy: false
+            setIsSubmitted(true);
+            toast({
+                title: "¡Mensaje enviado!",
+                description: "Nos pondremos en contacto contigo en menos de 24 horas.",
             });
-        }, 3000);
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                setIsSubmitted(false);
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    company: "",
+                    service: "",
+                    projectType: "",
+                    constructionArea: "",
+                    message: "",
+                    newsletter: false,
+                    privacy: false
+                });
+            }, 3000);
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            toast({
+                title: "Error al enviar",
+                description: "Por favor verifica la configuración de EmailJS o intenta de nuevo.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const contactInfo = [
