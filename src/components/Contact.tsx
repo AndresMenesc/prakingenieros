@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from '@emailjs/browser';
 import {
     MapPin,
     Phone,
@@ -50,19 +49,19 @@ const Contact = () => {
         setIsSubmitting(true);
 
         try {
-            // EmailJS configuration - Replace these with your actual EmailJS credentials
-            const serviceId = 'YOUR_SERVICE_ID'; // Get from emailjs.com
-            const templateId = 'YOUR_TEMPLATE_ID'; // Get from emailjs.com
-            const publicKey = 'YOUR_PUBLIC_KEY'; // Get from emailjs.com
-
-            // Send email using EmailJS
-            await emailjs.send(
-                serviceId,
-                templateId,
-                {
-                    to_email: 'coordinador@prakingenieros.com',
+            // Web3Forms configuration - Get your access key from https://web3forms.com
+            const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY';
+            
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    subject: `Nueva consulta de ${formData.name} - Ref: ${referenceNumber}`,
                     from_name: formData.name,
-                    from_email: formData.email,
+                    email: formData.email,
                     phone: formData.phone,
                     company: formData.company,
                     service: formData.service,
@@ -70,10 +69,15 @@ const Contact = () => {
                     construction_area: formData.constructionArea,
                     message: formData.message,
                     newsletter: formData.newsletter ? 'Sí' : 'No',
-                    reference: referenceNumber
-                },
-                publicKey
-            );
+                    to_email: 'coordinador@prakingenieros.com',
+                }),
+            });
+
+            const result = await response.json();
+            
+            if (!result.success) {
+                throw new Error('Failed to send message');
+            }
 
             setIsSubmitted(true);
             toast({
@@ -98,10 +102,10 @@ const Contact = () => {
                 });
             }, 3000);
         } catch (error) {
-            console.error('EmailJS Error:', error);
+            console.error('Web3Forms Error:', error);
             toast({
                 title: "Error al enviar",
-                description: "Por favor verifica la configuración de EmailJS o intenta de nuevo.",
+                description: "Por favor verifica la configuración de Web3Forms o intenta de nuevo.",
                 variant: "destructive",
             });
         } finally {
