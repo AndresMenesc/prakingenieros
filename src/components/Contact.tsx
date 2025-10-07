@@ -50,7 +50,7 @@ const Contact = () => {
 
         try {
             // Web3Forms configuration - Get your access key from https://web3forms.com
-            const accessKey = 'YOUR_WEB3FORMS_ACCESS_KEY';
+            const accessKey = '360b6cd3-9e5e-4d7c-ad69-bdb5a2b4c357';
             
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
