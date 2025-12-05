@@ -2,11 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Building, Leaf, Target } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -23,33 +26,48 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 100; // Account for header height
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth"
-      });
-      setIsMenuOpen(false);
-      setIsServicesDropdownOpen(false);
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offsetTop = element.offsetTop - 100;
+          window.scrollTo({ top: offsetTop, behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offsetTop = element.offsetTop - 100;
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      }
     }
+    setIsMenuOpen(false);
+    setIsServicesDropdownOpen(false);
+  };
+
+  const handleServiceClick = (url: string) => {
+    navigate(url);
+    setIsMenuOpen(false);
+    setIsServicesDropdownOpen(false);
   };
 
   const serviceSections = [
     {
-      id: "asesoria-construccion",
+      url: "/servicios/asesoria-construccion",
       title: "Asesoría Sector Construcción",
       icon: <Building className="h-4 w-4" />,
       description: "Gestión de RCDs y cumplimiento"
     },
     {
-      id: "consultoria-ambiental",
+      url: "/servicios/consultoria-ambiental",
       title: "Consultoría Ambiental",
       icon: <Leaf className="h-4 w-4" />,
       description: "Certificaciones y sostenibilidad"
     },
     {
-      id: "marketing-digital",
+      url: "/servicios/marketing-digital",
       title: "Marketing Digital",
       icon: <Target className="h-4 w-4" />,
       description: "Publicidad y analítica"
@@ -61,13 +79,13 @@ const Header = () => {
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img
               src="/logomain.png"
               alt="PRAK Ingenieros"
               className="h-10 w-auto hover:scale-105 transition-transform duration-300"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
@@ -101,9 +119,9 @@ const Header = () => {
                     <div className="p-2">
                       {serviceSections.map((service, index) => (
                         <motion.button
-                          key={service.id}
-                          onClick={() => scrollToSection(service.id)}
-                          className="w-full text-left p-3 rounded-xl transition-all duration-200 hover:bg-prak-light/50 group"
+                          key={service.url}
+                          onClick={() => handleServiceClick(service.url)}
+                          className={`w-full text-left p-3 rounded-xl transition-all duration-200 hover:bg-prak-light/50 group ${location.pathname === service.url ? 'bg-prak-light/70' : ''}`}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -111,11 +129,11 @@ const Header = () => {
                           whileTap={{ scale: 0.98 }}
                         >
                           <div className="flex items-start gap-3">
-                            <div className="p-2 rounded-lg bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20 transition-colors duration-200">
+                            <div className={`p-2 rounded-lg transition-colors duration-200 ${location.pathname === service.url ? 'bg-prak-yellow/30 text-prak-dark' : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'}`}>
                               {service.icon}
                             </div>
                             <div className="flex-1">
-                              <h4 className="font-semibold text-prak-dark mb-1 text-sm">
+                              <h4 className={`font-semibold mb-1 text-sm ${location.pathname === service.url ? 'text-prak-teal' : 'text-prak-dark'}`}>
                                 {service.title}
                               </h4>
                               <p className="text-xs text-prak-gray-dark/70">
@@ -187,18 +205,18 @@ const Header = () => {
                     >
                       {serviceSections.map((service, index) => (
                         <motion.button
-                          key={service.id}
-                          onClick={() => scrollToSection(service.id)}
-                          className="w-full text-left p-2 rounded-lg transition-all duration-200 hover:bg-prak-light/50 group flex items-center gap-3 text-sm"
+                          key={service.url}
+                          onClick={() => handleServiceClick(service.url)}
+                          className={`w-full text-left p-2 rounded-lg transition-all duration-200 hover:bg-prak-light/50 group flex items-center gap-3 text-sm ${location.pathname === service.url ? 'bg-prak-light/70' : ''}`}
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.2, delay: index * 0.1 }}
                         >
-                          <div className="p-2 rounded-lg bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20 transition-colors duration-200">
+                          <div className={`p-2 rounded-lg transition-colors duration-200 ${location.pathname === service.url ? 'bg-prak-yellow/30 text-prak-dark' : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'}`}>
                             {service.icon}
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-medium text-prak-dark text-sm">
+                            <h4 className={`font-medium text-sm ${location.pathname === service.url ? 'text-prak-teal' : 'text-prak-dark'}`}>
                               {service.title}
                             </h4>
                             <p className="text-xs text-prak-gray-dark/70">
