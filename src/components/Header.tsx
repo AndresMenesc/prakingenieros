@@ -155,12 +155,13 @@ const Header = () => {
             >
               Proyectos
             </button>
-            <Button
-              onClick={() => scrollToSection("contacto")}
-              className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold px-6 py-2 text-sm md:text-base hover:scale-105 transition-all duration-300"
-            >
-              Contacto
-            </Button>
+            <Link to="/contacto">
+              <Button
+                className={`bg-gradient-premium hover:shadow-premium text-prak-dark font-bold px-6 py-2 text-sm md:text-base hover:scale-105 transition-all duration-300 ${location.pathname === '/contacto' ? 'ring-2 ring-prak-teal' : ''}`}
+              >
+                Contacto
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -236,12 +237,13 @@ const Header = () => {
               >
                 Proyectos
               </button>
-              <Button
-                onClick={() => scrollToSection("contacto")}
-                className="bg-gradient-premium hover:shadow-premium text-prak-dark font-bold w-fit px-5 py-2 text-sm"
-              >
-                Contacto
-              </Button>
+              <Link to="/contacto" onClick={() => setIsMenuOpen(false)}>
+                <Button
+                  className={`bg-gradient-premium hover:shadow-premium text-prak-dark font-bold w-fit px-5 py-2 text-sm ${location.pathname === '/contacto' ? 'ring-2 ring-prak-teal' : ''}`}
+                >
+                  Contacto
+                </Button>
+              </Link>
             </div>
           </nav>
         )}
