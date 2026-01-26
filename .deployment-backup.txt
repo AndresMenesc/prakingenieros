@@ -1,0 +1,3 @@
+# Backup note: Old Vite files
+# Created before Next.js migration on $(date)
+# Old files backed up in this location

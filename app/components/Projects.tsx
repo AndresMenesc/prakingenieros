@@ -1,0 +1,315 @@
+"use client";
+
+import { Card, CardContent } from "@/app/components/ui/card";
+import { Badge } from "@/app/components/ui/badge";
+import { MapPin, Building, Users } from "lucide-react";
+import { motion } from "framer-motion";
+
+const Projects = () => {
+  const clients = [
+    {
+      name: "Promotora Luminum",
+      projects: [
+        {
+          name: "LUMINUM",
+          address: "CALLE 104 #26-36",
+          status: "En construcción",
+          image: null
+        }
+      ],
+      hasLogo: false
+    },
+    {
+      name: "Construye RK SAS",
+      projects: [
+        {
+          name: "Estambul",
+          address: "Calle 17 # 115 - 10",
+          status: "En construcción",
+          image: null
+        },
+        {
+          name: "Tokyo",
+          address: "Av Carrera 45 # 95 - 86",
+          status: "Completado",
+          image: null
+        }
+      ],
+      hasLogo: true,
+      logo: "/ctconstruye.jpg"
+    },
+    {
+      name: "Flor Constructores",
+      projects: [
+        {
+          name: "Sekai 53",
+          address: "Carrera 53 D Bis 4 D - 03",
+          status: "En desarrollo",
+          image: null
+        }
+      ],
+      hasLogo: true,
+      logo: "/flor.png"
+    },
+    {
+      name: "Madoc IN & Co SAS",
+      projects: [
+        {
+          name: "Edificio E43",
+          address: "Calle 43 # 28 - 38",
+          status: "Completado",
+          image: "/estudio43.jpeg"
+        },
+        {
+          name: "Living Factory",
+          address: "Calle 18 # 54 - 20",
+          status: "Completado",
+          image: "/living%20factory.jpeg"
+        }
+      ],
+      hasLogo: true,
+      logo: "/madog.png"
+    },
+    {
+      name: "Promotora QUADRIGA",
+      projects: [
+        {
+          name: "VITA 144",
+          address: "Calle 144 # 19 A - 09",
+          status: "Completado",
+          image: "/vita144.jpeg"
+        },
+        {
+          name: "Portal de Santa Sofía",
+          address: "Calle 64 sur N 2 D - 55",
+          status: "Completado",
+          image: "/santa-sofia.jpg"
+        }
+      ],
+      hasLogo: true,
+      logo: "/quadriga.png"
+    },
+    {
+      name: "Mas Developers",
+      projects: [
+        {
+          name: "Casa Ámbar",
+          address: "CRA 12 A # 83 - 75",
+          status: "En desarrollo",
+          image: "/MASDevelopers_AmbarRender.jpg"
+        },
+        {
+          name: "Park 93",
+          address: "CRA 13A # 93-38",
+          status: "En desarrollo",
+          image: "/park93.jpg"
+        },
+        {
+          name: "Casa E",
+          address: "Calle 86 A # 11 - 53",
+          status: "En desarrollo",
+          image: null
+        },
+        {
+          name: "Casa Índigo",
+          address: "Calle 93 B # 13 - 68",
+          status: "Completado",
+          image: null
+        }
+      ],
+      hasLogo: true,
+      logo: "/mas.png"
+    },
+    {
+      name: "Salesianos de Don Bosco",
+      projects: [
+        {
+          name: "Instituto Técnico Industrial Centro Don Bosco",
+          address: "Diagonal 44 No. 69-96",
+          status: "Completado",
+          image: null
+        },
+        {
+          name: "Urbanismo Instituto Técnico Industrial",
+          address: "Diagonal 44 No. 69-96",
+          status: "En desarrollo",
+          image: null
+        }
+      ],
+      hasLogo: true,
+      logo: "/sociedad%20saleciana.png"
+    }
+  ];
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Completado":
+        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300";
+      case "En desarrollo":
+        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300";
+      case "En construcción":
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300";
+      default:
+        return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300";
+    }
+  };
+
+  return (
+    <section id="proyectos" className="py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Badge variant="secondary" className="mb-4">Nuestro Portafolio</Badge>
+          </motion.div>
+          <motion.h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Proyectos
+            <span className="text-prak-orange"> Ejecutados</span>
+          </motion.h2>
+          <motion.p
+            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Trabajamos con los mejores desarrolladores y constructores de Colombia
+          </motion.p>
+        </motion.div>
+
+        {/* Stats */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Card className="bg-gradient-hero text-white">
+              <CardContent className="p-8 text-center">
+                <Users className="h-12 w-12 mx-auto mb-4" />
+                <div className="text-4xl font-bold mb-2">7</div>
+                <div className="text-lg opacity-90">Clientes de Confianza</div>
+              </CardContent>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Card className="bg-gradient-accent text-white">
+              <CardContent className="p-8 text-center">
+                <Building className="h-12 w-12 mx-auto mb-4" />
+                <div className="text-4xl font-bold mb-2">14</div>
+                <div className="text-lg opacity-90">Obras Gestionadas</div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {clients.map((client, clientIndex) => (
+            <motion.div
+              key={clientIndex}
+              className="space-y-4"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: clientIndex * 0.1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                {client.logo ? (
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="h-8 w-auto object-contain"
+                  />
+                ) : (
+                  <div className={`w-3 h-3 rounded-full ${client.hasLogo ? 'bg-green-500' : 'bg-gray-400'}`} />
+                )}
+                <h3 className="font-semibold text-lg">{client.name}</h3>
+              </div>
+
+              {client.projects.map((project, projectIndex) => (
+                <Card key={projectIndex} className="hover:shadow-orange transition-all duration-300 overflow-hidden">
+                  {project.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-prak-orange mb-2">{project.name}</h4>
+                        <div className="flex items-start gap-2">
+                          <MapPin className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{project.address}</span>
+                        </div>
+                      </div>
+
+                      <Badge
+                        variant="secondary"
+                        className={`${getStatusColor(project.status)}`}
+                      >
+                        {project.status}
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Message */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <Card className="max-w-2xl mx-auto">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-semibold mb-4">¿Tu proyecto será el siguiente?</h3>
+              <p className="text-muted-foreground mb-6">
+                Únete a nuestros clientes satisfechos y asegura el cumplimiento normativo de tu proyecto
+              </p>
+              <a
+                href="#contacto"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-prak-orange text-white hover:bg-prak-orange/90 h-10 px-4 py-2"
+              >
+                Iniciar Proyecto
+              </a>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
