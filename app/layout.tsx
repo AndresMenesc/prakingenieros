@@ -5,6 +5,10 @@ import { TooltipProvider } from "@/app/components/ui/tooltip";
 import { QueryProvider } from "@/app/providers/query-provider";
 import "./globals.css";
 
+// Force all routes to be dynamically rendered
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+
 export const metadata: Metadata = {
   title: "PRAK Ingenieros - Consultoría Ambiental y Marketing Digital",
   description: "Especialistas en consultoría ambiental, sostenibilidad y marketing digital en Colombia. Ofrecemos planes de gestión RCD, certificaciones ambientales y estrategias publicitarias digitales.",

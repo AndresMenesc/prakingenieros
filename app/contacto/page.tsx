@@ -7,7 +7,6 @@ import Footer from "@/app/components/Footer";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import BackToTop from "@/app/components/BackToTop";
 
-export const dynamic = 'force-dynamic';
 
 export default function ContactoPage() {
   useEffect(() => {

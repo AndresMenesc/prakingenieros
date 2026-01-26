@@ -10,8 +10,6 @@ import Footer from "@/app/components/Footer";
 import BackToTop from "@/app/components/BackToTop";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 
-export const dynamic = 'force-dynamic';
-
 export default function Home() {
   return (
     <div className="min-h-screen">
