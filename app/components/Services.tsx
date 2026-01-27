@@ -358,12 +358,12 @@ const Services = () => {
                                 <span>ver más</span>
                               </div>
                             </div>
-                            <h4
+                            <h3
                               id={`mandatory-title-${index}`}
                               className="text-lg font-bold mb-4 group-hover:text-prak-yellow transition-colors text-prak-dark"
                             >
                               {item.title}
-                            </h4>
+                            </h3>
                             {expandedCards[`mandatory-${index}`] && (
                               <motion.div
                                 initial={{ opacity: 0, height: 0 }}
@@ -455,12 +455,12 @@ const Services = () => {
                                 <span>ver más</span>
                               </div>
                             </div>
-                            <h4
+                            <h3
                               id={`support-title-${index}`}
                               className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark"
                             >
                               {item.title}
-                            </h4>
+                            </h3>
                             {expandedCards[`support-${index}`] && (
                               <motion.div
                                 initial={{ opacity: 0, height: 0 }}
@@ -549,12 +549,12 @@ const Services = () => {
                               <span>ver más</span>
                             </div>
                           </div>
-                          <h4
+                          <h3
                             id={`consultoria-title-${index}`}
                             className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark"
                           >
                             {item.title}
-                          </h4>
+                          </h3>
                           {expandedCards[`consultoria-${index}`] && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
@@ -645,12 +645,12 @@ const Services = () => {
                               <span>ver más</span>
                             </button>
                           </div>
-                          <h4
+                          <h3
                             id={`marketing-title-${index}`}
                             className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
                           >
                             {service.title}
-                          </h4>
+                          </h3>
                           {expandedCards[`marketing-${index}`] && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
