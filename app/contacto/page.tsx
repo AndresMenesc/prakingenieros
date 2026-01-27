@@ -1,18 +1,16 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Header from "@/app/components/Header";
 import Contact from "@/app/components/Contact";
 import Footer from "@/app/components/Footer";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import BackToTop from "@/app/components/BackToTop";
 
+export const metadata: Metadata = {
+  title: "Contacto | PRAK Ingenieros - Consultoría Ambiental y Construcción Sostenible",
+  description: "Contáctenos para consultas sobre servicios de consultoría ambiental y construcción sostenible.",
+};
 
 export default function ContactoPage() {
-  useEffect(() => {
-    // Set page title
-    document.title = "Contacto | PRAK Ingenieros - Consultoría Ambiental y Construcción Sostenible";
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
