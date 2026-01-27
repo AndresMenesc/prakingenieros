@@ -266,7 +266,7 @@ const Services = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                Asesoría en sector construcción
+                Servicios de consultoría ambiental para empresas
               </span>
             </motion.h2>
             <motion.p
@@ -276,7 +276,7 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              Somos una consultora independiente especializada en el sector construcción. Acompañamos a las constructoras en el cumplimiento ambiental, la gestión de residuos y la sostenibilidad.
+              Elaboración y seguimiento de planes de manejo ambiental y planes de gestión de residuos de construcción y demolición.
             </motion.p>
           </div>
 
@@ -311,7 +311,7 @@ const Services = () => {
                 >
                   <Building className="h-10 w-10 text-prak-yellow" />
                   <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                    Trámites Obligatorios
+                    Planes de manejo ambiental y RCD
                   </span>
                 </motion.h3>
 
@@ -322,7 +322,7 @@ const Services = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  Evita sanciones y asegura la aprobación de tu proyecto.
+                  Elaboración y seguimiento de planes de manejo ambiental y planes de gestión de residuos de construcción y demolición.
                 </motion.p>
               </div>
 
@@ -408,7 +408,7 @@ const Services = () => {
                 >
                   <Leaf className="h-10 w-10 text-prak-teal" />
                   <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                    Acompañamiento y Sostenibilidad
+                    Sistemas de gestión ambiental y sostenibilidad
                   </span>
                 </motion.h3>
 
@@ -419,7 +419,7 @@ const Services = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  Acompañamiento técnico en obra (visitas), formación al personal y soporte para certificaciones y buenas prácticas de sostenibilidad.
+                  Implementación de estrategias de sostenibilidad y sistemas de gestión ambiental para empresas.
                 </motion.p>
               </div>
 
@@ -503,7 +503,7 @@ const Services = () => {
               >
                 <Leaf className="h-12 w-12 text-prak-teal" />
                 <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                  Consultoría Ambiental
+                  Consultoría ambiental para el sector construcción
                 </span>
               </motion.h3>
               <motion.p
@@ -513,7 +513,7 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                Acompañamos a tu empresa en la implementación de buenas prácticas, certificaciones y diagnósticos ambientales.
+                Acompañamiento técnico y ambiental para constructoras, desarrolladores y proyectos de obra civil.
               </motion.p>
             </div>
 
@@ -596,7 +596,7 @@ const Services = () => {
               >
                 <TrendingUp className="h-10 w-10 text-prak-teal" />
                 <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                  Marketing digital
+                  Marketing digital para empresas
                 </span>
               </motion.h3>
               <motion.p
@@ -606,7 +606,7 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                Estrategias digitales integrales para maximizar su presencia online y ROI.
+                Estrategias de pauta digital para empresas de distintos sectores, enfocadas en generación de oportunidades comerciales.
               </motion.p>
             </div>
 

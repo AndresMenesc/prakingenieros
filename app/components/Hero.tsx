@@ -95,7 +95,7 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
                   <span className="block text-white">
-                    Especialistas en consultoría ambiental , sostenibilidad y cumplimiento normativo
+                    Consultoría ambiental y sostenibilidad para empresas en Colombia
                   </span>
                 </motion.h1>
 
@@ -105,7 +105,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
                 >
-                  Planes de Manejo de RCD's, apertura y cierre de PIN Ambiental ante la Secretaría de Ambiente. Cumple con la norma, evita sanciones y ahorra tiempo en tus proyectos.
+                  Acompañamos empresas de diferentes sectores en el cumplimiento normativo, sostenibilidad y gestión ambiental responsable.
                 </motion.p>
               </motion.div>
 

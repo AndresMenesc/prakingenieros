@@ -179,8 +179,8 @@ const Projects = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            Proyectos
-            <span className="text-prak-orange"> Ejecutados</span>
+            Empresas y proyectos que han
+            <span className="text-prak-orange"> confiado en PRAK Ingenieros</span>
           </motion.h2>
           <motion.p
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
@@ -189,7 +189,7 @@ const Projects = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            Trabajamos con los mejores desarrolladores y constructores de Colombia
+            Promotora Luminum · Construye RK SAS · Flor Constructores · Madoc IN & Co SAS · Promotora Quadriga · Más Developers
           </motion.p>
         </motion.div>
 
