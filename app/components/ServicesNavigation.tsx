@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Building, Leaf, Target } from "lucide-react";
+import { ChevronDown, Building, Leaf, Target, FileCheck } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 
 interface ServiceSection {
@@ -17,6 +17,12 @@ const ServicesNavigation = () => {
     const [activeSection, setActiveSection] = useState<string | null>(null);
 
     const serviceSections: ServiceSection[] = [
+        {
+            id: "plan-gestion-rcd",
+            title: "Plan de Gestión RCD",
+            icon: <FileCheck className="h-5 w-5" />,
+            description: "Planes RCD para cumplir normativa y evitar sanciones"
+        },
         {
             id: "asesoria-construccion",
             title: "Asesoría Sector Construcción",
@@ -37,7 +43,6 @@ const ServicesNavigation = () => {
         }
     ];
 
-    // Handle URL hash changes
     useEffect(() => {
         const handleHashChange = () => {
             const hash = window.location.hash.slice(1);
@@ -47,7 +52,6 @@ const ServicesNavigation = () => {
             }
         };
 
-        // Check initial hash
         handleHashChange();
 
         window.addEventListener('hashchange', handleHashChange);
@@ -57,7 +61,7 @@ const ServicesNavigation = () => {
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const offsetTop = element.offsetTop - 100; // Account for header height
+            const offsetTop = element.offsetTop - 100;
             window.scrollTo({
                 top: offsetTop,
                 behavior: "smooth"
@@ -67,15 +71,19 @@ const ServicesNavigation = () => {
     };
 
     const handleServiceClick = (sectionId: string) => {
-        // Update URL hash
-        window.history.pushState(null, '', `#${sectionId}`);
-        setActiveSection(sectionId);
-        scrollToSection(sectionId);
+
+        // 🔥 ESTE ES EL CAMBIO CLAVE
+        if (sectionId === "plan-gestion-rcd") {
+            window.location.href = "/servicios/plan-gestion-rcd";
+            return;
+        }
+
+        // Mantiene comportamiento actual
+        window.location.href = `/servicios/${sectionId}`;
     };
 
     return (
         <div className="relative">
-            {/* Services Navigation Button */}
             <motion.div
                 className="flex justify-center mb-20 md:mb-28 lg:mb-32"
                 initial={{ opacity: 0, y: 20 }}
@@ -93,13 +101,11 @@ const ServicesNavigation = () => {
                             <Target className="h-5 w-5 text-prak-yellow" />
                             Navegar Servicios
                             <ChevronDown
-                                className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
-                                    }`}
+                                className={`h-5 w-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
                             />
                         </span>
                     </Button>
 
-                    {/* Dropdown Menu */}
                     <AnimatePresence>
                         {isOpen && (
                             <motion.div
@@ -114,10 +120,11 @@ const ServicesNavigation = () => {
                                         <motion.button
                                             key={section.id}
                                             onClick={() => handleServiceClick(section.id)}
-                                            className={`w-full text-left p-4 rounded-xl transition-all duration-200 group ${activeSection === section.id
-                                                ? 'bg-prak-yellow/10 border border-prak-yellow/30'
-                                                : 'hover:bg-prak-light/50'
-                                                }`}
+                                            className={`w-full text-left p-4 rounded-xl transition-all duration-200 group ${
+                                                activeSection === section.id
+                                                    ? 'bg-prak-yellow/10 border border-prak-yellow/30'
+                                                    : 'hover:bg-prak-light/50'
+                                            }`}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -125,10 +132,11 @@ const ServicesNavigation = () => {
                                             whileTap={{ scale: 0.98 }}
                                         >
                                             <div className="flex items-start gap-3">
-                                                <div className={`p-2 rounded-lg ${activeSection === section.id
-                                                    ? 'bg-prak-yellow text-prak-dark'
-                                                    : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'
-                                                    } transition-colors duration-200`}>
+                                                <div className={`p-2 rounded-lg ${
+                                                    activeSection === section.id
+                                                        ? 'bg-prak-yellow text-prak-dark'
+                                                        : 'bg-prak-light text-prak-gray-dark group-hover:bg-prak-yellow/20'
+                                                }`}>
                                                     {section.icon}
                                                 </div>
                                                 <div className="flex-1">
@@ -149,7 +157,6 @@ const ServicesNavigation = () => {
                 </div>
             </motion.div>
 
-            {/* Click outside to close */}
             {isOpen && (
                 <div
                     className="fixed inset-0 z-40"
