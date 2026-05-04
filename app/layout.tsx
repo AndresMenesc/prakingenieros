@@ -6,25 +6,57 @@ import { QueryProvider } from "@/app/providers/query-provider";
 import "./globals.css";
 
 // Force all routes to be dynamically rendered
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export const metadata: Metadata = {
   title: "PRAK Ingenieros - Consultoría Ambiental y Marketing Digital",
-  description: "Especialistas en consultoría ambiental, sostenibilidad y marketing digital en Colombia. Ofrecemos planes de gestión RCD, certificaciones ambientales y estrategias publicitarias digitales.",
-  keywords: "consultoría ambiental, sostenibilidad, marketing digital, Colombia, RCD, ISO 14001, Google Ads, Meta Ads",
+
+  description:
+    "Especialistas en consultoría ambiental, sostenibilidad y marketing digital en Colombia. Ofrecemos planes de gestión RCD, certificaciones ambientales y estrategias publicitarias digitales.",
+
+  keywords:
+    "consultoría ambiental, sostenibilidad, marketing digital, Colombia, RCD, ISO 14001, Google Ads, Meta Ads",
+
   authors: [{ name: "PRAK Ingenieros S.A.S" }],
+
+  icons: {
+    icon: "/favicon.ico",
+  },
+
   openGraph: {
     title: "PRAK Ingenieros - Consultoría Ambiental y Marketing Digital",
-    description: "Especialistas en consultoría ambiental, sostenibilidad y marketing digital en Colombia. Transformamos proyectos con soluciones innovadoras.",
+
+    description:
+      "Especialistas en consultoría ambiental, sostenibilidad y planes de gestión RCD para constructoras y empresas en Colombia.",
+
     type: "website",
-    url: "https://prakingenieros.com/",
-    images: [{ url: "https://lovable.dev/opengraph-image-p98pqg.png" }],
+
+    url: "https://prakingenieros.com",
+
+    siteName: "PRAK Ingenieros",
+
+    locale: "es_CO",
+
+    images: [
+      {
+        url: "https://prakingenieros.com/logomain.png",
+        width: 1200,
+        height: 630,
+        alt: "PRAK Ingenieros",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    site: "@lovable_dev",
-    images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
+
+    title: "PRAK Ingenieros",
+
+    description:
+      "Consultoría ambiental, sostenibilidad y marketing digital.",
+
+    images: ["https://prakingenieros.com/logomain.png"],
   },
 };
 
@@ -49,6 +81,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -59,6 +92,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
         <QueryProvider>
           <TooltipProvider>
             <Toaster />
