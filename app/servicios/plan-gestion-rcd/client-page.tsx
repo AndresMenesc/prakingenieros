@@ -106,7 +106,7 @@ const PlanGestionRCD = () => {
                 >
                   <Recycle className="h-12 w-12 text-prak-teal" />
                   <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                    Plan de Gestión RCD
+                    Plan de Gestión RCD para Constructoras en Bogotá
                   </span>
                 </motion.h1>
 
@@ -115,7 +115,9 @@ const PlanGestionRCD = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  Elaboramos Planes de Gestión Integral de Residuos de Construcción y Demolición (RCD) para constructoras, obras civiles y proyectos que requieren cumplimiento ambiental en Colombia.
+                  Elaboramos Planes de Gestión Integral de Residuos de Construcción
+                  y Demolición (RCD) para constructoras, obras civiles y proyectos
+                  que requieren cumplimiento ambiental en Colombia.
                 </motion.p>
 
                 <Button
@@ -126,22 +128,18 @@ const PlanGestionRCD = () => {
                 </Button>
               </motion.div>
 
-              {/* ALERTA (MISMO CONTENIDO, MEJOR ESTILO) */}
-              <motion.div
-                className="bg-red-50 border border-red-200 p-6 rounded-2xl mb-12 text-center shadow-soft"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
+              {/* ALERTA */}
+              <div className="bg-red-50 border border-red-200 p-6 rounded-xl mb-12 text-center">
                 <h2 className="text-xl font-bold text-red-600 mb-2">
                   ⚠️ Evita sanciones ambientales en tu proyecto
                 </h2>
-                <p className="text-prak-gray-dark">
+                <p>
                   No contar con un Plan de Gestión RCD puede generar multas,
                   retrasos en licencias y problemas ante autoridades ambientales.
                 </p>
-              </motion.div>
+              </div>
 
-              {/* CARDS (ESTILO CONSULTORÍA) */}
+              {/* CARDS */}
               <div className="bg-gray-100 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
                   {rcdItems.map((item, index) => (
@@ -178,7 +176,6 @@ const PlanGestionRCD = () => {
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
-                              transition={{ duration: 0.3 }}
                             >
                               <p className="text-sm text-prak-gray-dark/80 mb-4">
                                 {item.description}
@@ -202,55 +199,78 @@ const PlanGestionRCD = () => {
                 </div>
               </div>
 
-              {/* SEO + FAQ + CTA → intactos pero animados */}
+              {/* SEO ORIGINAL COMPLETO */}
               <div className="max-w-5xl mx-auto mt-20 space-y-10 text-white">
-                {[ 
-                  {
-                    title: "¿Qué es un Plan de Gestión RCD?",
-                    text: "El Plan de Gestión de Residuos de Construcción y Demolición (RCD) es un documento obligatorio..."
-                  },
-                  {
-                    title: "Cumplimiento de la Resolución 472 de 2017",
-                    text: "En PRAK Ingenieros desarrollamos planes RCD alineados con la normativa ambiental colombiana..."
-                  },
-                  {
-                    title: "Servicios para constructoras y proyectos civiles",
-                    text: "Trabajamos con constructoras, urbanizadores, contratistas y proyectos..."
-                  }
-                ].map((sec, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}>
-                    <h2 className="text-3xl font-bold mb-4">{sec.title}</h2>
-                    <p className="text-lg leading-relaxed text-white/90">{sec.text}</p>
-                  </motion.div>
-                ))}
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    ¿Qué es un Plan de Gestión RCD?
+                  </h2>
+                  <p className="text-lg leading-relaxed text-white/90">
+                    El Plan de Gestión de Residuos de Construcción y Demolición
+                    (RCD) es un documento obligatorio para proyectos de construcción,
+                    demolición y obras civiles que generan residuos derivados de sus actividades.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Cumplimiento de la Resolución 472 de 2017
+                  </h2>
+                  <p className="text-lg leading-relaxed text-white/90">
+                    En PRAK Ingenieros desarrollamos planes RCD alineados con la
+                    normativa ambiental colombiana, incluyendo lineamientos de la
+                    Resolución 472 de 2017 y requerimientos exigidos por autoridades ambientales.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">
+                    Servicios para constructoras y proyectos civiles
+                  </h2>
+                  <p className="text-lg leading-relaxed text-white/90">
+                    Trabajamos con constructoras, urbanizadores, contratistas y
+                    proyectos de infraestructura que necesitan garantizar manejo,
+                    transporte y disposición adecuada de residuos de construcción.
+                  </p>
+                </div>
               </div>
 
-              {/* FAQ */}
+              {/* FAQ ORIGINAL COMPLETO */}
               <div className="mt-24 max-w-4xl mx-auto">
                 <h2 className="text-3xl font-bold text-center text-white mb-10">
                   Preguntas frecuentes
                 </h2>
 
                 <div className="space-y-6">
-                  {[
-                    {
-                      q: "¿Quién necesita un Plan de Gestión RCD?",
-                      a: "Constructoras, proyectos de demolición, urbanismo..."
-                    },
-                    {
-                      q: "¿Qué pasa si mi proyecto no tiene Plan RCD?",
-                      a: "El proyecto puede enfrentar sanciones ambientales..."
-                    },
-                    {
-                      q: "¿PRAK Ingenieros realiza acompañamiento?",
-                      a: "Sí. Realizamos acompañamiento técnico..."
-                    }
-                  ].map((item, i) => (
-                    <motion.div key={i} className="bg-white/10 rounded-2xl p-6" whileInView={{ opacity: 1 }}>
-                      <h3 className="font-bold text-xl mb-3">{item.q}</h3>
-                      <p className="text-white/90">{item.a}</p>
-                    </motion.div>
-                  ))}
+                  <div className="bg-white/10 rounded-2xl p-6">
+                    <h3 className="font-bold text-xl mb-3">
+                      ¿Quién necesita un Plan de Gestión RCD?
+                    </h3>
+                    <p className="text-white/90">
+                      Constructoras, proyectos de demolición, urbanismo,
+                      infraestructura y obras civiles que generen residuos de construcción.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/10 rounded-2xl p-6">
+                    <h3 className="font-bold text-xl mb-3">
+                      ¿Qué pasa si mi proyecto no tiene Plan RCD?
+                    </h3>
+                    <p className="text-white/90">
+                      El proyecto puede enfrentar sanciones ambientales,
+                      retrasos operativos y requerimientos de autoridades competentes.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/10 rounded-2xl p-6">
+                    <h3 className="font-bold text-xl mb-3">
+                      ¿PRAK Ingenieros realiza acompañamiento?
+                    </h3>
+                    <p className="text-white/90">
+                      Sí. Realizamos acompañamiento técnico, seguimiento y soporte
+                      durante la ejecución del proyecto.
+                    </p>
+                  </div>
                 </div>
               </div>
 
