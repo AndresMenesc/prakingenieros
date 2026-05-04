@@ -1,15 +1,17 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 import { Separator } from "@/app/components/ui/separator";
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-hero text-white py-16">
       <div className="container mx-auto px-4">
+
         <div className="grid md:grid-cols-2 gap-12 mb-12">
 
           {/* Company Info */}
           <div className="space-y-6">
+
             <div>
               <img
                 src="/logomain.png"
@@ -51,6 +53,7 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-6">
+
             <h3 className="text-xl font-semibold">
               Servicios
             </h3>
@@ -75,7 +78,7 @@ const Footer = () => {
                 href="/servicios/asesoria-construccion"
                 className="block text-white/80 hover:text-prak-orange transition-colors"
               >
-                Asesoría en Construcción
+                Asesoría Sector Construcción
               </Link>
 
               <Link
@@ -83,6 +86,20 @@ const Footer = () => {
                 className="block text-white/80 hover:text-prak-orange transition-colors"
               >
                 Marketing Digital
+              </Link>
+
+              <Link
+                href="/servicios/marketing-digital"
+                className="block text-white/80 hover:text-prak-orange transition-colors"
+              >
+                Google Ads & Meta Ads
+              </Link>
+
+              <Link
+                href="/servicios/marketing-digital"
+                className="block text-white/80 hover:text-prak-orange transition-colors"
+              >
+                Analítica Avanzada
               </Link>
 
             </div>
