@@ -584,118 +584,158 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Digital Marketing Services */}
-          <div id="marketing-digital">
-            <div className="text-center mb-20">
-              <motion.h3
-                className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-4"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <TrendingUp className="h-10 w-10 text-prak-teal" />
-                <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                  Marketing digital para empresas
-                </span>
-              </motion.h3>
-              <motion.p
-                className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                Estrategias de pauta digital para empresas de distintos sectores, enfocadas en generación de oportunidades comerciales.
-              </motion.p>
-            </div>
+      {/* Digital Marketing Services
 
-            <div className="bg-gray-100 rounded-3xl p-6 md:p-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-                {digitalServices.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.3 }}
+<div id="marketing-digital">
+  <div className="text-center mb-20">
+    <motion.h3
+      className="text-4xl md:text-5xl font-black mb-8 flex items-center justify-center gap-4"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <TrendingUp className="h-10 w-10 text-prak-teal" />
+      <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
+        Marketing digital para empresas
+      </span>
+    </motion.h3>
+
+    <motion.p
+      className="text-white max-w-3xl mx-auto font-medium leading-relaxed"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      Estrategias de pauta digital para empresas de distintos sectores,
+      enfocadas en generación de oportunidades comerciales.
+    </motion.p>
+  </div>
+
+  <div className="bg-gray-100 rounded-3xl p-6 md:p-8">
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+
+      {digitalServices.map((service, index) => (
+
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+
+          <Card
+            id={`marketing-service-card-${index}`}
+            className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
+          >
+
+            <CardContent className="p-6 flex flex-col h-full">
+
+              <motion.div
+                className="flex-shrink-0"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+
+                <div className="flex items-center justify-between mb-4">
+
+                  <div className="p-3 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
+                    {React.cloneElement(service.icon, {
+                      className: "h-8 w-8 text-prak-teal"
+                    })}
+                  </div>
+
+                  <button
+                    id={`marketing-expand-btn-${index}`}
+                    onClick={() => toggleCard(`marketing-${index}`)}
+                    className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
                   >
-                    <Card
-                      id={`marketing-service-card-${index}`}
-                      className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
-                    >
-                      <CardContent className="p-6 flex flex-col h-full">
-                        <motion.div
-                          className="flex-shrink-0"
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: "easeOut" }}
+                    <span className="text-lg font-bold">+</span>
+                    <span>ver más</span>
+                  </button>
+
+                </div>
+
+                <h3
+                  id={`marketing-title-${index}`}
+                  className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
+                >
+                  {service.title}
+                </h3>
+
+                {expandedCards[`marketing-${index}`] && (
+
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="mb-4"
+                  >
+
+                    <ul className="space-y-3 w-full mb-4">
+
+                      {service.items.map((item, itemIndex) => (
+
+                        <motion.li
+                          key={itemIndex}
+                          id={`marketing-item-${index}-${itemIndex}`}
+                          className="flex items-start gap-3 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300 cursor-pointer"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 0.4,
+                            delay: 0.4 + index * 0.1 + itemIndex * 0.05,
+                            ease: "easeOut"
+                          }}
                           viewport={{ once: true, amount: 0.3 }}
                         >
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="p-3 bg-gradient-to-br from-prak-teal/10 to-prak-yellow/10 rounded-xl inline-block group-hover:scale-110 transition-all duration-300">
-                              {React.cloneElement(service.icon, { className: "h-8 w-8 text-prak-teal" })}
-                            </div>
-                            <button
-                              id={`marketing-expand-btn-${index}`}
-                              onClick={() => toggleCard(`marketing-${index}`)}
-                              className="flex items-center gap-2 p-2 hover:bg-prak-gray/10 rounded-lg transition-colors text-sm font-medium text-prak-gray-dark cursor-pointer"
-                            >
-                              <span className="text-lg font-bold">+</span>
-                              <span>ver más</span>
-                            </button>
-                          </div>
-                          <h3
-                            id={`marketing-title-${index}`}
-                            className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark cursor-pointer"
-                          >
-                            {service.title}
-                          </h3>
-                          {expandedCards[`marketing-${index}`] && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="mb-4"
-                            >
-                              <ul className="space-y-3 w-full mb-4">
-                                {service.items.map((item, itemIndex) => (
-                                  <motion.li
-                                    key={itemIndex}
-                                    id={`marketing-item-${index}-${itemIndex}`}
-                                    className="flex items-start gap-3 hover:bg-prak-teal/5 p-2 rounded-lg transition-all duration-300 cursor-pointer"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 + itemIndex * 0.05, ease: "easeOut" }}
-                                    viewport={{ once: true, amount: 0.3 }}
-                                  >
-                                    <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-sm text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">{item}</span>
-                                  </motion.li>
-                                ))}
-                              </ul>
-                              <Button
-                                id={`marketing-whatsapp-btn-${index}`}
-                                onClick={() => openWhatsApp(service.title)}
-                                className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
-                              >
-                                Más información
-                              </Button>
-                            </motion.div>
-                          )}
-                        </motion.div>
-                      </CardContent>
-                    </Card>
+
+                          <div className="w-2 h-2 bg-prak-yellow rounded-full mt-3 flex-shrink-0"></div>
+
+                          <span className="text-sm text-prak-gray-dark leading-relaxed font-medium hover:text-prak-dark transition-colors">
+                            {item}
+                          </span>
+
+                        </motion.li>
+
+                      ))}
+
+                    </ul>
+
+                    <Button
+                      id={`marketing-whatsapp-btn-${index}`}
+                      onClick={() => openWhatsApp(service.title)}
+                      className="bg-prak-teal hover:bg-prak-teal/90 text-white text-xs px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer"
+                    >
+                      Más información
+                    </Button>
+
                   </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+
+                )}
+
+              </motion.div>
+
+            </CardContent>
+
+          </Card>
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</div>
+
+*/}
 
 export default Services;
