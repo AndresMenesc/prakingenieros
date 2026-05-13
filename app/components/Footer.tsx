@@ -1,10 +1,17 @@
 import Link from "next/link";
-import { MapPin, Mail, Clock } from "lucide-react";
+
+import {
+  MapPin,
+  Mail,
+  Clock,
+} from "lucide-react";
+
 import { Separator } from "@/app/components/ui/separator";
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-hero text-white py-16">
+
       <div className="container mx-auto px-4">
 
         <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -13,6 +20,7 @@ const Footer = () => {
           <div className="space-y-6">
 
             <div>
+
               <img
                 src="/logomain.png"
                 alt="PRAK Ingenieros"
@@ -20,35 +28,48 @@ const Footer = () => {
               />
 
               <p className="text-white/80 leading-relaxed">
-                Especialistas en consultoría ambiental, sostenibilidad y marketing digital.
+
+                Especialistas en consultoría ambiental y sostenibilidad.
                 Transformamos proyectos con soluciones innovadoras.
+
               </p>
+
             </div>
 
             <div className="space-y-4">
 
               <div className="flex items-center gap-3">
+
                 <MapPin className="h-5 w-5 text-prak-orange flex-shrink-0" />
+
                 <span className="text-white/90">
                   Bogotá, Colombia
                 </span>
+
               </div>
 
               <div className="flex items-center gap-3">
+
                 <Mail className="h-5 w-5 text-prak-orange flex-shrink-0" />
+
                 <span className="text-white/90">
                   coordinador@prakingenieros.com
                 </span>
+
               </div>
 
               <div className="flex items-center gap-3">
+
                 <Clock className="h-5 w-5 text-prak-orange flex-shrink-0" />
+
                 <span className="text-white/90">
                   Lun - Vie: 8:00 AM - 6:00 PM
                 </span>
+
               </div>
 
             </div>
+
           </div>
 
           {/* Services */}
@@ -59,13 +80,6 @@ const Footer = () => {
             </h3>
 
             <div className="space-y-3">
-
-              <Link
-                href="/servicios/consultoria-ambiental"
-                className="block text-white/80 hover:text-prak-orange transition-colors"
-              >
-                Consultoría Ambiental
-              </Link>
 
               <Link
                 href="/servicios/plan-gestion-rcd"
@@ -82,27 +96,14 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="/servicios/marketing-digital"
+                href="/servicios/consultoria-ambiental"
                 className="block text-white/80 hover:text-prak-orange transition-colors"
               >
-                Marketing Digital
-              </Link>
-
-              <Link
-                href="/servicios/marketing-digital"
-                className="block text-white/80 hover:text-prak-orange transition-colors"
-              >
-                Google Ads & Meta Ads
-              </Link>
-
-              <Link
-                href="/servicios/marketing-digital"
-                className="block text-white/80 hover:text-prak-orange transition-colors"
-              >
-                Analítica Avanzada
+                Consultoría Ambiental
               </Link>
 
             </div>
+
           </div>
 
         </div>
@@ -110,12 +111,15 @@ const Footer = () => {
         <Separator className="bg-white/20 mb-8" />
 
         <div className="text-center text-white/60">
+
           <p>
             &copy; 2024 PRAK Ingenieros S.A.S. Todos los derechos reservados.
           </p>
+
         </div>
 
       </div>
+
     </footer>
   );
 };
