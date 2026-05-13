@@ -7,7 +7,6 @@ import {
   ChevronDown,
   Building,
   Leaf,
-  Target,
   FileCheck
 } from "lucide-react";
 
@@ -61,13 +60,6 @@ const Header = () => {
       title: "Consultoría Ambiental",
       icon: <Leaf className="h-4 w-4" />,
       description: "Certificaciones y sostenibilidad"
-    },
-
-    {
-      url: "/servicios/marketing-digital",
-      title: "Marketing Digital",
-      icon: <Target className="h-4 w-4" />,
-      description: "Publicidad y analítica"
     }
   ];
 
@@ -292,6 +284,7 @@ const Header = () => {
                   Contacto
                 </Button>
               </Link>
+
             </div>
           </nav>
         )}
