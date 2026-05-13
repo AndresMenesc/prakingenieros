@@ -6,7 +6,6 @@ import {
   ChevronDown,
   Building,
   Leaf,
-  Target,
   FileCheck
 } from "lucide-react";
 
@@ -52,14 +51,6 @@ const ServicesNavigation = () => {
       icon: <Leaf className="h-5 w-5" />,
       description:
         "Certificaciones y planes de gestión ambiental"
-    },
-
-    {
-      id: "marketing-digital",
-      title: "Marketing Digital",
-      icon: <Target className="h-5 w-5" />,
-      description:
-        "Publicidad digital y analítica avanzada"
     }
   ];
 
@@ -120,7 +111,7 @@ const ServicesNavigation = () => {
 
             <span className="flex items-center gap-3">
 
-              <Target className="h-5 w-5 text-prak-yellow" />
+              <Building className="h-5 w-5 text-prak-yellow" />
 
               Navegar Servicios
 
