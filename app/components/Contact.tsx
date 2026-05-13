@@ -188,7 +188,7 @@ const Contact = () => {
                         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        Obtén una consulta gratuita y descubre cómo podemos ayudarte a cumplir con la normatividad ambiental y maximizar tu presencia digital.
+                        Obtén una consulta gratuita y descubre cómo podemos ayudarte a cumplir con la normatividad ambiental.
                     </motion.p>
                 </motion.div>
 
@@ -343,7 +343,6 @@ const Contact = () => {
                                                         <SelectContent>
                                                             <SelectItem value="construccion">Asesoría Sector Construcción</SelectItem>
                                                             <SelectItem value="ambiental">Consultoría Ambiental y Sostenibilidad</SelectItem>
-                                                            <SelectItem value="marketing">Marketing Digital</SelectItem>
                                                             <SelectItem value="consultoria">Consultoría Integral</SelectItem>
                                                         </SelectContent>
                                                     </Select>
