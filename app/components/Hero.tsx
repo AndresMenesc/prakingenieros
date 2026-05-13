@@ -31,32 +31,26 @@ const Hero = () => {
   };
 
   // ✅ ORDEN AJUSTADO
-  const serviceSections = [
-    {
-      href: "/servicios/plan-gestion-rcd",
-      title: "Planes de Gestión RCD",
-      icon: <Recycle className="h-4 w-4" />,
-      description: "Cumplimiento Resolución 472",
-    },
-    {
-      href: "/servicios/asesoria-construccion",
-      title: "Asesoría Sector Construcción",
-      icon: <Building className="h-4 w-4" />,
-      description: "Gestión de RCDs y cumplimiento",
-    },
-    {
-      href: "/servicios/consultoria-ambiental",
-      title: "Consultoría Ambiental",
-      icon: <Leaf className="h-4 w-4" />,
-      description: "Certificaciones y sostenibilidad",
-    },
-    {
-      href: "/servicios/marketing-digital",
-      title: "Marketing Digital",
-      icon: <Target className="h-4 w-4" />,
-      description: "Publicidad y analítica",
-    },
-  ];
+const serviceSections = [
+  {
+    href: "/servicios/plan-gestion-rcd",
+    title: "Planes de Gestión RCD",
+    icon: <Recycle className="h-4 w-4" />,
+    description: "Cumplimiento Resolución 472",
+  },
+  {
+    href: "/servicios/asesoria-construccion",
+    title: "Asesoría Sector Construcción",
+    icon: <Building className="h-4 w-4" />,
+    description: "Gestión de RCDs y cumplimiento",
+  },
+  {
+    href: "/servicios/consultoria-ambiental",
+    title: "Consultoría Ambiental",
+    icon: <Leaf className="h-4 w-4" />,
+    description: "Certificaciones y sostenibilidad",
+  },
+];
 
   return (
     <section id="inicio" className="relative min-h-screen">
