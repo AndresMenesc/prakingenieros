@@ -10,13 +10,13 @@ export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export const metadata: Metadata = {
-  title: "PRAK Ingenieros - Consultoría Ambiental y Marketing Digital",
+  title: "PRAK Ingenieros - Consultoría Ambiental y Sostenibilidad",
 
   description:
-    "Especialistas en consultoría ambiental, sostenibilidad y marketing digital en Colombia. Ofrecemos planes de gestión RCD, certificaciones ambientales y estrategias publicitarias digitales.",
+    "Especialistas en consultoría ambiental y sostenibilidad. Ofrecemos planes de gestión RCD, certificaciones ambientales.",
 
   keywords:
-    "consultoría ambiental, sostenibilidad, marketing digital, Colombia, RCD, ISO 14001, Google Ads, Meta Ads",
+    "consultoría ambiental, sostenibilidad, Colombia, RCD, ISO 14001,",
 
   authors: [{ name: "PRAK Ingenieros S.A.S" }],
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "PRAK Ingenieros - Consultoría Ambiental y Marketing Digital",
+    title: "PRAK Ingenieros - Consultoría Ambiental y Sostenibilidad",
 
     description:
       "Especialistas en consultoría ambiental, sostenibilidad y planes de gestión RCD para constructoras y empresas en Colombia.",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "PRAK Ingenieros",
 
     description:
-      "Consultoría ambiental, sostenibilidad y marketing digital.",
+      "Consultoría ambiental y Sostenibilidad.",
 
     images: ["https://prakingenieros.com/logomain.png"],
   },
