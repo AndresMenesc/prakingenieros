@@ -87,7 +87,14 @@ const Footer = () => {
               >
                 Planes de Gestión RCD
               </Link>
-
+              
+              <Link
+                href="/servicios/pin-ambiental"
+                className="block text-white/80 hover:text-prak-orange transition-colors"
+              >
+                PIN Ambiental
+              </Link>
+              
               <Link
                 href="/servicios/asesoria-construccion"
                 className="block text-white/80 hover:text-prak-orange transition-colors"
