@@ -229,8 +229,8 @@ const PlanGestionRCD = () => {
                   </h2>
                   <p className="text-lg leading-relaxed text-white/90">
                     Trabajamos con constructoras, urbanizadores, contratistas y
-                    proyectos de infraestructura que necesitan garantizar manejo,
-                    transporte y disposición adecuada de residuos de construcción.
+                    proyectos de infraestructura que necesitan elaborar, aprobar y reportar su 
+                    Plan de Gestión de RCD ante la autoridad ambiental, garantizando el cumplimiento normativo.
                   </p>
                 </div>
               </div>
@@ -247,8 +247,8 @@ const PlanGestionRCD = () => {
                       ¿Quién necesita un Plan de Gestión RCD?
                     </h3>
                     <p className="text-white/90">
-                      Constructoras, proyectos de demolición, urbanismo,
-                      infraestructura y obras civiles que generen residuos de construcción.
+                      Constructoras, urbanizadoras, contratistas y sus equipos tecnicos, ingenieros residentes,
+                      directores de obra, cordinadores HSEQ, que requieran cumplir con este requisito ante la SDA.
                     </p>
                   </div>
 
