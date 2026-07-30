@@ -49,6 +49,13 @@ const Header = () => {
     },
 
     {
+      url: "/servicios/pin-ambiental",
+      title: "PIN Ambiental",
+      icon: <FileCheck className="h-4 w-4" />,
+      description: "Apertura, seguimiento y cierre ante la SDA"
+    },
+    
+    {
       url: "/servicios/asesoria-construccion",
       title: "Asesoría Sector Construcción",
       icon: <Building className="h-4 w-4" />,
