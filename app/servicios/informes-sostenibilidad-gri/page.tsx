@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import InformesSostenibilidadGRIClient from "./client-page-gri";
+import InformesSostenibilidadGRIClient from "./client-page";
 
 export const metadata: Metadata = {
   title: "Informes de Sostenibilidad GRI en Colombia | PRAK Ingenieros",
@@ -40,3 +40,4 @@ export const metadata: Metadata = {
 
 export default function InformesSostenibilidadGRIPage() {
   return <InformesSostenibilidadGRIClient />;
+}
