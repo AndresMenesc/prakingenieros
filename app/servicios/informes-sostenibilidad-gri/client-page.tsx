@@ -4,32 +4,21 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Button } from "@/app/components/ui/button";
-
 import {
-  ArrowDown,
-  Award,
+  ArrowRight,
   BarChart3,
-  Building2,
-  Check,
+  CheckCircle2,
   ChevronDown,
-  CircleCheck,
-  ClipboardCheck,
-  Droplets,
+  ClipboardList,
   FileCheck,
   FileText,
+  Globe2,
+  Handshake,
   Leaf,
-  Lightbulb,
-  LineChart,
-  Medal,
+  MessageCircle,
   Search,
-  Settings2,
-  ShieldCheck,
-  Sparkles,
-  Timer,
-  Trees,
   Users,
-  WalletCards,
-  Zap,
+  Workflow,
 } from "lucide-react";
 
 import Header from "@/app/components/Header";
@@ -37,457 +26,335 @@ import Footer from "@/app/components/Footer";
 import WhatsAppButton from "@/app/components/WhatsAppButton";
 import BackToTop from "@/app/components/BackToTop";
 
-const CertificacionEdge = () => {
-  const [expandedCards, setExpandedCards] = useState<{
-    [key: string]: boolean;
-  }>({});
-  const [expandedFaqs, setExpandedFaqs] = useState<{
-    [key: string]: boolean;
-  }>({});
 
-  const toggleCard = (cardId: string) => {
-    setExpandedCards((prev) => ({
-      ...prev,
-      [cardId]: !prev[cardId],
-    }));
+const InformesSostenibilidadGRI = () => {
+  const [expandedServices, setExpandedServices] = useState<Record<string, boolean>>({});
+  const [expandedFaqs, setExpandedFaqs] = useState<Record<string, boolean>>({});
+
+  const toggleService = (id: string) =>
+    setExpandedServices((prev) => ({ ...prev, [id]: !prev[id] }));
+  const toggleFaq = (id: string) =>
+    setExpandedFaqs((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const openWhatsApp = (topic?: string) => {
+    const message = topic
+      ? `Hola, deseo recibir asesoría sobre ${topic}.`
+      : "Hola, deseo recibir información sobre la elaboración de informes de sostenibilidad bajo estándares GRI.";
+    window.open(
+      `https://wa.me/573023490488?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
-  const toggleFaq = (faqId: string) => {
-    setExpandedFaqs((prev) => ({
-      ...prev,
-      [faqId]: !prev[faqId],
-    }));
-  };
 
-  const openWhatsApp = (title?: string) => {
-    const message = title
-      ? `Hola, deseo recibir información sobre ${title} para un proyecto de Certificación EDGE.`
-      : "Hola, deseo recibir información sobre la Certificación EDGE para un proyecto.";
-
-    const whatsappUrl = `https://wa.me/573023490488?text=${encodeURIComponent(
-      message,
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
-  };
-
-  const edgeServices = [
+  const services = [
     {
-      title: "Diagnóstico inicial",
+      title: "Coordinación y gestión de información",
       description:
-        "Analizamos las condiciones actuales del proyecto, sus metas de sostenibilidad y las oportunidades de mejora para definir una ruta clara hacia la Certificación EDGE.",
-      icon: <Search className="h-8 w-8 text-prak-teal" />,
+        "Coordinamos con las áreas y responsables de la organización la recopilación de insumos, definimos herramientas de seguimiento y facilitamos el cumplimiento del cronograma de entrega de información.",
+      icon: <Workflow className="h-8 w-8 text-prak-teal" />,
     },
     {
-      title: "Modelación EDGE",
+      title: "Materialidad y grupos de interés",
       description:
-        "Desarrollamos la modelación en la plataforma EDGE para evaluar el desempeño del proyecto en energía, agua y energía incorporada en materiales.",
-      icon: <BarChart3 className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Optimización energética",
-      description:
-        "Proponemos estrategias de diseño y especificación que permitan reducir el consumo de energía sin afectar la funcionalidad, confort o viabilidad del proyecto.",
-      icon: <Zap className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Optimización hídrica",
-      description:
-        "Evaluamos alternativas para disminuir el consumo de agua mediante equipos, sistemas y decisiones de diseño eficientes para la edificación.",
-      icon: <Droplets className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Optimización de materiales",
-      description:
-        "Identificamos estrategias para reducir la energía incorporada en los materiales seleccionados, de acuerdo con los criterios definidos por EDGE.",
-      icon: <Trees className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Acompañamiento técnico",
-      description:
-        "Acompañamos al equipo de diseño, construcción y gerencia para integrar las decisiones de sostenibilidad durante las etapas clave del proyecto.",
+        "Apoyamos la actualización de la materialidad mediante la definición de herramientas de consulta, participación de grupos de interés, análisis y priorización de temas materiales, y articulación con los Objetivos de Desarrollo Sostenible (ODS) cuando corresponda.",
       icon: <Users className="h-8 w-8 text-prak-teal" />,
     },
     {
-      title: "Preparación documental",
+      title: "Revisión y consolidación de contenidos",
       description:
-        "Organizamos y revisamos la documentación técnica requerida para respaldar las medidas incorporadas en la modelación y el proceso de certificación.",
+        "Revisamos la información y los textos de los capítulos, identificando oportunidades de mejora en claridad, estructura, coherencia y consistencia entre las diferentes secciones del reporte.",
+      icon: <Search className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Estructuración y mapeo GRI",
+      description:
+        "Identificamos los contenidos GRI aplicables, revisamos brechas frente a reportes anteriores cuando existen, organizamos los contenidos generales y temáticos y elaboramos el Índice de contenidos GRI.",
+      icon: <FileCheck className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Revisión de consistencia y cifras",
+      description:
+        "Realizamos revisiones cruzadas de cifras, datos y referencias entre capítulos, documentando diferencias para que sean revisadas y validadas por los responsables de la organización.",
+      icon: <BarChart3 className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Redacción y ajustes editoriales",
+      description:
+        "Desarrollamos y ajustamos los textos del reporte a partir de los insumos recibidos, incluyendo revisiones con responsables de información y ajustes editoriales consolidados.",
       icon: <FileText className="h-8 w-8 text-prak-teal" />,
     },
     {
-      title: "Soporte durante auditorías",
+      title: "Contenidos corporativos e infografías",
       description:
-        "Brindamos soporte técnico durante la revisión del auditor, atendiendo observaciones y sustentando la información del proyecto.",
-      icon: <ShieldCheck className="h-8 w-8 text-prak-teal" />,
+        "Organizamos textos y datos para piezas de síntesis, indicadores destacados y contenidos corporativos como infografías de cifras, dejando recomendaciones de ubicación de elementos visuales.",
+      icon: <Globe2 className="h-8 w-8 text-prak-teal" />,
     },
     {
-      title: "Seguimiento hasta la certificación",
+      title: "Entrega de documentos editables",
       description:
-        "Acompañamos el proceso hasta la obtención de la Certificación EDGE, manteniendo seguimiento a los hitos técnicos y documentales.",
-      icon: <Award className="h-8 w-8 text-prak-teal" />,
+        "Entregamos los textos finales aprobados en formato editable, con sugerencias de ubicación para tablas, gráficas, infografías y otros recursos visuales.",
+      icon: <ClipboardList className="h-8 w-8 text-prak-teal" />,
     },
   ];
 
   const benefits = [
     {
-      title: "Mayor valor comercial",
+      title: "Información organizada",
       description:
-        "Una edificación sostenible fortalece la propuesta de valor del proyecto frente a compradores, usuarios e inversionistas.",
-      icon: <Building2 className="h-8 w-8 text-prak-teal" />,
+        "Facilitamos la consolidación de información de diferentes áreas en una estructura de reporte clara y coherente.",
+      icon: <ClipboardList className="h-8 w-8 text-prak-teal" />,
     },
     {
-      title: "Reducción de costos operativos",
+      title: "Gestión de impactos",
       description:
-        "Las estrategias de eficiencia pueden reducir consumos durante la operación de la edificación.",
-      icon: <WalletCards className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Mayor eficiencia energética",
-      description:
-        "EDGE promueve medidas verificables para optimizar el consumo de energía del proyecto.",
-      icon: <Zap className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Menor consumo de agua",
-      description:
-        "La optimización hídrica contribuye a una operación más eficiente y responsable.",
-      icon: <Droplets className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Acceso a financiación sostenible",
-      description:
-        "La certificación puede apoyar la estructuración de proyectos elegibles para alternativas de financiación sostenible.",
-      icon: <LineChart className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Mayor atractivo para inversionistas",
-      description:
-        "Los criterios de sostenibilidad fortalecen la confianza de inversionistas y actores del sector inmobiliario.",
-      icon: <Medal className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Contribución a objetivos ESG",
-      description:
-        "La Certificación EDGE respalda compromisos ambientales y de sostenibilidad corporativa.",
+        "El proceso permite reconocer y priorizar los impactos relevantes de la organización en las personas, el ambiente y la economía.",
       icon: <Leaf className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Transparencia y confianza",
+      description:
+        "Fortalece la comunicación de resultados, avances, compromisos y retos con los grupos de interés.",
+      icon: <Handshake className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Apoyo a la toma de decisiones",
+      description:
+        "Contar con información estructurada contribuye a identificar oportunidades y orientar decisiones organizacionales.",
+      icon: <BarChart3 className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Mejor relacionamiento",
+      description:
+        "Permite comunicar de manera más clara el desempeño de sostenibilidad a clientes, colaboradores, proveedores y otros actores.",
+      icon: <Users className="h-8 w-8 text-prak-teal" />,
+    },
+    {
+      title: "Marco reconocido de reporte",
+      description:
+        "La estructuración con estándares GRI ofrece una referencia ampliamente utilizada para comunicar impactos de sostenibilidad.",
+      icon: <CheckCircle2 className="h-8 w-8 text-prak-teal" />,
     },
   ];
 
   const processSteps = [
     {
-      title: "Diagnóstico",
+      title: "Diagnóstico y planificación",
       description:
-        "Revisamos las características, metas y oportunidades de sostenibilidad del proyecto.",
-      icon: <Search className="h-8 w-8 text-prak-teal" />,
+        "Revisamos antecedentes, alcance, información disponible, responsables y necesidades del reporte.",
+      icon: <Search className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Modelación EDGE",
+      title: "Materialidad",
       description:
-        "Evaluamos el desempeño del proyecto en energía, agua y materiales.",
-      icon: <BarChart3 className="h-8 w-8 text-prak-teal" />,
+        "Definimos y desarrollamos el proceso de consulta, análisis y priorización de temas materiales.",
+      icon: <Users className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Optimización",
+      title: "Recopilación y revisión",
       description:
-        "Definimos estrategias técnicas para alcanzar los porcentajes de ahorro requeridos.",
-      icon: <Settings2 className="h-8 w-8 text-prak-teal" />,
+        "Coordinamos la entrega de información y revisamos los insumos de las diferentes áreas.",
+      icon: <BarChart3 className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Auditoría",
+      title: "Elaboración del reporte",
       description:
-        "Preparamos soportes y acompañamos la revisión independiente del proyecto.",
-      icon: <ClipboardCheck className="h-8 w-8 text-prak-teal" />,
+        "Estructuramos capítulos, redactamos contenidos y organizamos el mapeo e índice GRI.",
+      icon: <FileText className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Certificación",
+      title: "Revisión y entrega",
       description:
-        "Acompañamos el proceso hasta la obtención de la Certificación EDGE.",
-      icon: <Award className="h-8 w-8 text-prak-teal" />,
+        "Integramos ajustes, revisamos consistencia y entregamos los contenidos finales editables.",
+      icon: <CheckCircle2 className="h-7 w-7 text-prak-teal" />,
     },
   ];
 
-  const projectProgress = [
-    {
-      title: "Diagnóstico",
-      status: "Completado",
-      icon: <Check className="h-5 w-5" />,
-      className: "bg-prak-teal text-white",
-    },
-    {
-      title: "Modelación EDGE",
-      status: "Completado",
-      icon: <Check className="h-5 w-5" />,
-      className: "bg-prak-teal text-white",
-    },
-    {
-      title: "Optimización",
-      status: "En proceso",
-      icon: <Sparkles className="h-5 w-5" />,
-      className: "bg-prak-yellow text-prak-dark",
-    },
-    {
-      title: "Auditoría",
-      status: "Próximamente",
-      icon: <Timer className="h-5 w-5" />,
-      className: "bg-white/20 text-white",
-    },
-    {
-      title: "Certificación",
-      status: "Próximamente",
-      icon: <Timer className="h-5 w-5" />,
-      className: "bg-white/20 text-white",
-    },
-  ];
 
-  const whyPrakItems = [
+  const whyPrak = [
     {
-      title: "Experiencia técnica",
+      title: "Acompañamiento integral",
       description:
-        "Aportamos análisis técnico y una visión integral para proyectos de construcción sostenible.",
-      icon: <Lightbulb className="h-8 w-8 text-prak-teal" />,
+        "Apoyamos el proceso desde la planificación y coordinación de información hasta la consolidación de los contenidos finales.",
+      icon: <Workflow className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Acompañamiento personalizado",
+      title: "Enfoque técnico",
       description:
-        "Trabajamos de forma cercana con el equipo responsable de cada proyecto.",
-      icon: <Users className="h-8 w-8 text-prak-teal" />,
+        "Trabajamos para que los contenidos tengan claridad, coherencia y una adecuada articulación con la información suministrada.",
+      icon: <Search className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Optimización de recursos",
+      title: "Trabajo con las áreas",
       description:
-        "Buscamos soluciones viables que mejoren el desempeño en energía, agua y materiales.",
-      icon: <Settings2 className="h-8 w-8 text-prak-teal" />,
+        "Facilitamos la coordinación de responsables, insumos y tiempos de entrega durante el desarrollo del reporte.",
+      icon: <Users className="h-7 w-7 text-prak-teal" />,
     },
     {
-      title: "Cumplimiento normativo",
+      title: "Consistencia del reporte",
       description:
-        "Estructuramos el proceso técnico y documental de acuerdo con los requerimientos de EDGE.",
-      icon: <FileCheck className="h-8 w-8 text-prak-teal" />,
-    },
-    {
-      title: "Soporte durante todo el proceso",
-      description:
-        "Acompañamos el proyecto desde el diagnóstico inicial hasta la certificación.",
-      icon: <CircleCheck className="h-8 w-8 text-prak-teal" />,
+        "Realizamos revisión cruzada de contenidos y cifras para facilitar la identificación de diferencias que requieren validación.",
+      icon: <CheckCircle2 className="h-7 w-7 text-prak-teal" />,
     },
   ];
 
   const faqs = [
     {
-      question: "¿Qué es EDGE?",
+      question: "¿Qué son los estándares GRI?",
       answer:
-        "EDGE significa Excellence in Design for Greater Efficiencies. Es un sistema de certificación de edificaciones sostenibles desarrollado por IFC, miembro del Grupo Banco Mundial, que evalúa reducciones verificables en consumo de energía, consumo de agua y energía incorporada en materiales.",
+        "Los estándares GRI son un marco para que las organizaciones reporten sus impactos en la economía, el medio ambiente y las personas. Permiten estructurar y comunicar información de sostenibilidad de forma consistente y transparente.",
     },
     {
-      question: "¿Quién puede certificarse?",
+      question: "¿Qué empresas pueden elaborar un informe bajo GRI?",
       answer:
-        "Pueden certificarse proyectos nuevos o existentes de diferentes tipologías, incluyendo vivienda, oficinas, comercio, hoteles, hospitales, instituciones educativas y otros desarrollos inmobiliarios que implementen medidas de eficiencia evaluables en EDGE.",
+        "Organizaciones de diferentes tamaños y sectores pueden utilizar los estándares GRI para comunicar sus impactos. El alcance y los contenidos del reporte se definen de acuerdo con el contexto y los temas relevantes de cada organización.",
     },
     {
-      question: "¿Cuánto tarda una certificación?",
+      question: "¿Qué incluye el servicio de PRAK Ingenieros?",
       answer:
-        "El tiempo varía según la etapa del proyecto, la complejidad técnica, la disponibilidad de información y los tiempos de revisión de auditoría. Un acompañamiento desde etapas tempranas permite organizar decisiones y documentos con mayor eficiencia.",
+        "El servicio puede incluir coordinación de responsables e insumos, actualización de materialidad, revisión de contenidos, mapeo de estándares GRI, índice de contenidos, revisión de consistencia y entrega de textos finales editables. El alcance se define para cada proyecto.",
     },
     {
-      question: "¿Cuánto ahorro exige EDGE?",
+      question: "¿PRAK genera o valida los indicadores de la empresa?",
       answer:
-        "Para la certificación EDGE, el proyecto debe alcanzar como mínimo un 20% de ahorro en energía, un 20% de ahorro en agua y un 20% de reducción de energía incorporada en materiales, conforme a la evaluación realizada en la plataforma.",
+        "La generación, medición y validación de cifras e indicadores corresponde a las áreas responsables de la organización. PRAK acompaña la organización, revisión de consistencia y estructuración de la información recibida dentro del alcance acordado.",
     },
     {
-      question: "¿Qué beneficios tiene para una constructora?",
+      question: "¿El servicio incluye diseño y diagramación del informe?",
       answer:
-        "La Certificación EDGE ayuda a diferenciar el proyecto en el mercado, respaldar estrategias ESG, mejorar la eficiencia de recursos, aumentar el atractivo ante compradores e inversionistas y explorar oportunidades de financiación sostenible.",
+        "No necesariamente. El servicio de elaboración de contenidos contempla la entrega de textos editables y sugerencias de ubicación para recursos visuales. El diseño gráfico, diagramación e infografías pueden contratarse por separado.",
     },
     {
-      question: "¿Quién realiza la auditoría?",
+      question: "¿El reporte incluye verificación externa?",
       answer:
-        "La auditoría es realizada por un auditor EDGE autorizado e independiente. PRAK Ingenieros acompaña al proyecto en la preparación técnica y documental, así como en la atención de observaciones durante la revisión.",
+        "La verificación externa independiente no está incluida en el servicio de elaboración de contenidos. Si la organización requiere este proceso, deberá contratarlo con un tercero especializado.",
     },
   ];
+
 
   return (
     <div className="min-h-screen">
       <Header />
-
       <main>
-        <section className="pt-32 pb-20 bg-gradient-to-b from-prak-light to-white">
-          <div className="bg-gradient-hero py-20">
+        {/* HERO */}
+        <section className="pt-28 pb-16 bg-gradient-to-b from-prak-light to-white">
+          <div className="bg-gradient-hero py-16 md:py-24">
             <div className="container mx-auto px-4">
               <motion.div
-                className="text-center mb-16"
-                initial={{ opacity: 0, y: 50 }}
+                className="max-w-5xl mx-auto text-center"
+                initial={{ opacity: 0, y: 35 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.75 }}
               >
-                <motion.div
-                  className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
+                <div className="inline-flex items-center gap-3 px-5 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-8 uppercase tracking-[0.15em] shadow-premium">
                   <Leaf className="h-5 w-5" />
-                  CERTIFICACIÓN EDGE
-                </motion.div>
-
-                <motion.h1
-                  className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 flex items-center justify-center gap-4"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  <Leaf className="h-12 w-12 text-prak-teal" />
+                  SOSTENIBILIDAD EMPRESARIAL
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
                   <span className="bg-gradient-to-r from-prak-teal to-prak-yellow bg-clip-text text-transparent">
-                    Certificación EDGE para Proyectos de Construcción
+                    Informes de sostenibilidad bajo estándares GRI
                   </span>
-                </motion.h1>
-
-                <motion.p
-                  className="text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  Ayudamos a constructoras y desarrolladores inmobiliarios a
-                  obtener la Certificación EDGE mediante estrategias que reducen
-                  el consumo de energía, agua y materiales, mejorando la
-                  sostenibilidad y el valor de sus proyectos.
-                </motion.p>
-
+                </h1>
+                <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium mb-8">
+                  Transformamos la información de sostenibilidad de tu organización en un reporte estructurado, coherente y alineado con los estándares GRI.
+                </p>
                 <Button
-                  onClick={() => openWhatsApp()}
-                  className="bg-prak-yellow text-black font-bold px-8 py-4 text-lg rounded-xl"
+                  onClick={() => openWhatsApp("la elaboración de informes de sostenibilidad GRI")}
+                  className="bg-prak-yellow text-black font-bold px-8 py-4 text-lg rounded-xl hover:opacity-90"
                 >
-                  Solicitar asesoría especializada
+                  Solicitar asesoría <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </motion.div>
 
-              <div className="max-w-5xl mx-auto space-y-10 text-white">
+
+              {/* INTRO */}
+              <div className="max-w-5xl mx-auto mt-16 grid md:grid-cols-2 gap-10 items-center text-white">
                 <div>
-                  <h2 className="text-3xl font-bold mb-4">¿Qué es EDGE?</h2>
+                  <h2 className="text-3xl font-bold mb-5">Reportar sostenibilidad es comunicar impactos</h2>
                   <p className="text-lg leading-relaxed text-white/90">
-                    EDGE significa Excellence in Design for Greater Efficiencies.
-                    Es un sistema de certificación de edificaciones sostenibles
-                    desarrollado por IFC, miembro del Grupo Banco Mundial.
+                    Un informe de sostenibilidad permite a las organizaciones comunicar sus impactos económicos, ambientales y sociales, así como sus avances, compromisos y desafíos.
                   </p>
                   <p className="text-lg leading-relaxed text-white/90 mt-4">
-                    Su objetivo es impulsar proyectos que incorporen reducciones
-                    verificables en el consumo de energía, el consumo de agua y
-                    la energía incorporada en los materiales. La Certificación
-                    EDGE permite demostrar que una edificación integra decisiones
-                    medibles de sostenibilidad desde su diseño hasta su ejecución.
+                    A través de un proceso estructurado, facilitamos la organización de información, la identificación de temas relevantes y la elaboración de contenidos que permitan comunicar el desempeño de sostenibilidad a los grupos de interés.
                   </p>
                 </div>
-
-                <div className="bg-white/10 rounded-3xl p-8 md:p-10">
-                  <h2 className="text-3xl font-bold text-center mb-10">
-                    ¿Cómo funciona EDGE?
-                  </h2>
-
-                  <div className="grid md:grid-cols-5 gap-6">
-                    {processSteps.map((step, index) => (
-                      <motion.div
-                        key={step.title}
-                        className="text-center"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className="p-4 bg-white/90 rounded-2xl w-fit mx-auto mb-4 shadow-soft">
-                          {step.icon}
-                        </div>
-                        <h3 className="font-bold text-lg mb-3">{step.title}</h3>
-                        <p className="text-sm text-white/80">
-                          {step.description}
-                        </p>
-
-                        {index < processSteps.length - 1 && (
-                          <div className="hidden md:flex justify-center mt-6">
-                            <ArrowDown className="h-5 w-5 text-prak-yellow rotate-[-90deg]" />
-                          </div>
-                        )}
-                      </motion.div>
+                <div className="rounded-3xl bg-white/10 border border-white/15 p-8 md:p-10">
+                  <h3 className="text-2xl font-bold mb-4">¿Qué aportan los estándares GRI?</h3>
+                  <ul className="space-y-3 text-white/90">
+                    {[
+                      "Una estructura para comunicar impactos",
+                      "Identificación de temas relevantes",
+                      "Información organizada y trazable",
+                      "Mayor transparencia con grupos de interés",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3 items-start">
+                        <CheckCircle2 className="h-5 w-5 text-prak-yellow shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
 
-              <div className="mt-24">
-                <h2 className="text-3xl font-bold text-center text-white mb-10">
-                  Beneficios de la Certificación EDGE
-                </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                  {benefits.map((benefit, index) => (
+              {/* PROCESS */}
+              <div className="mt-20 max-w-6xl mx-auto">
+                <h2 className="text-3xl font-bold text-center text-white mb-4">¿Cómo desarrollamos un informe de sostenibilidad?</h2>
+                <p className="text-white/80 text-center max-w-3xl mx-auto mb-10">
+                  Un proceso organizado que integra las áreas de la empresa, la información disponible y los contenidos del reporte.
+                </p>
+                <div className="grid md:grid-cols-5 gap-6">
+                  {processSteps.map((step, index) => (
                     <motion.div
-                      key={benefit.title}
-                      initial={{ opacity: 0, y: 50 }}
+                      key={step.title}
+                      className="text-center"
+                      initial={{ opacity: 0, y: 25 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      transition={{ duration: 0.5, delay: index * 0.08 }}
                       viewport={{ once: true }}
                     >
-                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full">
-                        <CardContent className="p-6">
-                          <div className="p-3 bg-prak-teal/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-all">
-                            {benefit.icon}
-                          </div>
-                          <h3 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
-                            {benefit.title}
-                          </h3>
-                          <p className="text-sm text-prak-gray-dark/80">
-                            {benefit.description}
-                          </p>
-                        </CardContent>
-                      </Card>
+                      <div className="p-4 bg-white rounded-2xl w-fit mx-auto mb-4 shadow-soft">{step.icon}</div>
+                      <h3 className="font-bold text-lg mb-3 text-white">{step.title}</h3>
+                      <p className="text-sm text-white/80 leading-relaxed">{step.description}</p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-24">
-                <h2 className="text-3xl font-bold text-center text-white mb-10">
-                  Nuestros servicios
-                </h2>
 
-                <div className="bg-gray-100 rounded-3xl p-8 md:p-10 border border-prak-teal/20 shadow-soft">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-                    {edgeServices.map((service, index) => (
+              {/* SERVICES */}
+              <div className="mt-20">
+                <h2 className="text-3xl font-bold text-center text-white mb-4">Nuestros servicios</h2>
+                <p className="text-white/80 text-center max-w-3xl mx-auto mb-10">
+                  Acompañamiento técnico y editorial para organizar, revisar y comunicar la información de sostenibilidad de tu organización.
+                </p>
+                <div className="bg-gray-100 rounded-3xl p-6 md:p-10 border border-prak-teal/20 shadow-soft">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                    {services.map((service, index) => (
                       <motion.div
                         key={service.title}
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: index * 0.1 }}
+                        transition={{ duration: 0.5, delay: index * 0.06 }}
                         viewport={{ once: true }}
                       >
                         <Card
-                          className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full flex flex-col cursor-pointer"
-                          onClick={() => toggleCard(`edge-${index}`)}
+                          className="bg-white border-0 shadow-soft hover:shadow-elegant transition-all duration-300 group rounded-2xl hover:-translate-y-1 h-full flex flex-col cursor-pointer"
+                          onClick={() => toggleService(`service-${index}`)}
                         >
                           <CardContent className="p-6 flex flex-col h-full">
                             <div className="flex items-center justify-between mb-4">
-                              <div className="p-3 bg-prak-teal/10 rounded-xl group-hover:scale-110 transition-all">
-                                {service.icon}
-                              </div>
-
+                              <div className="p-3 bg-prak-teal/10 rounded-xl group-hover:scale-110 transition-all">{service.icon}</div>
                               <div className="flex items-center gap-2 text-sm font-medium text-prak-gray-dark">
-                                <span className="text-lg font-bold">
-                                  {expandedCards[`edge-${index}`] ? "−" : "+"}
-                                </span>
-                                <span>ver más</span>
+                                <span className="text-lg font-bold">{expandedServices[`service-${index}`] ? "−" : "+"}</span>
+                                <span>{expandedServices[`service-${index}`] ? "menos" : "ver más"}</span>
                               </div>
                             </div>
-
-                            <h3 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
-                              {service.title}
-                            </h3>
-
-                            {expandedCards[`edge-${index}`] && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                              >
-                                <p className="text-sm text-prak-gray-dark/80 mb-4">
-                                  {service.description}
-                                </p>
-
+                            <h3 className="text-lg font-bold mb-3 text-prak-dark group-hover:text-prak-teal transition-colors">{service.title}</h3>
+                            {expandedServices[`service-${index}`] && (
+                              <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
+                                <p className="text-sm text-prak-gray-dark/80 mb-4 leading-relaxed">{service.description}</p>
                                 <Button
                                   onClick={(event) => {
                                     event.stopPropagation();
@@ -495,7 +362,7 @@ const CertificacionEdge = () => {
                                   }}
                                   className="bg-prak-teal text-white text-xs px-4 py-2 rounded-lg"
                                 >
-                                  Solicitar información
+                                  Consultar servicio
                                 </Button>
                               </motion.div>
                             )}
@@ -507,126 +374,24 @@ const CertificacionEdge = () => {
                 </div>
               </div>
 
-              <motion.section
-                className="mt-24 max-w-7xl mx-auto bg-white/10 rounded-3xl p-8 md:p-12 border border-prak-teal/20 shadow-soft"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-center max-w-4xl mx-auto mb-12">
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-premium text-prak-dark text-sm font-bold rounded-full mb-6 uppercase tracking-[0.15em] shadow-premium">
-                    <Sparkles className="h-5 w-5" />
-                    CASO DE ÉXITO EN DESARROLLO
-                  </div>
 
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                    Proyecto en desarrollo
-                  </h2>
-
-                  <p className="text-lg leading-relaxed text-white/90">
-                    Actualmente PRAK Ingenieros acompaña un importante proyecto
-                    residencial ubicado en Chía (Cundinamarca) durante su proceso
-                    de Certificación EDGE.
-                  </p>
-
-                  <p className="text-lg leading-relaxed text-white/90 mt-4">
-                    Nuestro equipo participa en la modelación, optimización y
-                    acompañamiento técnico para alcanzar los estándares de
-                    sostenibilidad requeridos.
-                  </p>
-                </div>
-
-                <div className="mb-12">
-                  <h3 className="text-2xl font-bold text-white text-center mb-4">
-                    Galería del proyecto
-                  </h3>
-
-                  <p className="text-center text-white/80 max-w-3xl mx-auto mb-8">
-                    Próximamente documentaremos el avance de este proyecto con
-                    fotografías reales de las visitas técnicas, reuniones y
-                    proceso de certificación.
-                  </p>
-
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    {Array.from({ length: 6 }).map((_, index) => (
-                      <motion.div
-                        key={`project-image-${index}`}
-                        className="aspect-video rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-center p-4"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: index * 0.08 }}
-                        viewport={{ once: true }}
-                      >
-                        <div>
-                          <Building2 className="h-8 w-8 text-prak-yellow mx-auto mb-3" />
-                          <span className="font-semibold text-white">
-                            Imagen del proyecto
-                          </span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-bold text-white text-center mb-10">
-                    Avance del Proyecto
-                  </h3>
-
-                  <div className="grid md:grid-cols-5 gap-5">
-                    {projectProgress.map((step, index) => (
-                      <motion.div
-                        key={step.title}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      >
-                        <div className="text-center">
-                          <div
-                            className={`h-12 w-12 rounded-full flex items-center justify-center mx-auto mb-4 ${step.className}`}
-                          >
-                            {step.icon}
-                          </div>
-                          <h4 className="font-bold text-white mb-1">
-                            {step.title}
-                          </h4>
-                          <p className="text-sm text-white/80">
-                            {step.status}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </motion.section>
-
-              <div className="mt-24">
-                <h2 className="text-3xl font-bold text-center text-white mb-10">
-                  ¿Por qué elegir PRAK Ingenieros?
-                </h2>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-                  {whyPrakItems.map((item, index) => (
+              {/* BENEFITS */}
+              <div className="mt-20">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">Beneficios de elaborar un informe de sostenibilidad</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                  {benefits.map((benefit, index) => (
                     <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 50 }}
+                      key={benefit.title}
+                      initial={{ opacity: 0, y: 25 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      transition={{ duration: 0.5, delay: index * 0.08 }}
                       viewport={{ once: true }}
                     >
-                      <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-elegant transition-all duration-500 group rounded-2xl hover:-translate-y-2 h-full">
+                      <Card className="bg-white/90 border-0 shadow-soft hover:shadow-elegant transition-all rounded-2xl h-full">
                         <CardContent className="p-6">
-                          <div className="p-3 bg-prak-teal/10 rounded-xl w-fit mb-4 group-hover:scale-110 transition-all">
-                            {item.icon}
-                          </div>
-                          <h3 className="text-lg font-bold mb-4 group-hover:text-prak-teal transition-colors text-prak-dark">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm text-prak-gray-dark/80">
-                            {item.description}
-                          </p>
+                          <div className="p-3 bg-prak-teal/10 rounded-xl w-fit mb-4">{benefit.icon}</div>
+                          <h3 className="text-lg font-bold mb-3 text-prak-dark">{benefit.title}</h3>
+                          <p className="text-sm text-prak-gray-dark/80 leading-relaxed">{benefit.description}</p>
                         </CardContent>
                       </Card>
                     </motion.div>
@@ -634,33 +399,96 @@ const CertificacionEdge = () => {
                 </div>
               </div>
 
-              <div className="mt-24 max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-center text-white mb-10">
-                  Preguntas frecuentes
-                </h2>
 
-                <div className="space-y-6">
+              {/* WHY PRAK */}
+              <div className="mt-20">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">¿Por qué trabajar con PRAK Ingenieros?</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                  {whyPrak.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 25 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.08 }}
+                      viewport={{ once: true }}
+                    >
+                      <Card className="bg-white/90 border-0 shadow-soft hover:shadow-elegant rounded-2xl h-full">
+                        <CardContent className="p-6">
+                          <div className="p-3 bg-prak-teal/10 rounded-xl w-fit mb-4">{item.icon}</div>
+                          <h3 className="text-lg font-bold mb-3 text-prak-dark">{item.title}</h3>
+                          <p className="text-sm text-prak-gray-dark/80 leading-relaxed">{item.description}</p>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+
+              {/* SCOPE */}
+              <div className="mt-20 max-w-6xl mx-auto">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">Alcance del servicio</h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="border-0 rounded-2xl bg-white/95 shadow-soft h-full">
+                    <CardContent className="p-7">
+                      <h3 className="text-2xl font-bold text-prak-dark mb-5 flex items-center gap-2"><CheckCircle2 className="text-prak-teal" /> Incluye</h3>
+                      <ul className="space-y-3 text-prak-gray-dark">
+                        {[
+                          "Coordinación de responsables, insumos y entregas",
+                          "Proceso de materialidad y grupos de interés",
+                          "Revisión de información y contenidos de capítulos",
+                          "Mapeo de contenidos GRI e índice de contenidos",
+                          "Revisión cruzada de cifras y consistencia",
+                          "Ajustes de texto y consolidación editorial",
+                          "Entrega de contenidos finales editables",
+                        ].map((item) => (
+                          <li key={item} className="flex items-start gap-2"><CheckCircle2 className="h-5 w-5 text-prak-teal shrink-0 mt-0.5" /><span>{item}</span></li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                  <Card className="border-0 rounded-2xl bg-white/95 shadow-soft h-full">
+                    <CardContent className="p-7">
+                      <h3 className="text-2xl font-bold text-prak-dark mb-5 flex items-center gap-2"><FileText className="text-prak-teal" /> No incluye</h3>
+                      <ul className="space-y-3 text-prak-gray-dark">
+                        {[
+                          "Diseño gráfico, diagramación e infografías",
+                          "Fotografía, video, ilustración o impresión",
+                          "Generación, medición o validación de indicadores",
+                          "Verificación externa independiente",
+                          "Traducción a otros idiomas",
+                          "Revisión de textos ya diagramados",
+                          "Cambios de alcance posteriores a su aprobación",
+                        ].map((item) => (
+                          <li key={item} className="flex items-start gap-2"><span className="text-prak-teal font-bold mt-0.5">–</span><span>{item}</span></li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+                <p className="text-white/70 text-sm text-center mt-5 max-w-4xl mx-auto">
+                  El alcance, cronograma y entregables se definen de acuerdo con las necesidades y características de cada organización.
+                </p>
+              </div>
+
+
+              {/* FAQ */}
+              <div className="mt-20 max-w-4xl mx-auto">
+                <h2 className="text-3xl font-bold text-center text-white mb-10">Preguntas frecuentes</h2>
+                <div className="space-y-4">
                   {faqs.map((faq, index) => (
                     <div
                       key={faq.question}
-                      className="bg-white/10 rounded-2xl p-6 cursor-pointer"
+                      className="bg-white/10 rounded-2xl p-6 cursor-pointer border border-white/10"
                       onClick={() => toggleFaq(`faq-${index}`)}
                     >
                       <div className="flex items-center justify-between gap-4">
-                        <h3 className="font-bold text-xl">{faq.question}</h3>
-                        <ChevronDown
-                          className={`h-6 w-6 shrink-0 transition-transform ${
-                            expandedFaqs[`faq-${index}`] ? "rotate-180" : ""
-                          }`}
-                        />
+                        <h3 className="font-bold text-lg text-white">{faq.question}</h3>
+                        <ChevronDown className={`h-6 w-6 text-prak-yellow shrink-0 transition-transform ${expandedFaqs[`faq-${index}`] ? "rotate-180" : ""}`} />
                       </div>
-
                       {expandedFaqs[`faq-${index}`] && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                        >
-                          <p className="text-white/90 mt-4">{faq.answer}</p>
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
+                          <p className="text-white/90 mt-4 leading-relaxed">{faq.answer}</p>
                         </motion.div>
                       )}
                     </div>
@@ -668,28 +496,25 @@ const CertificacionEdge = () => {
                 </div>
               </div>
 
-              <div className="mt-24 max-w-4xl mx-auto bg-white/10 rounded-3xl p-8 md:p-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                  ¿Quieres certificar tu proyecto con EDGE?
-                </h2>
 
+              {/* CTA */}
+              <div className="mt-20 max-w-4xl mx-auto bg-white/10 rounded-3xl p-8 md:p-12 text-center border border-prak-teal/20">
+                <div className="p-4 bg-white/90 rounded-2xl w-fit mx-auto mb-5"><MessageCircle className="h-8 w-8 text-prak-teal" /></div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Tu organización está preparando su informe de sostenibilidad?</h2>
                 <p className="text-lg leading-relaxed text-white/90 mb-8">
-                  Nuestro equipo puede acompañarte desde el diagnóstico inicial
-                  hasta la obtención de la Certificación EDGE.
+                  Te acompañamos en la organización, revisión y elaboración de contenidos bajo estándares GRI, adaptando el proceso a las necesidades de tu organización.
                 </p>
-
                 <Button
                   onClick={() => openWhatsApp()}
-                  className="bg-prak-yellow text-black font-bold px-8 py-4 text-lg rounded-xl"
+                  className="bg-prak-yellow text-black font-bold px-8 py-4 text-lg rounded-xl hover:opacity-90"
                 >
-                  Hablar con un especialista
+                  Hablar con un asesor
                 </Button>
               </div>
             </div>
           </div>
         </section>
       </main>
-
       <Footer />
       <WhatsAppButton />
       <BackToTop />
@@ -697,4 +522,5 @@ const CertificacionEdge = () => {
   );
 };
 
-export default CertificacionEdge;
+
+export default InformesSostenibilidadGRI;
