@@ -40,4 +40,3 @@ export const metadata: Metadata = {
 
 export default function InformesSostenibilidadGRIPage() {
   return <InformesSostenibilidadGRIClient />;
-}
